@@ -1,5 +1,18 @@
 @import "normalize.css";
 
+a:link, a:visited, a:active {
+  color: #333333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:-webkit-any-link{
+text-decoration:none !important;
+}
+
 body {
   color: #333;
   font-family: sans-serif;
@@ -423,21 +436,4 @@ h2 {
 
 .noPadding {
   padding: 0;
-}
-
-#header .mainContainer a.plainLink {
-  color: pink!important;
-  text-decoration: none!important;
-}
-a.plainLink:link, a.plainLink:visited, a.plainLink:active {
-  color: #333333;
-  text-decoration: none;
-}
-
-a.plainLink:hover {
-  text-decoration: underline;
-}
-
-a:-webkit-any-link{
-text-decoration:none !important;
 }
