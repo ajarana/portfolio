@@ -54,8 +54,11 @@ body {
 
   #profilesContainer {
     #gitHubIcon {
-      background-image: url("assets/icons/GitHub-Mark-32px.png");
-      // background-size: contain;
+      background-image: url("assets/icons/GitHub-Mark-120px-plus.png");
+      // background-image: url("assets/icons/GitHub-Mark-32px.png");
+      // background-size: 80%;
+      background-size: contain;
+      // background-position: 50% 50%;
       height: 32px;
       width: 32px;
     }
@@ -365,9 +368,9 @@ body {
   flex-wrap: wrap;
 }
 @media (min-width: 768px) {
-  // .flexWrapThenNoWrap {
+  .flexWrapThenNoWrap {
     flex-wrap: nowrap;
-  // }
+  }
 }
 
 .equalCol {
@@ -418,20 +421,30 @@ h2 {
   font-weight: bold;
 }
 
-// .plainLink {
-//   color: #333;
-//   text-decoration: none;
-// }
+.plainLink {
+  color: #333;
+  text-decoration: none;
+}
+
+.plainLink:link, .plainLink:visited, plainLink:active {
+  color: #333;
+  text-decoration: none;
+}
+
+.plainLink:hover {
+  text-decoration: underline;
+}
 
 .noPadding {
   padding: 0;
 }
 
-a:link, a:visited, a:active {
-  color: #333333;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+// a {color: blue;}
+// a:link, a:visited, a:active {
+//   color: pink;
+//   text-decoration: none;
+// }
+//
+// a:hover {
+//   text-decoration: underline;
+// }
