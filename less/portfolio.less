@@ -11,20 +11,23 @@ body {
   // background-color: #ccc;
 
   #headerTitle {
-    padding-top: 28px;
+    // margin: 30px 0;
+    // padding: 30px 0;
 
     #headerTitleText {
       font-size: 114%;
 
       text-align: center;
       padding-top: 8px;
-      padding-bottom: 30px;
 
       p {
+        // display: inline-block;
         margin: 0;
       }
       p:first-child {
         margin-bottom: 2px;
+        display: inline-block;
+
       }
     }
     #logo {
@@ -53,6 +56,8 @@ body {
   }
 
   #profilesContainer {
+    padding-top: 30px;
+
     #gitHubIcon {
       background-image: url("assets/icons/GitHub-Mark-120px-plus.png");
       // background-image: url("assets/icons/GitHub-Mark-32px.png");
@@ -67,6 +72,11 @@ body {
       margin-left: 22px;
     }
   }
+  @media(min-width: 768px) {
+    #profilesContainer {
+      padding-top: 0;
+    }
+  }
 } //end of Header
 @media (min-width: 768px) {
   #header {
@@ -75,7 +85,7 @@ body {
 }
 
 #introduction {
-  margin: 180px 0;
+  margin: 140px 0;
   color: #666;
   font-size: 200%;
 
@@ -83,14 +93,20 @@ body {
     margin: 14px 0;
   }
 }
+@media (min-width: 768px) {
+  #introduction {
+    margin: 180px 0;
+  }
+}
 
 .mainContainer {
   width: 90%;
-  margin: 0 auto;
+  margin: 30px auto 0;
 }
 @media (min-width: 768px) {
   .mainContainer {
     width: 80%;
+    margin: 0 auto;
   }
 }
 @media (min-width: 1200px) {
@@ -280,6 +296,17 @@ body {
   align-items: center;
 }
 
+.inlineBlockToFlexLeft {
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .inlineBlockToFlexLeft {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start
+  }
+}
+
 .blockToFlexCentered {
   display: block;
   justify-content: center;
@@ -373,13 +400,13 @@ body {
   }
 }
 
-.equalCol {
-  flex: 1;
+.flexibleCol {
+  flex: none;
 }
-.col {
-  // flex: 1;
-  width: 20%;
-  background-color: blue;
+@media (min-width: 768px) {
+  .flexibleCol {
+    flex: 1;
+  }
 }
 
 h2 {
@@ -388,9 +415,10 @@ h2 {
 
 .border {
   height: 2px;
-  width: 100%;
+  width: 50%;
   margin: 0px auto;
-  background-color: hsl(340,100%,100%);
+  // background-color: hsl(340,100%,100%);
+  background-color: hsl(340,100%,50%);
 }
 @media (min-width: 768px) {
   .border {
@@ -438,13 +466,3 @@ h2 {
 .noPadding {
   padding: 0;
 }
-
-// a {color: blue;}
-// a:link, a:visited, a:active {
-//   color: pink;
-//   text-decoration: none;
-// }
-//
-// a:hover {
-//   text-decoration: underline;
-// }
