@@ -490,6 +490,10 @@ h2 {
 //   }
 // }
 
+#blog {
+  transition: none;
+}
+
 .sectionHeaders {
   margin-bottom: 30px;
 }
@@ -502,13 +506,27 @@ h2 {
   font-weight: bold;
 }
 
+.spacedOut {
+  line-height: 1.4;
+}
+
+.nearlyPlainLink {
+  color: #333;
+  text-decoration: underline;
+}
+
+.nearlyPlainLink:link, .nearlyPlainLink:visited, .nearlyPlainLink:active {
+  color: #333;
+  text-decoration: none;
+}
+
 .plainLink {
   color: #333;
   text-decoration: none;
   display: inline-block;
 }
 
-.plainLink:link, .plainLink:visited, plainLink:active {
+.plainLink:link, .plainLink:visited, .plainLink:active {
   color: #333;
   text-decoration: none;
 }
