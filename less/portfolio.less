@@ -73,7 +73,11 @@ body {
     }
     #resumeLink {
       font-size: 114%;
-      margin-left: 22px;
+      // margin-left: 22px;
+      margin: 0 40px;
+    }
+    #blogLink {
+      font-size: 114%;
     }
   }
   @media(min-width: 768px) {
@@ -324,6 +328,10 @@ body {
 //   width: 100%;
 // }
 
+.numberedItems {
+  margin: 10px 0;
+}
+
 .textAlignRight {
   text-align: right;
 }
@@ -339,6 +347,11 @@ body {
 .flexCentered {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.verticalCenter {
+  display: flex;
   align-items: center;
 }
 
@@ -466,7 +479,8 @@ h2 {
 
 .border {
   height: 2px;
-  width: 50%;
+  // width: 50%;
+  width: 0%;
   margin: 0px auto;
   // background-color: hsl(340,100%,100%);
   background-color: hsl(340,100%,50%);
@@ -492,6 +506,18 @@ h2 {
 
 #blog {
   transition: none;
+  // min-width: 700px;
+  width: auto;
+  max-width: 650px;
+  padding: 0 25px;
+  margin-top: 80px;
+}
+
+#firstBlog {
+  font-size: 129%;
+  // margin-top: 50px;
+  // width: 70%;
+  // margin: 0 auto;
 }
 
 .sectionHeaders {
@@ -507,16 +533,22 @@ h2 {
 }
 
 .spacedOut {
-  line-height: 1.4;
+  line-height: 1.5;
+  margin: 35px 0;
+}
+
+.littleSpacedOut {
+  line-height: 1.5;
+  margin: 10px 0;
 }
 
 .nearlyPlainLink {
-  color: #333;
-  text-decoration: underline;
+  color: #2b6dad;
+  text-decoration: none;
 }
 
 .nearlyPlainLink:link, .nearlyPlainLink:visited, .nearlyPlainLink:active {
-  color: #333;
+  color: #2b6dad;
   text-decoration: none;
 }
 
@@ -545,4 +577,73 @@ h2 {
 
 .lightGray {
   color: #666;
+}
+
+h3 {
+  font-size: 118%;
+}
+
+.codePurple {
+  color: #c678dd;
+}
+.codeRed {
+  color: #e06c75;
+}
+.codeGreen {
+  color: #98c379;
+}
+.codeBlue {
+  color: #61afef;
+}
+.codeTeal {
+  color: #56b6c2;
+}
+.codeGray {
+  color: #777;
+}
+.codeYellow {
+  color: #e5c07b
+}
+.codeOrange {
+  color: #d19a66;
+}
+.darkBackground {
+  background-color: #333;
+  color: white;
+}
+
+.slightlyRoundedCorners {
+  border-radius: 3px;
+}
+
+#blog pre {
+  // overflow-y: hidden;
+  // overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  padding: 25px;
+
+  font-size: 89%;
+}
+
+#blog code {
+  // padding: 25px;
+  width: 100%;
+}
+
+#blog h3 {
+  // margin: 45px 0 25px;
+}
+
+#blog #credits {
+  margin: 35px 0;
+}
+
+#blog h1 {
+  // width: 70%;
+  margin: 0 0 40px;
+}
+
+.red {
+  color: hsl(350,100%,50%);
 }
