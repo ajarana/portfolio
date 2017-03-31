@@ -53,15 +53,12 @@
           <p class="spacedOut">This last option is the one with the most flexibility. It's really the only way to ensure canvas contents will continue to look sharp on any screen. The first two options will make your canvas's contents look blurry after resizing because the rendering context only draws the actual shape once, afterwards it merely stretches or shrinks an image of that shape on the rescaled canvas.</p>
           <h3>Setting up our canvas</h3>
           <p class="spacedOut">First, we need to create a canvas element that we can then access through JavaScript.</p>
-          <pre id="lul" class="darkBackground verticalCenter slightlyRoundedCorners">
-            <code>&lt;<span class="codeRed">div</span> <span class="codeBlue">id</span>=<span class="codeGreen">"aWrapper"</span>&gt;
+          <pre id="lul" class="darkBackground slightlyRoundedCorners"><code>&lt;<span class="codeRed">div</span> <span class="codeBlue">id</span>=<span class="codeGreen">"aWrapper"</span>&gt;
     <span class="codeGray">&lt;!--Include some fallback content on the 0.00001% chance your user's browser doesn't support canvas --&gt;</span>
     &lt;<span class="codeRed">canvas</span> <span class="codeBlue">id</span>=<span class="codeGreen">"myCanvas"</span>&gt;Fallback content&lt;/<span class="codeRed">canvas</span>&gt;
-&lt;/<span class="codeRed">div</span>&gt;</code>
-          </pre>
+&lt;/<span class="codeRed">div</span>&gt;</code></pre>
           <p class="spacedOut">Now we need the canvas element to inherit its width and height properties from its parent to allow for downscaling if it's width and height attributes need to be larger than its width and height properties. This will be further explained later (note: the width and height properties here could also be set through JavaScript, but this is more efficient if you want to overlay some UI elements or other canvases for your project).</p>
-          <pre class="darkBackground verticalCenter slightlyRoundedCorners">
-            <code><span class="codeBlue">#aWrapper</span> {
+          <pre class="darkBackground slightlyRoundedCorners"><code><span class="codeBlue">#aWrapper</span> {
     <span class="codeGray">/*Horizontally centers the canvas*/</span>
     margin: <span class="codeOrange">0</span> auto;
 }
@@ -75,42 +72,36 @@
     height: <span class="codeOrange">100%</span>;
 
     background-color: <span class="codeOrange">#ededed</span>;
-}</code>
-          </pre>
+}</code></pre>
           <p class="spacedOut">Then we create some JavaScript variables to reference the necessary elements in our DOM and access the <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">2D rendering context</a> we'll use to draw shapes with.</p>
-          <pre class="darkBackground verticalCenter slightlyRoundedCorners">
-            <code><span class="codePurple">var</span> aWrapper = <span class="codeRed">document</span>.<span class="codeTeal">getElementById</span>(<span class="codeGreen">"aWrapper"</span>);
+          <pre class="darkBackground slightlyRoundedCorners"><code><span class="codePurple">var</span> aWrapper = <span class="codeRed">document</span>.<span class="codeTeal">getElementById</span>(<span class="codeGreen">"aWrapper"</span>);
 <span class="codePurple">var</span> canvas = <span class="codeRed">document</span>.<span class="codeTeal">getElementById</span>(<span class="codeGreen">"myCanvas"</span>);
 
 <span class="codeGray">//Accesses the 2D rendering context for our canvas</span>
-<span class="codePurple">var</span> ctx = <span class="codeRed">canvas</span>.<span class="codeTeal">getContext</span>(<span class="codeGreen">"2d"</span>);</code>
-          </pre>
+<span class="codePurple">var</span> ctx = <span class="codeRed">canvas</span>.<span class="codeTeal">getContext</span>(<span class="codeGreen">"2d"</span>);</code></pre>
           <p class="spacedOut">Now we just have to actually make the canvas responsive.</p>
           <h3>Maintaining canvas quality across various device pixel ratios</h3>
           <p class="spacedOut">The canvas coordinate space must be rendered according to the <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio">device pixel ratio</a> of the display, otherwise the content will become blurry for any display with a device pixel ratio higher than 1. These displays are often found in mobile and tablet devices, and have more than 1 physical pixel representing every logical pixel. A more in-depth look into this subtopic can be found <a class="nearlyPlainLink" href="https://www.html5rocks.com/en/tutorials/canvas/hidpi/">here</a>.</p>
           <p class="spacedOut">The following will query the device's pixel ratio so that we can use this to alter the coordinate space. You can test this simply by increasing the zoom on Chrome. You'll notice that the canvas coordinate space has larger dimensions than the actual canvas element itself.</p>
           <p class="spacedOut"><span class="red">Warning:</span> A devicePixelRatio with a floating pointer number value won't always be pretty (e.g. <a class="nearlyPlainLink" href="https://mydevice.io/devices/#samsunggalaxys6">Microsoft's Lumia 1520</a> with a 2.5 pixel ratio. Page zoom values on Chrome won't always be sharp either if the resulting pixelRatio is not an integer.)</p>
-          <pre class="darkBackground verticalCenter slightlyRoundedCorners">
-            <code><span class="codePurple">function</span> <span class="codeBlue">setCanvasScalingFactor</span>() {
+          <pre class="darkBackground slightlyRoundedCorners"><code><span class="codePurple">function</span> <span class="codeBlue">setCanvasScalingFactor</span>() {
     <span class="codePurple">return</span> <span class="codeRed">window</span>.<span class="codeRed">devicePixelRatio</span> <span class="codeTeal">||</span> <span class="codeOrange">1</span>;
-}</code>
-          </pre>
+}</code></pre>
           <p class="spacedOut">There is a fallback value of 1 in case the browser does not support the property.</p>
           <h3>Altering the canvas coordinate space</h3>
           <p class="spacedOut">Let's say we need to make sure our canvas maintains a 1:1 aspect ratio after the viewport has been resized. Unfortunately, the easiest approach of resizing the canvas through its CSS properties will result in very blurry canvas content. This is because the width and height properties only determine the size of the canvas element, not the coordinate space on which its content is drawn. The latter can only be changed dynamically by using Javascript to alter the canvas width and height HTML attributes.</p>
           <p class="spacedOut">Now we have some options on how we'll adjust the canvas's coordinate space:</p>
           <ol>
-            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.innerWidth</a> / <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.innerHeight</a></li>
-            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/outerWidth">window.outerWidth</a> / <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.outerHeight</a></li>
-            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Screen/width">window.screen.width</a> / <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.screen.height</a></li>
-            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Screen/availWidth">window.screen.availWidth</a> / <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.screen.availHeight</a></li>
+            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.innerWidth</a> &amp; <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.innerHeight</a></li>
+            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/outerWidth">window.outerWidth</a> &amp; <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.outerHeight</a></li>
+            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Screen/width">window.screen.width</a> &amp; <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.screen.height</a></li>
+            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Screen/availWidth">window.screen.availWidth</a> &amp; <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.screen.availHeight</a></li>
           </ol>
           <p class="spacedOut">To make a long story short, the most dependable of those 4 combos is the innerWidth/innerHeight pair. As of iOS 10, both window.outerWidth and window.outerHeight return 0 on mobile Safari, Chrome, Firefox, and Opera Mini. These properties are also less useful because they include the whole browser window, rather than just the viewport where elements are actually rendered.</p>
           <p class="spacedOut">Screen.width always returns the same value for iOS devices, whether the screen is in landscape or portrait mode. On Android, however, screen.width is dynamic and will change according to the device's current orientation. The same is true for screen.availWidth and screen.availHeight.</p>
           <p class="spacedOut">So now that we have a reliable way of altering the coordinate space, we can figure out how exactly we'll do that. If the viewport is in portrait mode (window.innerHeight > window.innerWidth), then our limiting factor is the viewport width, so we set our canvas's width relative to the viewport width. If the viewport is in landscape mode (window.innerWidth > window.innerHeight), then the limiting factor is the viewport height, so we set width relative to the viewport height.</p>
           <p class="spacedOut">Feel free to also add in whatever breakpoints you want:</p>
-          <pre class="darkBackground verticalCenter slightlyRoundedCorners">
-            <code><span class="codePurple">function</span> <span class="codeBlue">resizeCanvas</span>() {
+          <pre class="darkBackground slightlyRoundedCorners"><code><span class="codePurple">function</span> <span class="codeBlue">resizeCanvas</span>() {
     <span class="codeGray">//Gets the devicePixelRatio</span>
     <span class="codePurple">var</span> pixelRatio = <span class="codeBlue">setCanvasScalingFactor</span>();
 
@@ -135,13 +126,11 @@
     <span class="codeGray">//pixelRatio will be either an integer or floating point number</span>
     <span class="codeRed">canvas</span>.<span class="codeRed">width</span> <span class="codeTeal">=</span> width <span class="codeTeal">*</span> pixelRatio;
     <span class="codeRed">canvas</span>.<span class="codeRed">height</span> <span class="codeTeal">=</span> height <span class="codeTeal">*</span> pixelRatio;
-}</code>
-          </pre>
+}</code></pre>
           <p class="spacedOut"><a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round">Math.round</a> (only useful for when you don't want the canvas to be 100% of the viewport height/width) is used on var width because floating point numbers are not a reliable way of drawing pixel-perfect canvas content. The resizing transitions might not be as smooth, but a few miniscule jumps is well worth high canvas content quality. </p>
           <h3>Drawing some simple shapes</h3>
           <p class="spacedOut">This function draws some rectangles to help show the responsive canvas in action. At the end, we use the <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">window.requestAnimationFrame</a> method. This allows the browser to call your draw function before its next repaint, with whatever frequency it deems appropriate. As a result, this option is preferable to the  <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval">window.setInterval()</a> method of updating a canvas. </p>
-          <pre class="darkBackground verticalCenter slightlyRoundedCorners">
-            <code><span class="codePurple">function</span> <span class="codeBlue">draw</span>() {
+          <pre class="darkBackground slightlyRoundedCorners"><code><span class="codePurple">function</span> <span class="codeBlue">draw</span>() {
     <span class="codeRed">ctx</span>.<span class="codeRed">lineWidth</span> <span class="codeTeal">=</span> <span class="codeOrange">2</span>;
     <span class="codeRed">ctx</span>.<span class="codeRed">strokeStyle</span> <span class="codeTeal">=</span> <span class="codeGreen">"red"</span>;
 
@@ -158,18 +147,15 @@
 
     <span class="codeGray">//Continuously calls draw() again until cancelled</span>
     <span class="codePurple">var</span> someID <span class="codeTeal">=</span> <span class="codeRed">window</span>.<span class="codeBlue">requestAnimationFrame</span>(draw);
-}</code>
-          </pre>
+}</code></pre>
           <p class="spacedOut">Setting an ID for the request allows for canceling later using <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame">window.cancelAnimationFrame()</a>.</p>
           <h3>Listening for the changes to our viewport</h3>
           <p class="spacedOut">The most dependable way to listen for updates to window.innerWidth and window.innerHeight is to use: </p>
-          <pre class="darkBackground verticalCenter slightlyRoundedCorners">
-            <code><span class="codeRed">window</span>.<span class="codeTeal">addEventListener</span>(<span class="codeGreen">"resize"</span>, resizeCanvas, <span class="codeOrange">false</span>);
+          <pre class="darkBackground slightlyRoundedCorners"><code><span class="codeRed">window</span>.<span class="codeTeal">addEventListener</span>(<span class="codeGreen">"resize"</span>, resizeCanvas, <span class="codeOrange">false</span>);
 
 <span class="codeGray">/Called once so everything renders correctly on load time</span>
 <span class="codeBlue">resizeCanvas</span>();
-<span class="codeBlue">draw</span>();</code>
-          </pre>
+<span class="codeBlue">draw</span>();</code></pre>
           <p class="spacedOut">Events such as <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/Events/orientationchange">orientationchange</a> can also be used for mobile and tablet devices, but they're unreliable across browsers. For example, window.innerWidth and window.outerWidth will update properly by the time orientationchange ends on Safari in iOS 10, but they will not update properly on Firefox, Chrome, or Opera Mini.</p>
 
           <h3>Conclusion</h3>
