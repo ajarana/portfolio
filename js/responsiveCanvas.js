@@ -34,7 +34,8 @@ function resizeCanvas() {
     canvas.height = height * pixelRatio;
 }
 
-var cascadeFactor = 35;
+// var cascadeFactor = 35;
+var cascadeFactor = 275;
 var cascadeCoefficient = 1;
 
 function draw() {
