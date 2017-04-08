@@ -1,0 +1,15 @@
+#aWrapper {
+    /*Horizontally centers the canvas*/
+    /*margin: 0 auto;*/
+}
+
+#myCanvas {
+    /*This eliminates inconsistent rendering across browsers, canvas is supposed to be a block-level element across all browsers anyway*/
+    display: block;
+
+    /*myCanvas will inherit its CSS width and style property values from aWrapper*/
+    width: 100%;
+    height: 100%;
+
+   /*background-color: #ccc; */
+}
