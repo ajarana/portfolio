@@ -83,8 +83,6 @@
     <span class="codeGray">/*myCanvas will inherit its CSS width and style property values from aWrapper*/</span>
     width: <span class="codeOrange">100%</span>;
     height: <span class="codeOrange">100%</span>;
-
-    background-color: <span class="codeOrange">#e1e1e1</span>;
 }</code></pre>
           <p class="spacedOut">Then we create some JavaScript variables to reference the necessary elements in our DOM and access the <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">2D rendering context</a> we'll use to draw shapes with.</p>
           <pre class="darkBackground slightlyRoundedCorners"><code><span class="codePurple">var</span> aWrapper = <span class="codeRed">document</span>.<span class="codeTeal">getElementById</span>(<span class="codeGreen">"aWrapper"</span>);
@@ -143,9 +141,16 @@
           <p class="spacedOut"><a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round">Math.round</a> (only useful for when you don't want the canvas to be 100% of the viewport height/width) is used on var width because floating point numbers are not a reliable way of drawing pixel-perfect canvas content. The resizing transitions might not be as smooth, but a few miniscule jumps is well worth high canvas content quality. </p>
           <h3>Drawing some shapes</h3>
           <p class="spacedOut">This function draws some rectangles to help show the responsive canvas in action. At the end, we use the <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">window.requestAnimationFrame</a> method. This allows the browser to call your draw function before its next repaint, with whatever frequency it deems appropriate. As a result, this option is preferable to the  <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval">window.setInterval()</a> method of updating a canvas. </p>
-          <pre class="darkBackground slightlyRoundedCorners"><code><span class="codePurple">function</span> <span class="codeBlue">draw</span>() {
+          <pre class="darkBackground slightlyRoundedCorners"><code><span class="codeGray">//To make dynamic colors</span>
+<span class="codePurple">var</span> cascadeFactor <span class="codeTeal">=</span> <span class="codeOrange">255</span>;
+<span class="codePurple">var</span> cascadeCoefficient <span class="codeTeal">=</span> <span class="codeOrange">1</span>;
+
+<span class="codePurple">function</span> <span class="codeBlue">draw</span>() {
+    <span class="codeGray">//The number of color block columns and rows</span>
+    <span class="codePurple">var</span> columns <span class="codeTeal">=</span> <span class="codeOrange">5</span>;
+    <span class="codePurple">var</span> rows <span class="codeTeal">=</span> <span class="codeOrange">5</span>;
     <span class="codeGray">//The length of each square</span>
-    <span class="codePurple">var</span> length <span class="codeTeal">=</span> <span class="codeYellow">Math</span>.<span class="codeTeal">round</span>(<span class="codeRed">canvas</span>.<span class="codeRed">width</span></span><span class="codeTeal">/</span><span class="codeOrange">6</span>);
+    <span class="codePurple">var</span> length <span class="codeTeal">=</span> <span class="codeYellow">Math</span>.<span class="codeTeal">round</span>(<span class="codeRed">canvas</span>.<span class="codeRed">width</span></span><span class="codeTeal">/</span>columns) <span class="codeTeal">-</span> <span class="codeOrange">2</span>;
 
     <span class="codeGray">//Increments or decrements cascadeFactor by 1, based on cascadeCoefficient</span>
     cascadeFactor <span class="codeTeal">+=</span> cascadeCoefficient;
@@ -153,15 +158,16 @@
     <span class="codeGray">//Makes sure the canvas is clean at the beginning of a frame</span>
     <span class="codeRed">ctx</span>.<span class="codeBlue">clearRect</span>(<span class="codeOrange">0</span>, <span class="codeOrange">0</span>, <span class="codeRed">canvas</span>.<span class="codeRed">width</span>, <span class="codeRed">canvas</span>.<span class="codeRed">height</span>);
 
-    <span class="codePurple">for</span> (<span class="codePurple">var</span> columns<span class="codeTeal"> = </span><span class="codeOrange">4</span>; columns <span class="codeTeal">>=</span> <span class="codeOrange">1</span>; columns<span class="codeTeal">--</span>) {
-      <span class="codePurple">for</span> (<span class="codePurple">var</span> rows<span class="codeTeal"> = </span><span class="codeOrange">4</span>; rows <span class="codeTeal">>=</span> <span class="codeOrange">1</span>; rows<span class="codeTeal">--</span>) {
+    <span class="codePurple">for</span> (<span class="codePurple">var</span> i<span class="codeTeal"> = </span>columns; i <span class="codeTeal">>=</span> <span class="codeOrange">1</span>; i<span class="codeTeal">--</span>) {
+      <span class="codePurple">for</span> (<span class="codePurple">var</span> j<span class="codeTeal"> = </span>rows; j <span class="codeTeal">>=</span> <span class="codeOrange">1</span>; j<span class="codeTeal">--</span>) {
         <span class="codeGray">//Where the color magic happens</span>
-        <span class="codeRed">ctx</span>.<span class="codeBlue">fillStyle</span> <span class="codeTeal">=</span> <span class="codeGreen">"rgba("</span> <span class="codeTeal">+</span> rows<span class="codeTeal">*</span>columns<span class="codeTeal">*</span>(cascadeFactor<span class="codeTeal">-</span><span class="codeOrange">115</span>)<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>columns<span class="codeTeal">*</span>cascadeFactor<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>rows<span class="codeTeal">*</span>cascadeFactor <span class="codeTeal">+</span> <span class="codeGreen">","</span> <span class="codeTeal"> + </span><span class="codeOrange">1</span><span class="codeTeal"> + </span><span class="codeGreen">")"</span>;
+        <span class="codeRed">ctx</span>.<span class="codeBlue">fillStyle</span> <span class="codeTeal">=</span> <span class="codeGreen">"rgba("</span> <span class="codeTeal">+</span> j<span class="codeTeal">*</span>i<span class="codeTeal">*</span>(cascadeFactor<span class="codeTeal">-</span><span class="codeOrange">110</span>)<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>i<span class="codeTeal">*</span>cascadeFactor<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>j<span class="codeTeal">*</span>cascadeFactor <span class="codeTeal">+</span> <span class="codeGreen">","</span> <span class="codeTeal"> + </span><span class="codeOrange">0.6</span><span class="codeTeal"> + </span><span class="codeGreen">")"</span>;
 
-        <span class="codeRed">ctx</span>.<span class="codeBlue">strokeRect</span>(distance, distance, length, length);
+        <span class="codeRed">ctx</span>.<span class="codeBlue">fillRect</span>((length<span class="codeTeal">*</span>(i<span class="codeTeal">-</span><span class="codeOrange">1</span>)) <span class="codeTeal">+</span> ((i<span class="codeTeal">-</span><span class="codeOrange">1</span>)<span class="codeTeal">*</span><span class="codeOrange">2</span>), (length<span class="codeTeal">*</span>(j<span class="codeTeal">-</span><span class="codeOrange">1</span>)) <span class="codeTeal">+</span> ((j<span class="codeTeal">-</span><span class="codeOrange">1</span>)<span class="codeTeal">*</span><span class="codeOrange">2</span>), length, length);
+       }
     }
 
-    <span class="codePurple">if</span> (cascadeFactor <span class="codeTeal">></span> <span class="codeOrange">275</span> <span class="codeTeal">||</span> cascadeFactor <span class="codeTeal"><</span> <span class="codeOrange">35</span>) {
+    <span class="codePurple">if</span> (cascadeFactor <span class="codeTeal">></span> <span class="codeOrange">275</span> <span class="codeTeal">||</span> cascadeFactor <span class="codeTeal"><</span> <span class="codeOrange">0</span>) {
       <span class="codeGray">//Resets the color cascade</span>
       cascadeCoefficient <span class="codeTeal">=</span> <span class="codeTeal">-</span>cascadeCoefficient;
     }
@@ -174,7 +180,7 @@
           <p class="spacedOut">The most dependable way to listen for updates to window.innerWidth and window.innerHeight is to use: </p>
           <pre class="darkBackground slightlyRoundedCorners"><code><span class="codeRed">window</span>.<span class="codeTeal">addEventListener</span>(<span class="codeGreen">"resize"</span>, resizeCanvas, <span class="codeOrange">false</span>);
 
-<span class="codeGray">/Called once so everything renders correctly on load time</span>
+<span class="codeGray">//Called once so everything renders correctly on load time</span>
 <span class="codeBlue">resizeCanvas</span>();
 <span class="codeBlue">draw</span>();</code></pre>
           <p class="spacedOut">Events such as <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/Events/orientationchange">orientationchange</a> can also be used for mobile and tablet devices, but they're unreliable across browsers. For example, window.innerWidth and window.outerWidth will update properly by the time orientationchange ends on Safari in iOS 10, but they will not update properly on Firefox, Chrome, or Opera Mini.</p>
