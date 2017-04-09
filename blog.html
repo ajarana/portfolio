@@ -37,20 +37,23 @@
       <div id="blog" class="mainContainer">
         <!-- <p data-height="683" data-theme-id="dark" data-slug-hash="vxqJGb" data-default-tab="result" data-user="ajarana" data-embed-version="2" data-pen-title="Good Responsive Canvas (v.2)" class="codepen">See the Pen <a href="http://codepen.io/ajarana/pen/vxqJGb/">Good Responsive Canvas (v.2)</a> by Andres  (<a href="http://codepen.io/ajarana">@ajarana</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script> -->
-        <h1 class="textAlignLeft">Building a Responsive Canvas</h1>
+        <!-- <h1 class="textAlignLeft">Building a Responsive Canvas</h1> -->
 
         <div id="aWrapper">
         <!--Include some fallback content on the 0.00001% chance your user's browser doesn't support canvas -->
-          <a href="http://codepen.io/ajarana/pen/vxqJGb?editors=0110" target="_blank">
+          <a href="http://codepen.io/ajarana/pen/aJgPMR" target="_blank">
           <canvas id="myCanvas">Fallback content</canvas>
           </a>
         </div>
+
+        <h1 class="textAlignLeft">Building a Responsive Canvas</h1>
+
         <div>
           <!-- <h1 class="textAlignLeft">Building a Responsive Canvas</h1> -->
           <!-- <p class="textAlignCenter">Below is some of the work I've done.</p> -->
         </div>
         <section id="firstBlog">
-          <p class="spacedOut">Building a high-quality canvas that's fully compatible with nearly all the various device pixel ratios, screen resolutions, and browsers available isn't an easy task. The main challenges revolve around maintaining the canvas's original aspect ratio in the user's viewport at all times and ensuring the canvas content maintains a high pixel quality.</p>
+          <p class="spacedOut">Building a high-quality <a class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">canvas</a> that's fully compatible with nearly all the various device pixel ratios, screen resolutions, and browsers available isn't an easy task. The main challenges revolve around maintaining the canvas's original aspect ratio in the user's viewport at all times and ensuring the canvas content maintains a high pixel quality.</p>
           <h3>Scaling the canvas: some options</h3>
           <p class="spacedOut">The canvas element becomes cleared of all its contents whenever its width and height attributes are changed. There are several options available for updating the canvas whenever this happens:</p>
           <ol>
@@ -102,10 +105,10 @@
           <p class="spacedOut">Let's say we need to make sure our canvas maintains a 1:1 aspect ratio after the viewport has been resized. Unfortunately, the easiest approach of resizing the canvas through its CSS properties will result in very blurry canvas content. This is because the width and height properties only determine the size of the canvas element, not the coordinate space on which its content is drawn. The latter can only be changed dynamically by using Javascript to alter the canvas width and height HTML attributes.</p>
           <p class="spacedOut">Now we have some options on how we'll adjust the canvas's coordinate space:</p>
           <ol>
-            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.innerWidth</a> &amp; <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.innerHeight</a></li>
-            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/outerWidth">window.outerWidth</a> &amp; <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.outerHeight</a></li>
-            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Screen/width">window.screen.width</a> &amp; <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.screen.height</a></li>
-            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Screen/availWidth">window.screen.availWidth</a> &amp; <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.screen.availHeight</a></li>
+            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.innerWidth</a> and <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.innerHeight</a></li>
+            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/outerWidth">window.outerWidth</a> and <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.outerHeight</a></li>
+            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Screen/width">window.screen.width</a> and <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.screen.height</a></li>
+            <li class="littleSpacedOut"><a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Screen/availWidth">window.screen.availWidth</a> and <a target="_blank" class="nearlyPlainLink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">window.screen.availHeight</a></li>
           </ol>
           <p class="spacedOut">To make a long story short, the most dependable of those 4 combos is the innerWidth/innerHeight pair. As of iOS 10, both window.outerWidth and window.outerHeight return 0 on mobile Safari, Chrome, Firefox, and Opera Mini. These properties are also less useful because they include the whole browser window, rather than just the viewport where elements are actually rendered.</p>
           <p class="spacedOut">Screen.width always returns the same value for iOS devices, whether the screen is in landscape or portrait mode. On Android, however, screen.width is dynamic and will change according to the device's current orientation. The same is true for screen.availWidth and screen.availHeight.</p>
@@ -153,7 +156,7 @@
     <span class="codePurple">for</span> (<span class="codePurple">var</span> columns<span class="codeTeal"> = </span><span class="codeOrange">4</span>; columns <span class="codeTeal">>=</span> <span class="codeOrange">1</span>; columns<span class="codeTeal">--</span>) {
       <span class="codePurple">for</span> (<span class="codePurple">var</span> rows<span class="codeTeal"> = </span><span class="codeOrange">4</span>; rows <span class="codeTeal">>=</span> <span class="codeOrange">1</span>; rows<span class="codeTeal">--</span>) {
         <span class="codeGray">//Where the color magic happens</span>
-        <span class="codeRed">ctx</span>.<span class="codeBlue">fillStyle</span> <span class="codeTeal">=</span> <span class="codeGreen">"rgba("</span> <span class="codeTeal">+</span> rows<span class="codeTeal"> * </span>columns<span class="codeTeal"> * </span>(cascadeFactor <span class="codeTeal">-</span> <span class="codeOrange">115</span>)<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>columns <span class="codeTeal">*</span> cascadeFactor<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>rows <span class="codeTeal">*</span> cascadeFactor <span class="codeTeal">+</span> <span class="codeGreen">","</span> <span class="codeTeal"> + </span><span class="codeOrange">1</span><span class="codeTeal"> + </span><span class="codeGreen">")"</span>;
+        <span class="codeRed">ctx</span>.<span class="codeBlue">fillStyle</span> <span class="codeTeal">=</span> <span class="codeGreen">"rgba("</span> <span class="codeTeal">+</span> rows<span class="codeTeal">*</span>columns<span class="codeTeal">*</span>(cascadeFactor<span class="codeTeal">-</span><span class="codeOrange">115</span>)<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>columns<span class="codeTeal">*</span>cascadeFactor<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>rows<span class="codeTeal">*</span>cascadeFactor <span class="codeTeal">+</span> <span class="codeGreen">","</span> <span class="codeTeal"> + </span><span class="codeOrange">1</span><span class="codeTeal"> + </span><span class="codeGreen">")"</span>;
 
         <span class="codeRed">ctx</span>.<span class="codeBlue">strokeRect</span>(distance, distance, length, length);
     }

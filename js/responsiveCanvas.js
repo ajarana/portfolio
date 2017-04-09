@@ -11,20 +11,23 @@ function setCanvasScalingFactor() {
 function resizeCanvas() {
     //Gets the devicePixelRatio
     var pixelRatio = setCanvasScalingFactor();
+    var elem = document.getElementById("blog");
 
     //The viewport is in portrait mode, so var width should be based off viewport WIDTH
     if (window.innerHeight > window.innerWidth) {
-        //Makes the canvas 100% of the viewport width
-        var width = Math.round(0.4 * window.innerWidth);
+        //Makes the canvas 100% of parent width
+        var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10);
     }
   //The viewport is in landscape mode, so var width should be based off viewport HEIGHT
     else {
-        //Makes the canvas 100% of the viewport height
-        var width = Math.round(0.4 * window.innerHeight);
+        //Makes the canvas 100% of parent width
+        var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10);
+        console.log(width);
     }
 
     //This is done in order to maintain the 1:1 aspect ratio, adjust as needed
-    var height = width;
+    // var height = width;
+    var height = Math.round(0.625 * width);
 
     //This will be used to downscale the canvas element when devicePixelRatio > 1
     aWrapper.style.width = width + "px";
@@ -35,32 +38,36 @@ function resizeCanvas() {
 }
 
 // var cascadeFactor = 35;
-var cascadeFactor = 275;
+var cascadeFactor = 255;
 var cascadeCoefficient = 1;
 
 function draw() {
+  //The number of color block columns and rows
+  var columns = 8;
+  var rows = 5;
   //The length of each square
-  var length = Math.round(canvas.width/6);;
+  var length = Math.round(canvas.width/columns) - 2;
 
   //Increments or decrements cascadeFactor by 1, based on cascadeCoefficient
   cascadeFactor += cascadeCoefficient;
 
   //Makes sure the canvas is clean at the beginning of a frame
-  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  for (var columns = 4; columns >= 1; columns--) {
-    for (var rows = 4; rows >= 1; rows--) {
+  for (var i = columns; i >= 1; i--) {
+    for (var j = rows; j >= 1; j--) {
       //Where the color magic happens
-      ctx.fillStyle = "rgba("+rows*columns*(cascadeFactor-115)+","+columns*cascadeFactor+","+rows*cascadeFactor+","+1+")";
+      ctx.fillStyle = "rgba(" + (j*i*(cascadeFactor-110)) + "," + (i*cascadeFactor) + "," + (j*cascadeFactor) + "," + 0.6 + ")";
 
-      ctx.fillRect((length*columns)+(columns*2), (length*rows)+(rows*2), length, length);
+      ctx.fillRect((length*(i-1)) + ((i-1)*2), (length*(j-1)) + ((j-1)*2), length, length);
     }
   }
 
-  if (cascadeFactor > 275 || cascadeFactor < 35) {
+  if (cascadeFactor > 255 || cascadeFactor < 0) {
     //Resets the color cascade
     cascadeCoefficient = -cascadeCoefficient;
   }
+  //Continuously calls draw() again until cancelled
   var aRequest = window.requestAnimationFrame(draw);
 }
 
