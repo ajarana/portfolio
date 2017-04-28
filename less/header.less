@@ -1,0 +1,287 @@
+#header {
+  width: 100%;
+  // background-color: #ccc;
+  // padding-top: 30px;
+  height: 85px;
+  padding: 30px 0;
+  // border-bottom: 1px solid #eaeaea;
+
+  #titleContainer {
+    flex: 0 1 85%;
+
+    #headerTitle {
+      // margin: 30px 0;
+      // padding: 30px 0;
+
+      #headerTitleText {
+        font-size: 114%;
+
+        // text-align: center;
+        // padding-top: 8px;
+        padding: 0px;
+        text-align: left;
+
+        p {
+          // display: inline-block;
+          margin: 0;
+        }
+        p:first-child {
+          margin-bottom: 2px;
+          display: inline-block;
+
+        }
+      }
+      #headerTitleText:hover p {
+        text-decoration: underline;
+      }
+      #logo {
+        height: 38px;
+        // height: 34px;
+        width: 55px;
+        // width: 50px;
+        // background-image: url("assets/logo/code.svg");
+        background-image: url("assets/logo/Personal_logo3.svg");
+        background-size: cover;
+        // margin-right: 0px;
+        // margin: 0 auto;
+        margin: 0;
+        // margin-right: 18px;
+        margin-right: 12px;
+      }
+    }  // End of headerTitle
+  }
+
+  @media (min-width: 768px) {
+      #headerTitle {
+        padding-top: 0px;
+
+        // #headerTitleText {
+        //   padding: 0px;
+        //   text-align: left;
+        // }
+        #logo {
+          margin: 0;
+          margin-right: 18px;
+        }
+      }
+  }
+
+  #buttonWrapper {
+    flex: 0 1 15%;
+    position: relative;
+    z-index: 2;
+
+    #mobileButton {
+      border: 1px solid transparent;
+      background-color: transparent;
+      padding: 0;
+
+      .hamburgerIcon {
+        width: 22px;
+        height: 3px;
+        background-color: #555;
+
+        transition: background-color 0.4s ease-out 0s;
+      }
+      .hamburgerIcon:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+    #mobileButton:focus {
+      outline: none;
+    }
+  }
+  @media (min-width: 768px) {
+    #buttonWrapper {
+      display: none;
+    }
+  }
+
+  #mobileProfilesContainer {
+    #headerMenu {
+      list-style: none;
+      position: absolute;
+      width: 100%;
+      height: 0px;
+      left: 0;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      background: rgba(0,0,0,0.90);
+      transition: height 0.4s ease-out 0s;
+      z-index: 1;
+
+      .menuItems {
+        visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90px;
+        margin: 1px 30px;
+        border-top: 1px solid #aaa;
+        // background-color: #2c2c2c;
+        // background-color: rgba(255,255,255,0.9);
+        // transition: visibility 0s ease-out 0s;
+        opacity: 0;
+        transition: opacity 0.4s ease-out 0.2s;
+
+        a {
+          color: white;
+        }
+      }
+      .menuItems:first-child {
+        margin-top: 90px;
+        border-top: none;
+      }
+
+      #desktopResume {
+        display: none;
+      }
+    }
+
+    #gitHubIcon {
+      background-image: url("assets/icons/GitHub-Mark-Light-120px-plus.png");
+      // background-image: url("assets/icons/GitHub-Mark-32px.png");
+      // background-size: 80%;
+      background-size: contain;
+      // background-position: 50% 50%;
+      height: 40px;
+      width: 40px;
+    }
+    // #codePenLogo {
+    //   background-image: url("assets/icons/Button-Fill-White-Large.png");
+    //   background-size: contain;
+    //   // background-position: 50% 50%;
+    //   background-repeat: no-repeat;
+    //   height: 40px;
+    //   width: 40px;
+    // }
+    .codePenLogo {
+      width: 48px; /* required to center */
+      height: 48px;
+      width: 40px;
+      height: 40px;
+    }
+    .outer-ring {
+      fill: white;
+    }
+    .inner-box {
+      fill: white;
+    }
+    #resumeLink {
+      // margin: 0 48px;
+    }
+    #blogLink {
+    }
+    .headerLink {
+      font-size: 172%;
+    }
+  }
+  @media (min-width: 768px) {
+    #mobileProfilesContainer {
+      // display: none;
+      #headerMenu {
+        position: static;
+        display: flex;
+        height: auto;
+        background: none;
+        transform: rotate(180deg);
+
+        .menuItems {
+          visibility: visible;
+          opacity: 1;
+          border-top: none;
+          height: auto;
+          // margin: 0 25px;
+          padding: 0 22px;
+          margin: 0;
+          transform: rotate(180deg);
+
+          a {
+            color: #333;
+          }
+        }
+        .menuItems:first-child {
+          margin-top: 0;
+        }
+        .menuItems:nth-child(2) {
+          // margin-right: 0;
+          padding-right: 0;
+        }
+
+        #mobileResume {
+          display: none;
+        }
+        #desktopResume {
+          display: flex;
+          // padding: 0 16px;
+        }
+      }
+
+      #gitHubIcon {
+        background-image: url("assets/icons/GitHub-Mark-120px-plus.png");
+        width: 32px;
+        height: 32px;
+      }
+      .codePenLogo {
+        width: 32px;
+        height: 32px;
+      }
+      .outer-ring {
+        fill: black;
+      }
+      .inner-box {
+        fill: black;
+      }
+      .headerLink {
+        font-size: 114%;
+      }
+    }
+  }
+
+  #profilesContainer {
+    display: none;
+
+    #gitHubIcon {
+      background-image: url("assets/icons/GitHub-Mark-120px-plus.png");
+      // background-image: url("assets/icons/GitHub-Mark-32px.png");
+      // background-size: 80%;
+      background-size: contain;
+      // background-position: 50% 50%;
+      height: 32px;
+      width: 32px;
+    }
+    #resumeLink {
+      font-size: 114%;
+      // margin-left: 22px;
+      margin: 0 48px;
+    }
+    #blogLink {
+      font-size: 114%;
+    }
+  }
+  @media(min-width: 768px) {
+    #profilesContainer {
+      display: flex;
+      padding-top: 0;
+    }
+  }
+} //end of Header
+
+.expanded {
+  height: 100%;
+  overflow: hidden;
+
+  #header > .mainContainer > #mobileProfilesContainer > #headerMenu {
+    height: 100%;
+
+    .menuItems {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  #header > .mainContainer > #buttonWrapper > #mobileButton > .hamburgerIcon {
+    background-color: white;
+  }
+}

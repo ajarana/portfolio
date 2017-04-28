@@ -11,7 +11,8 @@ module.exports = function(grunt) {
         },
         files: {
           "css/portfolio.css": "less/portfolio.less",
-          "css/normalize.css": "less/normalize.less" // destination file and source file
+          "css/header.css": "less/header.less",
+          "css/responsive.css": "less/responsive.less" // destination file and source file
         }
       }
     },
