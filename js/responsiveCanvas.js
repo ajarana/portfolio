@@ -16,13 +16,14 @@ function resizeCanvas() {
     //The viewport is in portrait mode, so var width should be based off viewport WIDTH
     if (window.innerHeight > window.innerWidth) {
         //Makes the canvas 100% of parent width
-        var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10);
+        var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
+        // console.log(width);
     }
   //The viewport is in landscape mode, so var width should be based off viewport HEIGHT
     else {
         //Makes the canvas 100% of parent width
-        var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10);
-        console.log(width);
+        var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
+        // console.log(parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
     }
 
     //This is done in order to maintain the 1:1 aspect ratio, adjust as needed
