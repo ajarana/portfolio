@@ -12,7 +12,9 @@ module.exports = function(grunt) {
         files: {
           "css/portfolio.css": "less/portfolio.less",
           "css/header.css": "less/header.less",
-          "css/responsive.css": "less/responsive.less" // destination file and source file
+          "css/responsive.css": "less/responsive.less",
+          "css/footer.css": "less/footer.less",
+          "css/colors.css": "less/colors.less" // destination file and source file
         }
       }
     },

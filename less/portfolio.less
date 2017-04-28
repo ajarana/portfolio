@@ -1,6 +1,8 @@
 @import "normalize.less";
 @import "header.less";
 @import "responsive.less";
+@import "footer.less";
+@import "colors.less";
 
 body {
   color: #333;
@@ -58,7 +60,6 @@ body {
     // justify-content: center;
 
     #firstImage {
-      // background-image: url("assets/agame/agameBottom22width5.png");
       background-image: url("assets/agame/agameBottom22width5Cropped.png");
       background-position: 50% 100%;
 
@@ -80,7 +81,10 @@ body {
 
     #secondImage {
       background-image: url("assets/mixtin/mixtin100v2c.png");
+      // background-image: url("assets/arcade/arcade3C2.png");
+
       background-position: 0% 0%;
+      // background-size: contain;
       // background-size: 100%;
       // width: 380px;
       width: 100%;
@@ -103,6 +107,11 @@ body {
       }
     }
 
+    #newsImage {
+      background-image: url("assets/arcade/arcade3C2.png");
+      width: 320px;
+      height: 370px;
+    }
     // #thirdImage {
     //   background-image: url("assets/aolio/aolio50BottomCentered.png");
     //   background-position: 50% 100%;
@@ -209,28 +218,28 @@ body {
   // }
 }
 
-#footer {
-  height: 130px;
-
-  // border-top: 1px solid #999;
-  border-top: 1px solid #d1d1d1;
-  font-size: 114%;
-
-  margin-top: 180px;
-
-  #copyRight {
-    color: #777;
-  }
-  #contact {
-    // padding-bottom: 8px;
-    padding-top: 12px;
-  }
-}
-@media (min-width: 768px) {
-  #footer {
-    // margin-top: 0px;
-  }
-}
+// #footer {
+//   height: 130px;
+//
+//   // border-top: 1px solid #999;
+//   border-top: 1px solid #d1d1d1;
+//   font-size: 114%;
+//
+//   margin-top: 180px;
+//
+//   #copyRight {
+//     color: #777;
+//   }
+//   #contact {
+//     // padding-bottom: 8px;
+//     padding-top: 12px;
+//   }
+// }
+// @media (min-width: 768px) {
+//   #footer {
+//     // margin-top: 0px;
+//   }
+// }
 
 // .imageHolderWrapper {
 //   width: 100%;
@@ -319,13 +328,13 @@ h2 {
   padding: 0;
 }
 
-.noMargin {
-  margin: 0;
-}
+// .noMargin {
+//   margin: 0;
+// }
 
-.lightGray {
-  color: #666;
-}
+// .lightGray {
+//   color: #666;
+// }
 
 h3 {
   font-size: 118%;
