@@ -3,7 +3,7 @@
   // background-color: #ccc;
   // padding-top: 30px;
   height: 85px;
-  padding: 30px 0;
+  padding: 10px 0 30px;
   // border-bottom: 1px solid #eaeaea;
 
   #titleContainer {
@@ -78,14 +78,15 @@
       cursor: pointer;
 
       .hamburgerIcon {
-        width: 22px;
+        width: 26px;
         height: 3px;
         background-color: #555;
+        // background-color: #444;
 
         transition: background-color 0.4s ease-out 0s;
       }
       .hamburgerIcon:not(:last-child) {
-        margin-bottom: 5px;
+        margin-bottom: 6px;
       }
     }
     #mobileButton:focus {
@@ -102,15 +103,39 @@
     #headerMenu {
       list-style: none;
       position: absolute;
-      width: 100%;
+      // width: 100%;
+      // width: 0%;
+      width: 24px;
       height: 0px;
-      left: 0;
-      top: 0;
+      // height: 21px;
+      // animation: 0.6s linear testing;
+      // left: 0;
+      // right: 0;
+      right: 16px;
+      // top: 0;
+      top: 42px;
       margin: 0;
       padding: 0;
-      background: rgba(0,0,0,0.90);
-      transition: height 0.4s ease-out 0s;
+      // transition: background-color 4s linear 0s;
+      // background: rgba(0,0,0,0.92);
+      background: transparent;
+      // transition: height 0.4s ease-out 0s;
+      transition-property: width, height, top, right, background;
+      transition-timing-function: ease-in;
+      transition-duration: 0.3s;
+      transition-delay: 0s;
       z-index: 1;
+
+      // @keyframes testing {
+      //   from {
+      //     height: 0%;
+      //     width: 0%;
+      //   }
+      //   to {
+      //     height: 100%;
+      //     width: 100%;
+      //   }
+      // }
 
       .menuItems {
         visibility: hidden;
@@ -124,7 +149,7 @@
         // background-color: rgba(255,255,255,0.9);
         // transition: visibility 0s ease-out 0s;
         opacity: 0;
-        transition: opacity 0.4s ease-out 0.2s;
+        transition: opacity 0.4s ease-out 0.4s;
 
         a {
           color: white;
@@ -185,7 +210,9 @@
         position: static;
         display: flex;
         height: auto;
-        background: none;
+        width: auto;
+        background: none!important;
+        transition-property: width, height, top, right;
         transform: rotate(180deg);
 
         .menuItems {
@@ -279,6 +306,10 @@ html.expanded {
 
   #header > .mainContainer > #mobileProfilesContainer > #headerMenu {
     height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background: rgba(0,0,0,0.92);
 
     .menuItems {
       visibility: visible;
@@ -289,4 +320,20 @@ html.expanded {
   #header > .mainContainer > #buttonWrapper > #mobileButton > .hamburgerIcon {
     background-color: white;
   }
+
+  // #header > .mainContainer > #buttonWrapper > #testUl {
+  //   background-color: blue!important;
+  //   position: fixed!important;
+  //   height: 100%!important;
+  //   width: 100%!important;
+  //   right: 0!important;
+  // }
 }
+
+// #header > .mainContainer > #buttonWrapper > #testUl {
+//   // transition: position 2s linear 0s;
+//   transition-property: right, height, width;
+//   transition-timing-function: ease-in;
+//   transition-duration: 2s;
+//   transition-delay: 0s;
+// }

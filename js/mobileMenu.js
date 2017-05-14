@@ -11,4 +11,7 @@
       // console.log("html did NOT contain expanded, and it was added");
     }
   }
+
+  var rofl = mobileButton.getBoundingClientRect();
+  console.log(rofl);
 })();
