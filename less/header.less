@@ -92,7 +92,7 @@
       width: 24px;
       height: 0px;
       right: 16px;
-      top: 38px;
+      top: 36px;
       margin: 0;
       padding: 0;
       background: transparent;
@@ -138,10 +138,8 @@
       width: 40px;
     }
     #codePenLogo {
-      width: 48px; /* required to center */
-      height: 48px;
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
     }
     .outer-ring {
       fill: white;
@@ -160,6 +158,7 @@
       #headerMenu {
         position: static;
         display: flex;
+        align-items: center;
         height: auto;
         width: auto;
         background: none!important;
@@ -167,7 +166,7 @@
         transform: rotate(180deg);
 
         .menuItems {
-          // visibility: visible;
+          visibility: visible;
           opacity: 1;
           border-top: none;
           height: auto;
@@ -177,6 +176,7 @@
           transform: rotate(180deg);
 
           a {
+            display: inline-block;
             color: #333;
           }
         }
@@ -213,30 +213,6 @@
       .headerLink {
         font-size: 114%;
       }
-    }
-  }
-
-  #profilesContainer {
-    display: none;
-
-    #gitHubIcon {
-      background-image: url("assets/icons/GitHub-Mark-120px-plus.png");
-      background-size: contain;
-      height: 32px;
-      width: 32px;
-    }
-    #resumeLink {
-      font-size: 114%;
-      margin: 0 48px;
-    }
-    #blogLink {
-      font-size: 114%;
-    }
-  }
-  @media(min-width: 768px) {
-    #profilesContainer {
-      display: flex;
-      padding-top: 0;
     }
   }
 } //end of Header
