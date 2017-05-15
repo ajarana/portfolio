@@ -1,35 +1,18 @@
 #header {
   width: 100%;
-  // background-color: #ccc;
-  // padding-top: 30px;
   height: 85px;
-  // height: 100%;
-  padding: 6px 0 30px;
-  // border-bottom: 1px solid #eaeaea;
-  // background: green;
-  // background: rgba(0,0,0,0.92);
-
-  // position: absolute;
-  // top: 0;
-  // align-items: flex-start;
+  padding: 4px 0 30px;
 
   #titleContainer {
     flex: 0 1 85%;
 
     #headerTitle {
-      // margin: 30px 0;
-      // padding: 30px 0;
-
       #headerTitleText {
         font-size: 114%;
-
-        // text-align: center;
-        // padding-top: 8px;
         padding: 0px;
         text-align: left;
 
         p {
-          // display: inline-block;
           margin: 0;
         }
         p:first-child {
@@ -43,19 +26,10 @@
       }
       #logo {
         height: 40px;
-        // height: 34px;
-        // width: 55px;
-        // width: 38px;
         width: 48px;
-        // width: 50px;
-        // background-image: url("assets/logo/code.svg");
-        background-image: url("assets/logo/Personal_logo3.svg");
         background-image: url("assets/logo/Personal_logo4_for_web.svg");
         background-size: cover;
-        // margin-right: 0px;
-        // margin: 0
         margin: 0;
-        // margin-right: 18px;
         margin-right: 12px;
       }
     }  // End of headerTitle
@@ -113,41 +87,14 @@
     #headerMenu {
       list-style: none;
       position: absolute;
-      // width: 100%;
-      // width: 0%;
       width: 24px;
       height: 0px;
-      // height: 21px;
-      // animation: 0.6s linear testing;
-      // left: 0;
-      // right: 0;
       right: 16px;
-      // top: 0;
       top: 38px;
       margin: 0;
       padding: 0;
-      // transition: background-color 4s linear 0s;
-      // background: rgba(0,0,0,0.92);
       background: transparent;
-      // transition: height 0.4s ease-out 0s;
-      // transition-property: width, height, top, right, background;
-      // transition-timing-function: ease-in;
-      // transition-duration: 0.3s;
-      // // transition-duration: 3s;
-      // transition-delay: 0s;
       z-index: 1;
-
-      // overflow-y: auto;
-      // @keyframes testing {
-      //   from {
-      //     height: 0%;
-      //     width: 0%;
-      //   }
-      //   to {
-      //     height: 100%;
-      //     width: 100%;
-      //   }
-      // }
 
       .menuItems {
         visibility: hidden;
@@ -157,19 +104,14 @@
         height: 90px;
         margin: 1px 30px;
         border-top: 1px solid #aaa;
-        // background-color: #2c2c2c;
-        // background-color: rgba(255,255,255,0.9);
-        // transition: visibility 0s ease-out 0s;
         opacity: 0;
         transition: opacity 0.2s ease-out 0s, visibility 0s linear 0.4s;
-        // transition: visibility 0.4s ease-out 0s;
 
         a {
           color: white;
         }
       }
       .menuItems:first-child {
-        // margin-top: 90px;
         margin-top: 75px;
         border-top: none;
       }
@@ -183,28 +125,16 @@
       transition-property: width, height, top, right, background;
       transition-timing-function: ease-in;
       transition-duration: 0.33s;
-      // transition-duration: 5s;
       transition-delay: 0s;
     }
 
     #gitHubIcon {
       background-image: url("assets/icons/GitHub-Mark-Light-120px-plus.png");
-      // background-image: url("assets/icons/GitHub-Mark-32px.png");
-      // background-size: 80%;
       background-size: contain;
-      // background-position: 50% 50%;
       height: 40px;
       width: 40px;
     }
-    // #codePenLogo {
-    //   background-image: url("assets/icons/Button-Fill-White-Large.png");
-    //   background-size: contain;
-    //   // background-position: 50% 50%;
-    //   background-repeat: no-repeat;
-    //   height: 40px;
-    //   width: 40px;
-    // }
-    .codePenLogo {
+    #codePenLogo {
       width: 48px; /* required to center */
       height: 48px;
       width: 40px;
@@ -216,9 +146,6 @@
     .inner-box {
       fill: white;
     }
-    #resumeLink {
-      // margin: 0 48px;
-    }
     #blogLink {
     }
     .headerLink {
@@ -227,7 +154,6 @@
   }
   @media (min-width: 768px) {
     #mobileProfilesContainer {
-      // display: none;
       #headerMenu {
         position: static;
         display: flex;
@@ -242,7 +168,7 @@
           opacity: 1;
           border-top: none;
           height: auto;
-          // margin: 0 25px;
+
           padding: 0 22px;
           margin: 0;
           transform: rotate(180deg);
@@ -255,7 +181,6 @@
           margin-top: 0;
         }
         .menuItems:nth-child(2) {
-          // margin-right: 0;
           padding-right: 0;
         }
 
@@ -264,7 +189,6 @@
         }
         #desktopResume {
           display: flex;
-          // padding: 0 16px;
         }
       }
 
@@ -294,16 +218,12 @@
 
     #gitHubIcon {
       background-image: url("assets/icons/GitHub-Mark-120px-plus.png");
-      // background-image: url("assets/icons/GitHub-Mark-32px.png");
-      // background-size: 80%;
       background-size: contain;
-      // background-position: 50% 50%;
       height: 32px;
       width: 32px;
     }
     #resumeLink {
       font-size: 114%;
-      // margin-left: 22px;
       margin: 0 48px;
     }
     #blogLink {
@@ -327,17 +247,11 @@ html.expanded {
   overflow: hidden;
 
   #header > .mainContainer > #mobileProfilesContainer > #headerMenu {
-    // height: 100%;
-    // min-height: 457px;
     height: 100%;
-    // height: auto;
     width: 100%;
     top: 0;
-    // top: 50px;
     right: 0;
-    // padding-bottom: 145px;
     background: rgba(0,0,0,0.92);
-    // background: inherit;
 
     .menuItems {
       visibility: visible;
@@ -357,11 +271,3 @@ html.expanded {
 .expanded.staticHeight #header > .mainContainer > #mobileProfilesContainer > #headerMenu {
   height: 500px;
 }
-
-// #header > .mainContainer > #buttonWrapper > #testUl {
-//   // transition: position 2s linear 0s;
-//   transition-property: right, height, width;
-//   transition-timing-function: ease-in;
-//   transition-duration: 2s;
-//   transition-delay: 0s;
-// }

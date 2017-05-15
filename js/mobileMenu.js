@@ -13,10 +13,8 @@
       html[0].classList.remove("expanded", "staticHeight");
     }
     else if (window.innerHeight < minMenuHeight) {
-      console.log('first else active');
       html[0].classList.add("expanded", "staticHeight");
     } else {
-      console.log('last else active');
       html[0].classList.add("expanded");
     }
   }
@@ -25,10 +23,8 @@
     headerMenu.classList.remove("transitionEverything");
 
     if (window.innerHeight < minMenuHeight) {
-      console.log('first else active');
       html[0].classList.add("staticHeight");
     } else {
-      console.log('last else active');
       html[0].classList.remove("staticHeight");
     }
   }, false);
