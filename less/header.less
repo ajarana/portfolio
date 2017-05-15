@@ -127,11 +127,11 @@
       // background: rgba(0,0,0,0.92);
       background: transparent;
       // transition: height 0.4s ease-out 0s;
-      transition-property: width, height, top, right, background;
-      transition-timing-function: ease-in;
-      transition-duration: 0.3s;
-      // transition-duration: 3s;
-      transition-delay: 0s;
+      // transition-property: width, height, top, right, background;
+      // transition-timing-function: ease-in;
+      // transition-duration: 0.3s;
+      // // transition-duration: 3s;
+      // transition-delay: 0s;
       z-index: 1;
 
       // overflow-y: auto;
@@ -147,7 +147,7 @@
       // }
 
       .menuItems {
-        // visibility: hidden;
+        visibility: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -158,7 +158,7 @@
         // background-color: rgba(255,255,255,0.9);
         // transition: visibility 0s ease-out 0s;
         opacity: 0;
-        transition: opacity 0.2s ease-out 0s;
+        transition: opacity 0.4s ease-out 0s, visibility 0s linear 0.4s;
         // transition: visibility 0.4s ease-out 0s;
 
         a {
@@ -174,6 +174,14 @@
       #desktopResume {
         display: none;
       }
+    }
+
+    .transitionEverything {
+      transition-property: width, height, top, right, background;
+      transition-timing-function: ease-in;
+      transition-duration: 0.3s;
+      // transition-duration: 3s;
+      transition-delay: 0s;
     }
 
     #gitHubIcon {
@@ -324,47 +332,28 @@ html.expanded {
     top: 0;
     // top: 50px;
     right: 0;
-    padding-bottom: 145px;
+    // padding-bottom: 145px;
     background: rgba(0,0,0,0.92);
     // background: inherit;
 
     .menuItems {
-      // visibility: visible;
+      visibility: visible;
       transition: opacity 0.4s ease-out 0.4s;
       opacity: 1;
     }
+  }
+
+  .staticHeight {
+    height: 500px;
   }
 
   #header > .mainContainer > #buttonWrapper > #mobileButton > .hamburgerIcon {
     background-color: white;
   }
 }
-// .expanded1, .expanded1 body {
-//   height: 100%;
-//   overflow: hidden;
-//
-//   #header > .mainContainer > #mobileProfilesContainer > #headerMenu {
-//     // height: 100%;
-//     height: 457px;
-//     // height: 100%;
-//     // height: auto;
-//     width: 100%;
-//     top: 0;
-//     // top: 50px;
-//     right: 0;
-//     // background: rgba(0,0,0,0.92);
-//     // background: inherit;
-//
-//     .menuItems {
-//       visibility: visible;
-//       opacity: 1;
-//     }
-//   }
-//
-//   #header > .mainContainer > #buttonWrapper > #mobileButton > .hamburgerIcon {
-//     background-color: white;
-//   }
-// }
+.expanded.staticHeight #header > .mainContainer > #mobileProfilesContainer > #headerMenu {
+  height: 500px;
+}
 
 // #header > .mainContainer > #buttonWrapper > #testUl {
 //   // transition: position 2s linear 0s;
