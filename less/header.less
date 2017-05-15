@@ -3,8 +3,15 @@
   // background-color: #ccc;
   // padding-top: 30px;
   height: 85px;
+  // height: 100%;
   padding: 6px 0 30px;
   // border-bottom: 1px solid #eaeaea;
+  // background: green;
+  // background: rgba(0,0,0,0.92);
+
+  // position: absolute;
+  // top: 0;
+  // align-items: flex-start;
 
   #titleContainer {
     flex: 0 1 85%;
@@ -80,8 +87,8 @@
       .hamburgerIcon {
         width: 26px;
         height: 3px;
-        background-color: #555;
-        // background-color: #444;
+        // background-color: #555;
+        background-color: #777;
 
         transition: background-color 0.4s ease-out 0s;
       }
@@ -111,9 +118,9 @@
       // animation: 0.6s linear testing;
       // left: 0;
       // right: 0;
-      right: 16px;
+      right: 26px;
       // top: 0;
-      top: 42px;
+      top: 48px;
       margin: 0;
       padding: 0;
       // transition: background-color 4s linear 0s;
@@ -123,9 +130,11 @@
       transition-property: width, height, top, right, background;
       transition-timing-function: ease-in;
       transition-duration: 0.3s;
+      // transition-duration: 3s;
       transition-delay: 0s;
       z-index: 1;
 
+      // overflow-y: auto;
       // @keyframes testing {
       //   from {
       //     height: 0%;
@@ -138,7 +147,7 @@
       // }
 
       .menuItems {
-        visibility: hidden;
+        // visibility: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -149,7 +158,8 @@
         // background-color: rgba(255,255,255,0.9);
         // transition: visibility 0s ease-out 0s;
         opacity: 0;
-        transition: opacity 0.4s ease-out 0.4s;
+        transition: opacity 0.2s ease-out 0s;
+        // transition: visibility 0.4s ease-out 0s;
 
         a {
           color: white;
@@ -216,7 +226,7 @@
         transform: rotate(180deg);
 
         .menuItems {
-          visibility: visible;
+          // visibility: visible;
           opacity: 1;
           border-top: none;
           height: auto;
@@ -305,14 +315,21 @@ html.expanded {
   overflow: hidden;
 
   #header > .mainContainer > #mobileProfilesContainer > #headerMenu {
+    // height: 100%;
+    // min-height: 457px;
     height: 100%;
+    // height: auto;
     width: 100%;
     top: 0;
+    // top: 50px;
     right: 0;
+    padding-bottom: 145px;
     background: rgba(0,0,0,0.92);
+    // background: inherit;
 
     .menuItems {
-      visibility: visible;
+      // visibility: visible;
+      transition: opacity 0.4s ease-out 0.4s;
       opacity: 1;
     }
   }
@@ -320,15 +337,33 @@ html.expanded {
   #header > .mainContainer > #buttonWrapper > #mobileButton > .hamburgerIcon {
     background-color: white;
   }
-
-  // #header > .mainContainer > #buttonWrapper > #testUl {
-  //   background-color: blue!important;
-  //   position: fixed!important;
-  //   height: 100%!important;
-  //   width: 100%!important;
-  //   right: 0!important;
-  // }
 }
+// .expanded1, .expanded1 body {
+//   height: 100%;
+//   overflow: hidden;
+//
+//   #header > .mainContainer > #mobileProfilesContainer > #headerMenu {
+//     // height: 100%;
+//     height: 457px;
+//     // height: 100%;
+//     // height: auto;
+//     width: 100%;
+//     top: 0;
+//     // top: 50px;
+//     right: 0;
+//     // background: rgba(0,0,0,0.92);
+//     // background: inherit;
+//
+//     .menuItems {
+//       visibility: visible;
+//       opacity: 1;
+//     }
+//   }
+//
+//   #header > .mainContainer > #buttonWrapper > #mobileButton > .hamburgerIcon {
+//     background-color: white;
+//   }
+// }
 
 // #header > .mainContainer > #buttonWrapper > #testUl {
 //   // transition: position 2s linear 0s;
