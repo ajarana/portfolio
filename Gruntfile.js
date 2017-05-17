@@ -11,8 +11,7 @@ module.exports = function(grunt) {
         },
         files: {
           "css/portfolio.css": "less/portfolio.less",
-          "css/blog.css": "less/blog.less",
-          "css/agame.css": "less/agame.less"
+          "css/blog.css": "less/blog.less"
            // destination file and source file
         }
       }
