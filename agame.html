@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Andres Arana">
-    <meta name="description" content="Portfolio website and front-end web development blog">
-    <title>Andres</title>
-    <link rel="stylesheet" type="text/css" href="css/portfolio.css">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"> -->
+    <!-- <meta name="viewport" content="initial-scale=1, width=device-width"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=ngGl3RlKmR">
-<link rel="icon" type="image/png" href="/favicon-32x32.png?v=ngGl3RlKmR" sizes="32x32">
-<link rel="icon" type="image/png" href="/favicon-16x16.png?v=ngGl3RlKmR" sizes="16x16">
-<link rel="manifest" href="/manifest.json?v=ngGl3RlKmR">
-<link rel="mask-icon" href="/safari-pinned-tab.svg?v=ngGl3RlKmR" color="#5bbad5">
-<!-- <link rel="shortcut icon" href="/favicon2.ico?v=WGax079Wej"> -->
-<link rel="shortcut icon" href="/favicon.ico">
-<meta name="theme-color" content="#ffffff">
+    <title>A Game</title>
+    <link rel="stylesheet" type="text/css" href="css/agame.css">
 
   </head>
 
   <body>
-
+    <div id='rootWrapper' style="min-height: 100vh; margin-bottom: -130px;">
     <header id="header" class="flexCentered">
       <div class="mainContainer flexCentered textAlignCenter">
         <div id="titleContainer" class="flexLeft">
@@ -29,7 +22,7 @@
           <div id="headerTitle" class="flexLeft col-2-flex">
               <div id="logo"></div>
               <div id="headerTitleText">
-                <p><strong>Andres Arana</strong></p>
+                <p class="boldText">Andres Arana</p>
                 <p>Front-End Developer</p>
               </div>
           </div>
@@ -47,7 +40,7 @@
             <li id="mobileResume" class="menuItems"><a class="plainLink headerLink" id="resumeLink" href="css/assets/resume/Front-End-Developer-Andres-Arana.pdf" target="_blank">Resume</a>
             </li>
             <li class="menuItems">
-              <a class="plainLink headerLink" id="blogLink" href="/blog">Blog</a>
+              <a class="plainLink headerLink" id="blogLink" href="/blog.html">Blog</a>
             </li>
             <li id="desktopResume" class="menuItems"><a class="plainLink headerLink" id="resumeLink" href="css/assets/resume/Front-End-Developer-Andres-Arana.pdf" target="_blank">Resume</a>
             </li>
@@ -69,80 +62,61 @@
       </div>
     </header>
 
-    <main>
-      <div class="mainContainer">
-        <div id="introduction">
-          <p class="textAlignCenter">Hi, I'm Andres.</p>
-          <p class="textAlignCenter">I build responsive web apps.</p>
+    <section class="mainContainer">
+      <div id="instructions">
+        <div class="collapseTriggerWrapper verticalCenter">
+          <h1>How to play</h1>
+          <div id="collapseTrigger" class="downwards"></div>
         </div>
 
-        <section id="projectSection">
-          <h1 id="projectHeader" class="normalText">Projects</h1>
+        <div class="collapsibleContent collapsedContent">
+          <p>Green and blue blocks are assembled randomly in a 4x4 square. Blocks will randomly become infected and start to run red, with the interval between subsequent infections lessening as the game advances.</p>
 
-          <div id="agameSectionContainer" class="flexCenteredToFlexTopLeft flexWrapThenNoWrap sectionContainer">
-            <!-- <div class="imageHolderWrapper"> -->
-              <div class="imageHolder">
-                <!-- <a id="firstImage" class="images" href="http://ajarana.github.io/agame/" target="_blank"></a> -->
-                <a id="firstImage" class="images" href="agame" target="_blank"></a>
-              </div>
-            <!-- </div> -->
-            <!-- <img src="css/assets/agame/agame3.png" width="500"> -->
+          <h2>Objective</h2>
+          <p>The goal of the game is prevent the blocks from turning completely red by curing them. Once blocks turn completely red, they will start to infect adjacent blocks of the same original color. Completely red blocks cannot be cured.</p>
 
-            <div class="listContainer">
-              <h2 class="boldText sectionHeaders"><a class="plainLink" href="http://ajarana.github.io/agame/" target="_blank">Agame</a></h2>
-              <ul class="noPadding">
-                <li class="bulletPoints">Responsive Design</li>
-                <li class="bulletPoints">High DPI Compatible Canvas</li>
-                <li class="bulletPoints">Native JavaScript</li>
-                <li class="bulletPoints">LESS Preprocessor</li>
-                <li class="bulletPoints">HTML5</li>
-              </ul>
-            </div>
+          <h2>Rules</h2>
+          <p>When you cure an infected block, the next infected block you cure must be of the same color as the previously cured block, or you will infect that block. Once the second block in a pair is cured, you may cure any color block again. Fully infected blocks cannot be cured. Once all blocks of one color are infected, the game ends.</p>
+
+          <h2>Controls</h2>
+          <p>Select an infected block to cure it by either clicking or tapping it. Selecting a block that's not infected does nothing.</p>
+
+          <h2>Score</h2>
+          <p>Cure the blocks in pairs of equal color to increase your score. Successful consecutive cures of color pair results in a score bonus.</p>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div id="mainWrapper">
+
+      <div id="feedbackPanelWrapper">
+        <div id="blockStatusWrapper" class="noSelect">
+          <span>Choose:</span>
+          <div id="blockStatus" class="block emptyBlock">?</div>
+        </div>
+        <div id="scoreWrapper" class="noSelect">Score:&nbsp;<span id="score">0</span></div>
+      </div>
+
+      <div id="aParent" class="noHighlight sansZoom">
+        <canvas id="gameCanvas">A fun game.</canvas>
+
+        <div id="blockFeedbackContainerWrapper" class="noSelect whiteText blackBackground">
+          <div>
+            <p id="blockFeedbackText">Start</p>
           </div>
+          <p id="countDown" class="noDisplay jumboText"></p>
+        </div>
+      </div> <!-- End of div#aParent -->
 
-          <div class="border"></div>
-          <div id="mixtinSectionContainer" class="flexCenteredUp flexWrapThenNoWrap sectionContainer">
-            <div class="imageHolder">
-              <a id="secondImage" class="images" href="http://ajarana.github.io/mixtin/" target="_blank"></a>
-            </div>
-
-            <div class="listContainer">
-              <h2 class="boldText sectionHeaders"><a class="plainLink" href="http://ajarana.github.io/mixtin/" target="_blank">Mixtin</a></h2>
-              <ul class="noPadding">
-                <li class="bulletPoints">Responsive Design</li>
-                <li class="bulletPoints">Website Design</li>
-                <li class="bulletPoints">Booststrap 3</li>
-                <li class="bulletPoints">LESS Preprocessor</li>
-                <li class="bulletPoints">HTML5</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="border"></div>
-
-          <div id="newsSectionContainer" class="flexCenteredToFlexTopLeft flexWrapThenNoWrap sectionContainer">
-            <!-- <div class="imageHolderWrapper"> -->
-              <div class="imageHolder">
-                <a id="newsImage" class="images" href="http://ajarana.github.io/arcade/"></a>
-            </div>
-            <!-- </div> -->
-            <!-- <img src="css/assets/agame/agame3.png" width="500"> -->
-
-            <div class="listContainer">
-              <h2 class="boldText sectionHeaders"><a class="plainLink" href="http://ajarana.github.io/agame/" target="_blank">News Feed</a></h2>
-              <ul class="noPadding">
-                <li class="bulletPoints">React + Redux</li>
-                <li class="bulletPoints">Ajax</li>
-                <li class="bulletPoints">CSS3</li>
-                <li class="bulletPoints">HTML5</li>
-                <li class="bulletPoints">Responsive Design</li>
-              </ul>
-            </div>
-          </div>
-        </section>
       </div>
     </main>
 
+    <div id="push"></div>
+    </div>
+    <!-- <footer class="stickyFooter">
+        <a id="portfolioLink" class="plainLink" href="/">Portfolio</a>
+    </footer> -->
     <footer id="footer" class="flexCentered">
       <div class="mainContainer textAlignCenter">
         <p class="noMargin lightGray">Contact Me</p>
@@ -153,7 +127,8 @@
       </div>
     </footer>
 
+    <script type="text/javascript" src="js/agame/agame.js"></script>
+    <script type="text/javascript" src="js/agame/displayContent.js"></script>
     <script type="text/javascript" src="js/mobileMenu.js"></script>
-
   </body>
 </html>
