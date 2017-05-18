@@ -17,7 +17,6 @@ body {
   font-size: 200%;
 
   p {
-    // margin: 14px 0;
     margin: 0;
     line-height: 1.6em;
   }
@@ -52,88 +51,34 @@ body {
   }
 
   .imageHolder {
-    // To prevent default flexbox behavior until appropriate.
     width: 100%;
-    // max-width: 420px;
-    // margin: 0 auto;
-    // display: flex;
-    // justify-content: center;
 
     #firstImage {
       background-image: url("assets/agame/agameBottom22width5Cropped.png");
       background-position: 50% 100%;
-
-      // width: 272px;
       width: 266px;
       height: 266px;
     }
-    // @media (min-width: 768px) {
-    //   #firstImage {
-    //     // background-image: url("assets/agame/agame5.png");
-    //     background-image: url("assets/agame/agameBottom22width5Cropped.png");
-    //     // background-position: 0% 0%;
-    //     background-position: 50% 100%;
-    //
-    //     width: 266px;
-    //     height: 266px;
-    //   }
-    // }
 
     #secondImage {
       background-image: url("assets/mixtin/mixtin100v2c.png");
-      // background-image: url("assets/arcade/arcade3C2.png");
-
       background-position: 0% 0%;
-      // background-size: contain;
-      // background-size: 100%;
-      // width: 380px;
       width: 100%;
       max-width: 560px;
       height: 455px;
     }
-    // @media (min-width: 768px) {
-    //   #secondImage {
-    //     // background-image: url("assets/agame/agame3.png");
-    //     // background-position: 0% 0%;
-    //
-    //     // width: 266px;
-    //     // height: 400px;
-    //   }
-    // }
     @media (min-width: 992px) {
       #secondImage {
         width: 460px;
-        // height: 400px;
       }
     }
 
     #newsImage {
-      // background-image: url("assets/arcade/arcade3C2.png");
       background-image: url("assets/arcade/arcade10C.png");
       width: 320px;
-      // height: 370px;
       height: 457px;
     }
-    // #thirdImage {
-    //   background-image: url("assets/aolio/aolio50BottomCentered.png");
-    //   background-position: 50% 100%;
-    //
-    //   height: 195px;
-    // }
-    // @media (min-width: 768px) {
-    //   #thirdImage {
-    //     background-image: url("assets/aolio/aolio67.png");
-    //     background-position: 0% 0%;
-    //
-    //     height: 268px;
-    //   }
-    // }
   }
-  // @media (min-width: 768px) {
-  //   .imageHolder {
-  //     width: auto;
-  //   }
-  // }
   @media (min-width: 992px) {
     .imageHolder {
       width: auto;
@@ -143,34 +88,15 @@ body {
   .sectionContainer {
     padding: 125px 0;
   }
-  // @media (min-width: 768px) {
-  //   .sectionContainer {
-  //     padding: 145px 0;
-  //   }
-  // }
 
   #mixtinSectionContainer, #newsSectionContainer {
     margin: 0 -16px;
-    // margin: 0 -10%;
   }
-  // @media (min-width: 768px) {
-  //   #mixtinSectionContainer {
-  //     padding: 140px 0;
-  //   }
-  // }
-
-  // @media (min-width: 768px) {
-  //   #aolioSectionContainer {
-  //     padding: 160px 0;
-  //   }
-  // }
 
   .listContainer {
     display: inline-block;
     margin: 0 auto;
     margin-top: 35px;
-    // margin-left: 70px;
-    // margin-left: 120px;
 
     .bulletPoints {
       font-size: 114%;
@@ -186,7 +112,6 @@ body {
     .listContainer {
       margin-top: 0;
 
-      // margin-left: 75px;
       margin-right: 0px;
       margin-left: 105px;
     }
@@ -198,54 +123,8 @@ body {
     background-repeat: no-repeat;
 
     width: 100%;
-    // max-width: 380px;
-    // margin: 0 auto;
   }
-  // @media (min-width: 768px) {
-  //   .images {
-  //     width: 380px;
-  //     height: 380px;
-  //
-  //     // margin-right: 50px;
-  //   }
-  // }
-  // @media (min-width: 992px) {
-  //   .images {
-  //     width: 405px;
-  //     max-width: none;
-  //     height: 400px;
-  //
-  //     // margin-right: 100px;
-  //   }
-  // }
 }
-
-// #footer {
-//   height: 130px;
-//
-//   // border-top: 1px solid #999;
-//   border-top: 1px solid #d1d1d1;
-//   font-size: 114%;
-//
-//   margin-top: 180px;
-//
-//   #copyRight {
-//     color: #777;
-//   }
-//   #contact {
-//     // padding-bottom: 8px;
-//     padding-top: 12px;
-//   }
-// }
-// @media (min-width: 768px) {
-//   #footer {
-//     // margin-top: 0px;
-//   }
-// }
-
-// .imageHolderWrapper {
-//   width: 100%;
-// }
 
 .numberedItems {
   margin: 10px 0;
@@ -257,38 +136,20 @@ h2 {
 
 .border {
   height: 2px;
-  // width: 50%;
   width: 0%;
   margin: 0px auto;
-  // background-color: hsl(340,100%,100%);
   background-color: hsl(340,100%,50%);
 }
 @media (min-width: 768px) {
   .border {
     margin: 60px auto;
-    // width: 76%;
     background-color: hsl(340,100%,50%);
   }
 }
-// @media (min-width: 992px) {
-//   .border {
-//     // width: 86%;
-//     width: 70%;
-//   }
-// }
-// @media (min-width: 1200px) {
-//   .border {
-//     width: 76%;
-//   }
-// }
 
 #blog {
   transition: none;
-  // min-width: 700px;
-  // width: auto;
   max-width: 700px;
-  // padding: 0 25px;
-  // margin-top: 80px;
   .mainContainer {
     box-sizing: content-box;
   }
@@ -296,9 +157,6 @@ h2 {
 
 #firstBlog {
   font-size: 150%;
-  // margin-top: 50px;
-  // width: 70%;
-  // margin: 0 auto;
   overflow-wrap: break-word;
 }
 
@@ -329,14 +187,6 @@ h2 {
 .noPadding {
   padding: 0;
 }
-
-// .noMargin {
-//   margin: 0;
-// }
-
-// .lightGray {
-//   color: #666;
-// }
 
 h3 {
   font-size: 118%;
@@ -380,8 +230,6 @@ h3 {
 }
 
 #blog pre {
-  // overflow-y: hidden;
-  // overflow-x: auto;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   padding: 25px;
@@ -389,24 +237,13 @@ h3 {
   font-size: 89%;
 }
 
-#blog code {
-  // padding: 25px;
-  // width: 100%;
-}
-
-#blog h3 {
-  // margin: 45px 0 25px;
-}
-
 #blog #credits {
   margin: 35px 0;
 }
 
 #blog h1 {
-  // margin: 65px 0 -15px;
   font-size: 2.1em;
   margin: 0px 0 35px;
-  // margin: -70px 0 35px;
 }
 
 .red {
