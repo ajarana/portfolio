@@ -3,7 +3,7 @@
   var html = document.getElementsByTagName("html");
   var headerMenu = document.getElementById("headerMenu");
 
-  var minMenuHeight = '470';
+  var minMenuHeight = '580';
 
 
   mobileButton.onclick = function() {
