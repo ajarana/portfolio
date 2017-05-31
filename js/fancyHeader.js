@@ -7,11 +7,13 @@ function setCanvasScalingFactor() {
 }
 
 function draw() {
-  var cascadeFactor = 235;
+  var cascadeUpperLimit = 235;
+  var cascadeLowerLimit = 70;
   var cascadeCoefficient = 1;
+  var cascadeFactor = cascadeUpperLimit;
 
   function cascade() {
-    var columns = 55;
+    var columns = 25;
     var length = Math.round(canvas.width/(columns)) + 2;
 
     //Increments or decrements cascadeFactor by 1 or -1
@@ -20,18 +22,17 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (var i = columns; i >= 1; i--) {
-      ctx.fillStyle = "rgba(" + (125) + "," + (cascadeFactor+70) + "," + (cascadeFactor) + "," + 0.85 + ")";
-
+      ctx.fillStyle = "rgba(" + (55) + "," + (cascadeFactor+110) + "," + (cascadeFactor+(i*3)-50) + "," + 0.85 + ")";
+      console.log(ctx.fillStyle);
       ctx.fillRect(length*(i-1), 0, length, canvas.height);
     }
 
-    if (cascadeFactor > 235 || cascadeFactor < 110) {
+    if (cascadeFactor > cascadeUpperLimit || cascadeFactor < cascadeLowerLimit) {
       //Resets the color cascade
       cascadeCoefficient = -cascadeCoefficient;
     }
 
     var aRequest = window.requestAnimationFrame(cascade);
-    console.log("sup");
   }
 
   cascade();
