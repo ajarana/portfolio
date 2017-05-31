@@ -60,7 +60,10 @@
         height: 3px;
         background-color: #777;
 
-        transition: background-color 0.4s ease-out 0s;
+        // transition: background-color 0.4s ease-out 0s;
+
+        // NEW TRANSFORM STUFF
+        transition: background-color 0.33s ease-out 0s, transform 0.33s ease-out 0s, opacity 0.33s ease-out 0.2s;
       }
       .hamburgerIcon:not(:last-child) {
         margin-bottom: 6px;
@@ -123,6 +126,7 @@
       transition-property: width, height, top, right, background;
       transition-timing-function: ease-in;
       transition-duration: 0.33s;
+      // transition-duration: 0.2s;
       transition-delay: 0s;
     }
 
@@ -239,8 +243,51 @@ html.expanded {
     }
   }
 
-  #header > .mainContainer > #buttonWrapper > #mobileButton > .hamburgerIcon {
-    background-color: white;
+  #header > .mainContainer > #buttonWrapper > #mobileButton
+  {
+    padding: 10px 0;
+
+    .hamburgerIcon {
+      background-color: white;
+
+      // NEW TRANSFORM STUFF
+      // transform: rotate(90deg);
+      // animation: 3s ease-in 1 rotato;
+      transition: background-color 0.33s ease-out 0s, transform 0.33s ease-out 0s, opacity 0.33s ease-out 0s;
+    }
+    .hamburgerIcon:not(:last-child) {
+      margin-bottom: -3px;
+    }
+    #topSlice {
+      // animation: 0.33s ease-in 1 forwards rotato1;
+      transform: rotate(45deg);
+    }
+    #middleSlice {
+      // animation: 0.33s ease-in 1 forwards rotato2;
+      opacity: 0;
+    }
+    #bottomSlice {
+      // animation: 0.33s ease-in 1 forwards rotato3;
+      transform: rotate(-45deg);
+    }
+
+    @keyframes rotato1 {
+      100% {
+        transform: rotate(45deg);
+        margin-bottom: -3px;
+      }
+    }
+    @keyframes rotato2 {
+      100% {
+        opacity: 0;
+        margin-bottom: -3px;
+      }
+    }
+    @keyframes rotato3 {
+      100% {
+        transform: rotate(-45deg);
+      }
+    }
   }
 }
 .expanded.staticHeight #header > .mainContainer > #mobileProfilesContainer > #headerMenu {
