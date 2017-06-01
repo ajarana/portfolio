@@ -12,9 +12,9 @@ function draw() {
       redCoefficient = 1,
       greenCoefficient = 1,
       blueCoefficient = 1,
-      redColor = 255,
+      redColor = 0,
       greenColor = 125,
-      blueColor = 0;
+      blueColor = 255;
 
   function cascade() {
     var columns = 25,
