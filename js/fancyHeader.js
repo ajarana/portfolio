@@ -7,29 +7,40 @@ function setCanvasScalingFactor() {
 }
 
 function draw() {
-  var cascadeUpperLimit = 235;
-  var cascadeLowerLimit = 70;
-  var cascadeCoefficient = 1;
-  var cascadeFactor = cascadeUpperLimit;
+  var cascadeUpperLimit = 255,
+      cascadeLowerLimit = 0,
+      redCoefficient = 1,
+      greenCoefficient = 1,
+      blueCoefficient = 1,
+      redColor = 255,
+      greenColor = 125,
+      blueColor = 0;
 
   function cascade() {
-    var columns = 25;
-    var length = Math.round(canvas.width/(columns)) + 2;
+    var columns = 25,
+        length = Math.round(canvas.width/(columns)) + 2;
 
     //Increments or decrements cascadeFactor by 1 or -1
-    cascadeFactor += cascadeCoefficient;
+    redColor += redCoefficient;
+    greenColor += greenCoefficient;
+    blueColor += blueCoefficient;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (var i = columns; i >= 1; i--) {
-      ctx.fillStyle = "rgba(" + (55) + "," + (cascadeFactor+110) + "," + (cascadeFactor+(i*3)-50) + "," + 0.85 + ")";
-      console.log(ctx.fillStyle);
+      ctx.fillStyle = "rgba(" + (redColor+(i*3)) + "," + (greenColor) + "," + (blueColor) + "," + 0.99 + ")";
+
       ctx.fillRect(length*(i-1), 0, length, canvas.height);
     }
 
-    if (cascadeFactor > cascadeUpperLimit || cascadeFactor < cascadeLowerLimit) {
-      //Resets the color cascade
-      cascadeCoefficient = -cascadeCoefficient;
+    if (redColor > cascadeUpperLimit || redColor < cascadeLowerLimit) {
+      redCoefficient = -redCoefficient;
+    }
+    else if (greenColor > (cascadeUpperLimit) || greenColor <= cascadeLowerLimit) {
+      greenCoefficient = -greenCoefficient;
+    }
+    else if (blueColor > cascadeUpperLimit || blueColor < cascadeLowerLimit) {
+      blueCoefficient = -blueCoefficient;
     }
 
     var aRequest = window.requestAnimationFrame(cascade);
