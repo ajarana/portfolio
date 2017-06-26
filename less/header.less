@@ -2,6 +2,7 @@
   height: 48px;
   padding: 0 20px;
   background-color: #2b2b2b;
+  background-color: #333;
 
   #titleContainer {
     flex: 0 1 85%;
@@ -122,22 +123,7 @@
       transition: height 0s ease-in 0.33s, width 0s ease-in 0.33s, background-color 0.33s ease-in 0s, border-color 0.33s ease-in 0s;
     }
 
-    #gitHubIcon, #codePenLogo {
-      width: 40px;
-      height: 40px;
-    }
-    #gitHubIcon {
-      background-image: url("assets/icons/GitHub-Mark-Light-120px-plus.png");
-      background-size: contain;
-    }
-    .outer-ring {
-      fill: white;
-    }
-    .inner-box {
-      fill: white;
-    }
     .headerLink {
-      // font-size: 172%;
       font-size: 1.4em;
     }
   @media (min-width: 768px) {
@@ -175,44 +161,16 @@
         }
         .menuItems:first-child {
           margin-top: 0;
-          background-color: black;
+        }
+
+        .selected {
+           background-color: black;
         }
       }
 
-      #gitHubIcon, #codePenLogo {
-        // width: 32px;
-        // height: 32px;
-
-        width: 28px;
-        height: 28px;
-      }
-
-      #gitHubIcon {
-        background-image: url("assets/icons/GitHub-Mark-Light-120px-plus.png");
-      }
-
-      #blogLink.menuItems {
-      //   padding-right: 0;
-      }
-
-      // .outer-ring {
-      //   fill: black;
-      // }
-      // .inner-box {
-      //   fill: black;
-      // }
-      .outer-ring {
-        fill: white;
-      }
-      .inner-box {
-        fill: white;
-      }
       .headerLink {
-      //   font-size: 1em;
       font-size: 14px;
-      //   font-size: 0.909em;
       }
-   //  }
   }
 } //end of Header
 
@@ -229,7 +187,7 @@ html.expanded {
     min-height: 435px;
     width: 100%;
 
-    background-color: rgba(43, 43, 43, 1);
+    background-color: #333;
     border-top: 1px solid;
     border-color: #aaa;
 
