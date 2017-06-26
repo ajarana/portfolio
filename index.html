@@ -77,21 +77,6 @@
         </div>
 
       </div>
-      <script>
-      var img = document.getElementById('img');
-
-      img.onload = function() {
-        //Old browser
-        if ( typeof img.currentSrc === "undefined" ) {
-          console.log( img.src );
-        }
-        //Modern browser
-        else {
-          console.log( img.currentSrc );
-          document.getElementById("portfolioPointer").innerHTML = img.currentSrc + "<br>" + "window's inner width: " + window.innerWidth + "<br>" + "window's inner height: " + window.innerHeight;
-        }
-      }
-      </script>
 
       <div class="mainContainer">
         <section id="projectSection">
