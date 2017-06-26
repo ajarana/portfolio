@@ -46,6 +46,8 @@
       #hamburgerWrapper {
         position: relative;
         bottom: 0%;
+
+        transition: bottom 0.33s ease-out 0s;
       }
 
       .hamburgerIcon {
@@ -53,7 +55,6 @@
         height: 2px;
         background-color: white;
 
-        // NEW TRANSFORM STUFF
         transition: background-color 0.33s ease-out 0s, transform 0.33s ease-out 0s, opacity 0s ease-out 0.33s, margin-bottom 0.33s ease-out 0.33s;
       }
       .hamburgerIcon:not(:last-child) {
@@ -236,38 +237,20 @@ html.expanded {
       visibility: visible;
       transition: opacity 0.4s ease-out 0.4s;
       opacity: 1;
-
-      a {
-        // display: inline-block;
-        // text-align: center;
-        // padding: 25px 0;
-        // width: 100%;
-      }
     }
   }
 
-  // #header > .mainContainer > #buttonWrapper > #mobileButton
-  // {
   #header > #buttonWrapper > #mobileButton
   {
     padding: 10px 0;
 
     #hamburgerWrapper {
-      // background-color: pink;
-      // transition: height 0.33s ease-out 3.33s;
       transition: bottom 0.33s ease-out 0.33s;
-      // height: 50%;
-      // transition: max-height 2.33s ease-out 3.33s;
-      // max-height: 50%;
-      // bottom: 50%;
       bottom: calc(~'50% - 1px');
     }
 
     .hamburgerIcon {
       background-color: white;
-
-      transition: background-color 0.33s ease-out 0s, transform 0.33s ease-out 0s, opacity 0.33s ease-out 0s;
-      transition: background-color 0.33s ease-out 0s, transform 0.33s ease-out 0.33s, opacity 0s ease-out 0.33s, margin-bottom 0.33s ease-out 0s;
 
       transition: background-color 0.33s ease-out 0s, transform 0.33s ease-out 0.33s, opacity 0s ease-out 0.33s, margin-bottom 0.33s ease-out 0s;
     }
