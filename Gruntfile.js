@@ -16,7 +16,8 @@ module.exports = function(grunt) {
           "css/header.css": "less/header.less",
           "css/colors.css": "less/colors.less",
           "css/responsive.css": "less/responsive.less",
-          "css/normalize.css": "less/normalize.less"
+          "css/normalize.css": "less/normalize.less",
+          "css/main.css": "less/main.less"
            // destination file and source file
         }
       }
