@@ -78,15 +78,11 @@ body {
 #portfolioPointer p {
    position: relative;
    display: inline-block;
-   /*height: 2em;*/
-   /*padding-bottom: 1.8em;*/
    padding: 0.5em 0.5em 1.8em;
    line-height: normal;
-   transition: color 0.2s ease-out 0s;
-   /*transition: bottom 5s linear 0s;*/
+   transition: color 0.22s ease-out 0s;
    cursor: pointer;
-   color: white;
-   color: rgba(255, 255, 255, 0.85);
+   color: rgba(255, 255, 255, 0.9);
 }
 
 #portfolioPointer p:after {
@@ -98,14 +94,14 @@ body {
    height: 0.4em;
    border-style: solid;
    border-width: 0.25em;
-   border-color: transparent white white transparent;
+   border-color: transparent rgba(255, 255, 255, 0.9) rgba(255, 255, 255, 0.9) transparent;
    transform: rotate(45deg);
 
    position: absolute;
    left: calc(~'50% - 0.45em');
    bottom: 0.9em;
 
-   transition: border-color 0.2s ease-out 0s;
+   transition: border-color 0.22s ease-out 0s;
 }
 
 #portfolioPointer p:hover {
