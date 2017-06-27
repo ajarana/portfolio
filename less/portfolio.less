@@ -9,8 +9,6 @@ body {
   color: white;
   height: calc(~'100vh - 48px');
   position: relative;
-  display: flex;
-  align-items: flex-start;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -34,9 +32,19 @@ body {
     margin-top: -80px;
     margin-top: calc(~'43vh - 48px');
     width: 100%;
+    max-width: 500px;
     padding: 0 20px;
 
     text-shadow: 0 0 2px rgba(0,0,0,0.78);
+
+    a {
+      color: white;
+      transition: color 0.22s ease-out;
+
+      &:hover {
+         color: rgba(255, 255, 255, 0.88);
+      }
+   }
   }
 
   h1, p {
@@ -209,7 +217,7 @@ body {
    margin: 1.3em 0;
 
    @media (min-width: 992px) {
-      margin: 0.8em 0 1.3em;
+      margin: 0.5em 0 1.3em;
    }
 }
 
