@@ -4,7 +4,15 @@ body {
 }
 
 a {
-   color: #0171ca;
+   text-decoration: none;
+   // color: #0171ca;
+   color: #2c6ebe;
+   // color: pink!important;
+   transition: color 0.22s linear;
+
+   &:hover {
+      color: #206292;
+   }
 }
 
 .mainContainer {
@@ -180,10 +188,6 @@ a {
 
 .normalText {
   font-weight: normal;
-}
-
-.boldText {
-  font-weight: bold;
 }
 
 h1 {

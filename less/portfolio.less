@@ -5,11 +5,9 @@ body {
 }
 
 #introduction {
-  color: #666;
-  // color: white;
-  // color: #333;
+  color: #777;
   background-color: #f8f8f8;
-  height: calc(~'100vh - 48px');
+  border-bottom: 1px solid #f4f4f4;
   position: relative;
 
   -webkit-touch-callout: none;
@@ -32,62 +30,37 @@ body {
   .heroHeaderWrapper {
     position: relative;
     z-index: 1;
-   //  margin-top: -80px;
-   //  margin-top: calc(~'43vh - 48px');
     width: 100%;
     max-width: 400px;
-    padding: 0 20px;
+    padding: 7em 20px;
 
     a {
-      text-decoration: none;
-      opacity: 0.88;
-      transition: opacity 0.22s linear;
-
-      &:hover {
-         opacity: 0.99;
-      }
-
       &:after {
          content: "";
          display: inline-block;
-         width: 0.4em;
-         height: 0.4em;
-         width: 0.25em;
-         height: 0.25em;
-         width: 5px;
-         height: 5px;
-         border-width: 0.25em;
-         border-width: 0.15em;
-         border-width: 3px;
 
          width: 0.22em;
          height: 0.22em;
          border-width: 0.15em;
          border-style: solid;
-         // border-color: transparent rgba(255, 255, 255, 0.9) rgba(255, 255, 255, 0.9) transparent;
-         // border-color: transparent #666 #666 transparent;
-         border-color: #0171ca #0171ca transparent transparent;
-         // border-color: red;
+
+         border-color: #2c6ebe #2c6ebe transparent transparent;
+
          transform: rotate(45deg);
 
-         // position: absolute;
-         // left: calc(~'50% - 0.45em');
-         // bottom: 0.9em;
 
-         transition: border-color 0.22s ease-out 0s;
+         transition: border-color 0.22s linear 0s;
          margin-left: 0.3em;
          margin-bottom: 1px;
+      }
 
-         @media (min-width: 768px) {
-            width: 7px;
-            height: 7px;
-            // border-width: 4px;
-         }
+      &:hover:after {
+         border-color: #206292 #206292 transparent transparent;
       }
    }
 
-   @media (min-width: 768px) {
-      min-width: 450px;
+   @media (min-width: 992px) {
+      padding: 10em 20px;
    }
   }
 
@@ -101,124 +74,19 @@ body {
    user-select: auto;
  }
 
-  h1 {
-   //  margin-bottom: 0.35em;
-  }
-
-  p {
+  p:nth-child(2) {
      margin: 0.6em 0;
   }
-
-  @media (min-width: 768px) {
-   font-size: 1.1em;
-  }
 }
-
-#portfolioPointer {
-   position: absolute;
-   bottom: 0px;
-   left: 0;
-   width: 100%;
-   text-align: center;
-}
-
-
-#portfolioPointer p {
-   position: relative;
-   padding-bottom: 1.8em;
-   line-height: normal;
-   margin: 0;
-}
-
-#portfolioPointer a {
-   text-decoration: none;
-   opacity: 0.88;
-   transition: opacity 0.22s linear;
-   padding: 0.5em 0.5em 1.8em;
-   -webkit-backface-visibility: hidden;
-
-   &:hover {
-      opacity: 0.99;
-   }
-
-   &:after {
-      content: "";
-      display: inline-block;
-      width: 0.4em;
-      height: 0.4em;
-
-      // border-width: 0.25em;
-      // width: 0.25em;
-      // height: 0.25em;
-      border-width: 0.25em;
-      width: 0.3em;
-      height: 0.3em;
-      width: 5px;
-      height: 5px;
-      border-width: 0.2em;
-      border-width: 3px;
-      // border-width: 0.15em;
-      border-style: solid;
-      // border-color: transparent rgba(255, 255, 255, 0.9) rgba(255, 255, 255, 0.9) transparent;
-      border-color: transparent #666 #666 transparent;
-      border-color: transparent #0171ca #0171ca transparent;
-      transform: rotate(45deg);
-
-      position: absolute;
-      left: calc(~'50% - 6px');
-      // bottom: 0.9em;
-      top: 1.2em;
-
-      transition: border-color 0.22s ease-out 0s;
-
-      @media (min-width: 768px) {
-         width: 7px;
-         height: 7px;
-
-         left: calc(~'50% - 7px');
-         // border-width: 4px;
-      }
-   }
-}
-
-// #portfolioPointer p:after {
-//    content: "";
-//    display: inline-block;
-//    width: 12px;
-//    height: 12px;
-//    width: 0.4em;
-//    height: 0.4em;
-//    border-style: solid;
-//    border-width: 0.25em;
-//    // border-color: transparent rgba(255, 255, 255, 0.9) rgba(255, 255, 255, 0.9) transparent;
-//    border-color: transparent #666 #666 transparent;
-//    border-color: transparent #0171ca #0171ca transparent;
-//    transform: rotate(45deg);
-//
-//    position: absolute;
-//    left: calc(~'50% - 0.45em');
-//    bottom: 0.9em;
-//
-//    transition: border-color 0.22s ease-out 0s;
-// }
-
-// #portfolioPointer p:hover {
-//    color: rgba(255,255,255,0.65);
-// }
-//
-// #portfolioPointer p:hover:after {
-//    border-color: transparent rgba(255, 255, 255, 0.65) rgba(255, 255, 255, 0.65) transparent;
-//    border-color: red;
-// }
 
 #projectSection{
+   padding: 7em 0;
+
   #projects {
     display: inline-block;
     position: relative;
-    padding-bottom: 8px;
     padding-bottom: 0.4em;
-    padding: 1em 0 0.4em;
-    margin: 4em 0 5em;
+    margin: 0 0 2em;
   }
   #projects:after {
     content: "";
@@ -258,8 +126,11 @@ body {
   }
 
   .sectionContainer {
-    padding: 75px 0;
-    padding: 5em 0;
+   padding: 4em 0;
+
+   @media (min-width: 992px) {
+      padding: 5em 0;
+   }
   }
 
   #agameSectionContainer {
@@ -269,6 +140,10 @@ body {
   #mixtinSectionContainer, #newsSectionContainer {
     margin: 0 -16px;
   }
+
+  .sectionContainer:last-child {
+     padding-bottom: 0;
+ }
 
   .listContainer {
     display: inline-block;
@@ -310,6 +185,7 @@ body {
 
 .sectionHeaders {
    margin: 1.3em 0;
+   color: #2b6dad;
 
    @media (min-width: 992px) {
       margin: 0.5em 0 1.3em;
