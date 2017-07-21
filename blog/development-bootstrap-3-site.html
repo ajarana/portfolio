@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Andres Arana">
+    <meta name="description" content="Blog post on designing and developing a Bootstrap 3 image gallery.">
+    <title>Building a Boostrap 3 Image Gallery</title>
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,700|Source+Code+Pro:700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/blog/blog.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=E6b7ab0Qgx">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=E6b7ab0Qgx">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=E6b7ab0Qgx">
+    <link rel="manifest" href="/manifest.json?v=E6b7ab0Qgx">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=E6b7ab0Qgx" color="#333333">
+    <link rel="shortcut icon" href="/favicon.ico?v=E6b7ab0Qgx">
+    <meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="mainContainer flexLeft">
+        <div id="titleContainer">
+          <a class="plainLink" href="/">
+            <span id="logo" class="flexLeft">A</span>
+          </a>
+        </div>
+        <div id="buttonWrapper" class="flexRight">
+          <button id="mobileButton">
+            <div class="flexBottom">
+                <div id="hamburgerWrapper">
+                  <div class="hamburgerIcon"></div>
+                  <div class="hamburgerIcon"></div>
+                  <div class="hamburgerIcon"></div>
+                </div>
+            </div>
+          </button>
+        </div>
+
+       <ul id="headerMenu" class="transitionExpand">
+         <li class="menuItems">
+           <a href="/" class="textAlignCenter plainLink headerLink">
+             <p>Portfolio</p>
+          </a>
+         </li>
+
+         <li class="menuItems selected">
+           <a class="plainLink headerLink" href="/blog">
+             <p>Blog</p>
+           </a>
+         </li>
+
+         <li class="menuItems">
+            <a class="plainLink headerLink" href="https://github.com/ajarana" target="_blank">
+               <p>GitHub</p>
+            </a>
+         </li>
+
+         <li class="menuItems">
+           <a class="plainLink headerLink" href="https://codepen.io/ajarana/" target="_blank">
+             <p>CodePen</p>
+           </a>
+         </li>
+
+         <li class="menuItems">
+            <a class="plainLink headerLink" href="css/assets/resume/Front-End-Developer-Andres-Arana.pdf" target="_blank">
+               <p>Resume</p>
+            </a>
+         </li>
+
+         <li class="menuItems secondaryMenuItem">
+            <!-- <button style="border: 1px solid white; background: none; color: white; padding: 5px 14px; font-size: 14px;">Contact</button> -->
+            <a href="#" class="plainLink headerLink secondaryLink">Contact</a>
+         </li>
+       </ul>
+    </div>
+    </header>
+
+      <main class="mainContainer blogPost">
+      <section class="antiCollapsingMargins">
+         <h1>Building a Bootstrap 3 Image Gallery</h1>
+         <p>I designed and developed <a href="">this gallery</a> using Boostrap 3 components, LESS, HTML5, and a little bit of JavaScript. Truth be told, I did <strong>not</strong> learn as much about these technologies, excluding Bootstrap obviously, as I have from other projects where I built things completely from scratch.</p>
+
+         <h2>Boostrap Components</h2>
+         <p>Components used included navbars, containers, columns, among others. Their extensive <a href="http://getbootstrap.com/components/">documentation</a> does more than enough to get you through any problems. It's a very easy framework to learn.</p>
+         <h2>LESS</h2>
+         <p>My <a href="https://github.com/ajarana/mixtin/tree/master/less">LESS directory</a> consisted of the Bootstrap LESS files along with my own custom ones. Vanilla Bootstrap isn't enough for a distinct look, though customization can alot be quite a pain since Bootstrap 3 does not use things like <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Advanced_layouts_with_flexbox">flexbox</a>.</p>
+         <h2>HTML5</h2>
+         <p>I used the <a href="http://getbootstrap.com/getting-started/#template">basic HTML5 template</a> from Bootstrap's website for this part. As I stated earlier, this type of copy-paste coding isn't very conductive to learning anything, but the main goal was to learn Bootstrap. However, I did pick up some useful things from their template, such as the use of the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">viewport meta tag</a>.</p>
+         <h2>JS</h2>
+         <p>I used a little bit of Vanilla JS to make a <a href="https://github.com/ajarana/mixtin/blob/master/js/mixtinTime1.js">counter</a> that keeps track of the date. jQuery is used for other UI effects for the header and image gallery.</p>
+         <h2>Conclusions</h2>
+         <p>The best learning is done building from scratch. Using only libraries and frameworks for your workflow without bothering to learn the fundamentals only does you a disservice in the long run.</p>
+         <h2>Credits</h2>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Advanced_layouts_with_flexbox">Advanced layouts with flexbox</a></p>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">Using the viewport meta tag to control layout on mobile browsers</a></p>
+         <p><a href="http://getbootstrap.com/">Bootstrap</a></p>
+     </section>
+  </main>
+
+    <footer id="footer" class="flexCentered">
+      <div class="mainContainer textAlignCenter">
+        <!-- <p class="noMargin lightGray">Contact Me</p> -->
+        <h4 class="noMargin lightGray">Contact Me</h4>
+        <div id="contact">
+          <a href="mailto:ajoelarana@gmail.com">ajoelarana@gmail.com</a>
+        </div>
+        <!-- <div id="copyRight">	&copy; 2017 Andres Arana</div> -->
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="/js/mobileMenu.js"></script>
+
+  </body>
+</html>
