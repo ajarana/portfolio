@@ -239,13 +239,14 @@ li {
 }
 
 .linkContainer {
-   a:first-child {
-      margin-right: 2em;
-
-      @media (min-width: 992px) {
-         margin-right: 3em;
-      }
-   }
+   // a:first-child {
+   //    // margin-right: 2em;
+   //    // margin-bottom: 0.4em;
+   //
+   //    @media (min-width: 992px) {
+   //       margin-right: 3em;
+   //    }
+   // }
 }
 
 .linkIcon {
@@ -270,6 +271,22 @@ li {
 
    &:hover:after {
       border-color: #206292 #206292 transparent transparent;
+   }
+
+   &:first-child {
+      display: block;
+      width: 50%;
+      margin: 0 auto 1em;
+
+      @media (min-width: 768px) {
+         display: inline-block;
+         width: auto;
+         margin-right: 2em;
+      }
+
+      @media (min-width: 992px) {
+         margin-right: 3em;
+      }
    }
 
    @media (min-width: 992px) {
@@ -297,4 +314,8 @@ li {
    padding: 0.3em 0.9em;
    background-color: #eaeaea;
    white-space: nowrap;
+}
+
+.disabled {
+   cursor: not-allowed;
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Andres Arana">
-    <meta name="description" content="Andres Arana is a designer and front-end developer.">
+    <meta name="description" content="Building an HTML5 canvas game.">
     <title>Building an HTML5 Canvas Game</title>
     <link href="https://fonts.googleapis.com/css?family=Arimo:400,700|Source+Code+Pro:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -86,35 +86,35 @@
          <p><a href="/agame">This game</a> took me longer to make than I care to admit. Below I elaborate on the things I learned.</p>
 
          <h2>Prerequisites</h2>
-         <p>It's a good idea to familiarize yourself with some basic concepts regarding <a href="https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript">JS and the HTML5 canvas</a> before beginning.</p>
+         <p>It's a good idea to familiarize yourself with some basic concepts regarding <a href="https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript" target="_blank">JS and the HTML5 canvas</a> before beginning.</p>
          <h2>Setting the foundation</h2>
-         <p>If you're building a web game these days, it should be <a href="https://adwords.googleblog.com/2015/05/building-for-next-moment.html">responsive</a>. Mobile usage is only going to increase as more users get access to powerful smartphones that make searches easier than ever.</p>
+         <p>If you're building a web game these days, it should be <a href="https://adwords.googleblog.com/2015/05/building-for-next-moment.html" target="_blank">responsive</a>. Mobile usage is only going to increase as more users get access to powerful smartphones that make searches easier than ever.</p>
          <p>Unfortunately, when I first built this game, I wasn't aware of the mobile-first approach, and it made development a hell of a whole harder than it needed to be. Designing a game that fit on viewports with a <span class="code">min-width: 768px</span> is very simple; you don't have to worry about whether the actual game would fit in a landscape or portrait viewport.</p>
-         <p>It's when you're trying to the main content fit on a screen whose limiting dimension is only 320 pixels wide (I'm not sure why anyone would design for less these days). Anyway, once I finished the desktop version, the code didn't transfer so gracefully over to smaller viewports. Worse yet, I was using an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML5 canvas</a> element, which doesn't have a whole lot written about when it comes to responive design.</p>
+         <p>It's when you're trying to the main content fit on a screen whose limiting dimension is only 320 pixels wide (I'm not sure why anyone would design for less these days). Anyway, once I finished the desktop version, the code didn't transfer so gracefully over to smaller viewports. Worse yet, I was using an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank">HTML5 canvas</a> element, which doesn't have a whole lot written about when it comes to responive design.</p>
          <p>I wrote a <a href="/blog/development-responsive-canvas">long article</a> going into as much detail as you'll need to make a completely responsive HTML5 canvas using PURE JavaScript.</p>
          <h2>The code</h2>
-         <p><a href="https://github.com/ajarana/agame/blob/master/js/agame.js">My code</a> looks horrible. It's ~1000 lines of unoptomized, inelegant JavaScript. It's a horrible, recursive, global variable mess. Trying to re-write it now wouldn't be worth the effort because in the future I plan on making another game anyhow using what I've learned from this experience.</p>
+         <p><a href="https://github.com/ajarana/agame/blob/master/js/agame.js" target="_blank">My code</a> looks horrible. It's ~1000 lines of unoptomized, inelegant JavaScript. It's a horrible, recursive, global variable mess. Trying to re-write it now wouldn't be worth the effort because in the future I plan on making another game anyhow using what I've learned from this experience.</p>
          <p>Attempting to decipher every huge chunk of code that makes my game wouldn't be as fruitful as describing what I accomplished:</p>
          <ul>
             <li><strong>An original method for making a responsive canvas.</strong> I went through a metric **** ton of different ways to try to accomplish my goal, but I learned why things worked the way they did.</li>
-            <li><strong>Quick responsiveness for user selection on tablet and mobile devices.</strong> The default way mobile browsers take into account user selection is through the <a href="https://developer.mozilla.org/en-US/docs/Web/Events/click">click event</a>. My game responds to <a href="https://developer.mozilla.org/en-US/docs/Web/Events/touchstart">first contact with the screen</a>, whether the user is on a laptop or desktop with touch-screen functionality, a tablet, or a mobile device</a>, for maximum responsiveness.</li>
-            <li><strong>Figuring out a <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L360-L383">simple algorithm</a> for detecting adjacency.</strong></li>
-            <li><strong>Preventing easy-to-memorize patterns.</strong> <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L100-L143">This</a> is far from elegant. The furthest. But it works.</li>
-            <li><strong>Basic design considerations.</strong> This includes a <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L626-L644">point system</a>, <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L528-L566">checking</a> to see if the user selected the correct block, and a <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L750-L768">countdown</a> before the game starts.</li>
+            <li><strong>Quick responsiveness for user selection on tablet and mobile devices.</strong> The default way mobile browsers take into account user selection is through the <a href="https://developer.mozilla.org/en-US/docs/Web/Events/click" target="_blank">click event</a>. My game responds to <a href="https://developer.mozilla.org/en-US/docs/Web/Events/touchstart" target="_blank">first contact with the screen</a>, whether the user is on a laptop or desktop with touch-screen functionality, a tablet, or a mobile device</a>, for maximum responsiveness.</li>
+            <li><strong>Figuring out a <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L360-L383" target="_blank">simple algorithm</a> for detecting adjacency.</strong></li>
+            <li><strong>Preventing easy-to-memorize patterns.</strong> <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L100-L143" target="_blank">This</a> is far from elegant. The furthest. But it works.</li>
+            <li><strong>Basic design considerations.</strong> This includes a <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L626-L644" target="_blank">point system</a>, <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L528-L566" target="_blank">checking to see if the user selected the correct block</a>, and a <a href="https://github.com/ajarana/agame/blob/master/js/agame.js#L750-L768" target="_blank">countdown</a> before the game starts.</li>
          </ul>
          <h2>Conclusions</h2>
          <p>Learning through implementation is key, even if the implementation is completely horrid, you can never truly understand why until you get your hands dirty and try. And I tried.</p>
          <h2>Credits</h2>
-         <p><a href="https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript">2D breakout game using pure JavaScript</a></p>
-         <p><a href="https://adwords.googleblog.com/2015/05/building-for-next-moment.html">Building for the next moment</a></p>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript" target="_blank">2D breakout game using pure JavaScript</a></p>
+         <p><a href="https://adwords.googleblog.com/2015/05/building-for-next-moment.html" target="_blank">Building for the next moment</a></p>
          <p>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank">Canvas API</a>
          </p>
          <p>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/Events/click">Click</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Events/click" target="_blank">Click</a>
          </p>
          <p>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/Events/touchstart">Touchstart</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Events/touchstart" target="_blank">Touchstart</a>
          </p>
      </section>
   </main>
