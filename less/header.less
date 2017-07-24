@@ -116,11 +116,11 @@
         font-size: 1em;
 
         a {
-          color: white;
-          text-align: center;
-          padding: 0.9em 0;
-          width: 100%;
-          text-decoration: none;
+         //  color: white;
+         //  text-align: center;
+         //  padding: 0.9em 0;
+         //  width: 100%;
+         //  text-decoration: none;
 
          //  &:hover {
          //     color: rgba(255, 255, 255, 0.75);
@@ -145,8 +145,18 @@
 
     .headerLink {
       // p, a {
-         font-size: 1.4em;
+      font-size: 1.4em;
+      color: white;
+      text-align: center;
+      padding: 0.9em 0;
+      width: 100%;
+      text-decoration: none;
       // }
+
+      &:hover {
+         color: rgba(255, 255,255, 0.82);
+      }
+
       p {
          font-size: 1em;
          margin: 0;
@@ -194,7 +204,7 @@
           transition: background-color 0.22s linear 0s;
          // transition: none;
 
-          &:hover:not(:last-child) {
+          &:hover {
              background-color: #1f1f1f;
           }
 

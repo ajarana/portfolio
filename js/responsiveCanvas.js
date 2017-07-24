@@ -17,7 +17,7 @@ function resizeCanvas() {
     if (window.innerHeight > window.innerWidth) {
         //Makes the canvas 100% of parent width
         var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
-        // console.log(width);
+      // var width = parseInt(window.getComputedStyle(aWrapper,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(aWrapper,null).getPropertyValue("padding-right"), 10)*2);
     }
   //The viewport is in landscape mode, so var width should be based off viewport HEIGHT
     else {
@@ -29,6 +29,7 @@ function resizeCanvas() {
     //This is done in order to maintain the 1:1 aspect ratio, adjust as needed
     // var height = width;
     var height = Math.round(0.625 * width);
+   // var height = Math.round(0.825 * width);
 
     //This will be used to downscale the canvas element when devicePixelRatio > 1
     aWrapper.style.width = width + "px";
@@ -47,7 +48,7 @@ function draw() {
   var columns = 8;
   var rows = 5;
   //The length of each square
-  var length = Math.round(canvas.width/columns) - 2;
+  var length = Math.round(canvas.width/(columns)) - 2;
 
   //Increments or decrements cascadeFactor by 1, based on cascadeCoefficient
   cascadeFactor += cascadeCoefficient;
@@ -58,7 +59,23 @@ function draw() {
   for (var i = columns; i >= 1; i--) {
     for (var j = rows; j >= 1; j--) {
       //Where the color magic happens
-      ctx.fillStyle = "rgba(" + (j*i*(cascadeFactor-110)) + "," + (i*cascadeFactor) + "," + (j*cascadeFactor) + "," + 0.6 + ")";
+
+      var r = (j*i*(cascadeFactor-110)),
+          g = (i*cascadeFactor),
+          b = (j*cascadeFactor),
+          max = 248;
+
+      if (r > max) {
+         r = max;
+      }
+      if (g > max) {
+         g = max;
+      }
+      if (b > max) {
+         b = max;
+      }
+
+      ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + 0.6 + ")";
 
       ctx.fillRect((length*(i-1)) + ((i-1)*2), (length*(j-1)) + ((j-1)*2), length, length);
     }

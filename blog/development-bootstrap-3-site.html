@@ -22,30 +22,30 @@
   </head>
 
   <body>
-    <header id="header">
-      <div class="mainContainer flexLeft">
+     <header id="header">
+     <div class="mainContainer flexLeft">
         <div id="titleContainer">
-          <a class="plainLink" href="/">
-            <span id="logo" class="flexLeft">A</span>
-          </a>
+         <a class="plainLink" href="/">
+           <span id="logo" class="flexLeft">A</span>
+         </a>
         </div>
         <div id="buttonWrapper" class="flexRight">
-          <button id="mobileButton">
-            <div class="flexBottom">
+         <button id="mobileButton">
+           <div class="flexBottom">
                 <div id="hamburgerWrapper">
                   <div class="hamburgerIcon"></div>
                   <div class="hamburgerIcon"></div>
                   <div class="hamburgerIcon"></div>
                 </div>
-            </div>
-          </button>
+           </div>
+         </button>
         </div>
 
-       <ul id="headerMenu" class="transitionExpand">
+      <ul id="headerMenu" class="transitionExpand">
          <li class="menuItems">
            <a href="/" class="textAlignCenter plainLink headerLink">
              <p>Portfolio</p>
-          </a>
+         </a>
          </li>
 
          <li class="menuItems selected">
@@ -55,9 +55,9 @@
          </li>
 
          <li class="menuItems">
-            <a class="plainLink headerLink" href="https://github.com/ajarana" target="_blank">
+           <a class="plainLink headerLink" href="https://github.com/ajarana" target="_blank">
                <p>GitHub</p>
-            </a>
+           </a>
          </li>
 
          <li class="menuItems">
@@ -67,38 +67,47 @@
          </li>
 
          <li class="menuItems">
-            <a class="plainLink headerLink" href="css/assets/resume/Front-End-Developer-Andres-Arana.pdf" target="_blank">
+           <a class="plainLink headerLink" href="/css/assets/resume/Front-End-Developer-Andres-Arana.pdf" target="_blank">
                <p>Resume</p>
-            </a>
+           </a>
          </li>
 
-         <li class="menuItems secondaryMenuItem">
-            <!-- <button style="border: 1px solid white; background: none; color: white; padding: 5px 14px; font-size: 14px;">Contact</button> -->
-            <a href="#" class="plainLink headerLink secondaryLink">Contact</a>
-         </li>
-       </ul>
+         <!-- <li class="menuItems secondaryMenuItem">
+           <a href="#" class="plainLink headerLink secondaryLink disabled">Contact</a>
+         </li> -->
+      </ul>
     </div>
     </header>
-
-      <main class="mainContainer blogPost">
-      <section class="antiCollapsingMargins">
+      <section class="fullWidthContainerSmall backgroundGray flexCentered">
+         <a href="/mixtin">
+         <img class="images" src="/css/assets/mixtin/mixtin-1x.png" alt="Screenshot of the mobile menu of a Bootstrap website." srcset="/css/assets/mixtin/mixtin-1x-C.png, /css/assets/mixtin/mixtin-2x-C.png 2x, /css/assets/mixtin/mixtin-4x-C2.png 4x">
+         </a>
+      </section>
+      <main class="mainContainer blogContainer">
+      <section>
          <h1>Building a Bootstrap 3 Image Gallery</h1>
-         <p>I designed and developed <a href="/mixtin">this gallery</a> using Boostrap 3 components, LESS, HTML5, and a little bit of JavaScript. Truth be told, I did <strong>not</strong> learn as much about these technologies, excluding Bootstrap obviously, as I have from other projects where I built things completely from scratch.</p>
+         <p>I designed and developed <a href="/mixtin">this gallery</a> using Boostrap 3 components, LESS, HTML5, and a little bit of JavaScript. Bootstrap takes care of a lot of things for you: the design, media queries, modular classes, meta tags, and UI transitions and animations. Customization requires a little more knowledge, but otherwise it is a very easy framework to work with.</p>
 
          <h2>Boostrap Components</h2>
-         <p>Components used included navbars, containers, columns, among others. Their extensive <a href="http://getbootstrap.com/components/" target="_blank">documentation</a> does more than enough to get you through any problems. It's a very easy framework to learn.</p>
+         <p>Components used included navbars, containers, columns, among other components. Bootstrap's extensive <a href="http://getbootstrap.com/components/" target="_blank">documentation</a> does more than enough to get you through any problems.</p>
          <h2>LESS</h2>
-         <p>My <a href="https://github.com/ajarana/mixtin/tree/master/less" target="_blank">LESS directory</a> consisted of the Bootstrap LESS files along with my own custom ones. Vanilla Bootstrap isn't enough for a distinct look, though customization can alot be quite a pain since Bootstrap 3 does not use things like <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Advanced_layouts_with_flexbox" target="_blank">flexbox</a>.</p>
+         <p>My <a href="https://github.com/ajarana/mixtin/tree/master/less" target="_blank">LESS directory</a> consisted of the Bootstrap LESS files along with my own custom ones. Vanilla Bootstrap isn't enough for a distinct look, though customization does come with its own set of problems since Bootstrap 3 does not use things like <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Advanced_layouts_with_flexbox" target="_blank">flexbox</a>.</p>
          <h2>HTML5</h2>
-         <p>I used the <a href="http://getbootstrap.com/getting-started/#template" target="_blank">basic HTML5 template</a> from Bootstrap's website for this part. As I stated earlier, this type of copy-paste coding isn't very conductive to learning anything, but the main goal was to learn Bootstrap. However, I did pick up some useful things from their template, such as the use of the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag" target="_blank">viewport meta tag</a>.</p>
+         <p>I used the <a href="http://getbootstrap.com/getting-started/#template" target="_blank">basic HTML5 template</a> from Bootstrap's website for this part. Included are necessary meta tags and links to the external stylesheets and scripts. The rest is <a href="https://github.com/ajarana/mixtin/blob/master/index.html" target="_blank">my own code</a>.</p>
          <h2>JS</h2>
-         <p>I used a little bit of Vanilla JS to make a <a href="https://github.com/ajarana/mixtin/blob/master/js/mixtinTime1.js" target="_blank">counter</a> that keeps track of the date. jQuery is used for other UI effects for the header and image gallery.</p>
+         <p>I used a little bit of Vanilla JS to make a <a href="https://github.com/ajarana/mixtin/blob/master/js/mixtinTime1.js" target="_blank">counter</a> that keeps track of the date. jQuery is used for other UI effects, such as those for the header and image gallery sorting.</p>
          <h2>Conclusions</h2>
-         <p>The best learning is done building from scratch. Using only libraries and frameworks for your workflow without bothering to learn the fundamentals only does you a disservice in the long run.</p>
+         <p>Bootstrap is an extremely useful framework for when you need to build a responsive front-end both quickly and easily. It will require much more work to actually learn about the specific technologies they use, but it is still worthwhile to spend your time learning Bootstrap.</p>
+
+         <p>In the future, they will also include other additions to their framework including <a href="https://www.quackit.com/bootstrap/bootstrap_4/differences_between_bootstrap_3_and_bootstrap_4.cfm" target="_blank">flexbox, SCSS, rem rather than px, among other changes</a>.</p>
          <h2>Credits</h2>
          <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Advanced_layouts_with_flexbox" target="_blank">Advanced layouts with flexbox</a></p>
-         <p><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag" target="_blank">Using the viewport meta tag to control layout on mobile browsers</a></p>
          <p><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+         <p><a href="https://www.quackit.com/bootstrap/bootstrap_4/differences_between_bootstrap_3_and_bootstrap_4.cfm" target="_blank">Differences Between Bootstrap 3 and 4</a></p>
+         <div class="blogDates">
+            <p class="spacedOut lightGray"><i>Posted on July 21, 2017</i></p>
+            <p class="spacedOut lightGray"><i>Last edited on July 23, 2017</i></p>
+         </div>
      </section>
   </main>
 
