@@ -11,7 +11,6 @@ module.exports = function(grunt) {
         },
         files: {
           "css/portfolio.css": "less/portfolio.less",
-          "css/blog.css": "less/blog.less",
           "css/footer.css": "less/footer.less",
           "css/header.css": "less/header.less",
           "css/colors.css": "less/colors.less",
