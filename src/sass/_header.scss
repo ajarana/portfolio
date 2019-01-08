@@ -1,0 +1,302 @@
+$animation-duration: 0.33s;
+
+#header {
+  height: 48px;
+  // padding: 0 20px;
+  background-color: #2b2b2b;
+  background-color: #333;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  > div {
+     height: 100%;
+ }
+
+ nav {
+   height: 100%;
+   margin: 0 auto;
+ }
+
+  #titleContainer {
+     margin-right: 25.2px;
+    flex: 0 1 85%;
+
+    #logo {
+      font-family: 'Source Code Pro', monospace;
+      color: white;
+      font-size: 26px;
+      transition: color 0.2s linear 0s;
+
+      &:hover {
+         color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    #titleContainer {
+      flex: 0;
+    }
+  }
+
+  #buttonWrapper {
+    flex: 0 1 15%;
+    position: relative;
+    z-index: 99;
+
+    #mobileButton {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+      border: 1px solid transparent;
+      background-color: transparent;
+      padding: 0;
+      cursor: pointer;
+
+      .flexBottom {
+         height: 18px;
+      }
+
+      #hamburgerWrapper {
+        position: relative;
+        bottom: 0;
+
+        transition: bottom $animation-duration ease-in-out 0s;
+      }
+
+      .hamburgerIcon {
+				display: block;
+        width: 24px;
+        height: 2px;
+        background-color: white;
+
+        transition: background-color $animation-duration ease-in-out 0s, transform $animation-duration ease-in-out 0s, opacity 0s ease-in-out $animation-duration, margin-bottom $animation-duration ease-in-out $animation-duration;
+      }
+      .hamburgerIcon:not(:last-child) {
+        margin-bottom: 6px;
+      }
+    }
+    #mobileButton:focus {
+      outline: none;
+    }
+  }
+  @media (min-width: 768px) {
+    #buttonWrapper {
+      display: none;
+    }
+  }
+
+    #headerMenu {
+      box-sizing: border-box;
+      list-style: none;
+      position: absolute;
+      width: 24px;
+      height: 0px;
+      top: 48px;
+
+      left: 0;
+      margin: 0;
+      padding: 0;
+
+      border-top: 1px solid;
+      border-color: transparent;
+
+      background-color: transparent;
+      z-index: 98;
+
+      .menuItems {
+        visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0 48px;
+
+        opacity: 0;
+        transition: none;
+        font-size: 1em;
+
+      }
+      .menuItems:first-child {
+        border-top: none;
+
+         a {
+            margin-top: 0.9em;
+         }
+      }
+    }
+
+    .transitionExpand {
+      transition: height 0s ease-in 0s, width 0s ease-in 0s, background-color $animation-duration ease-in 0s, border-color $animation-duration ease-in 0s;
+    }
+    .transitionCollapse {
+      transition: height 0s ease-in $animation-duration, width 0s ease-in $animation-duration, background-color $animation-duration ease-in 0s, border-color $animation-duration ease-in 0s;
+    }
+
+    .headerLink {
+      font-size: 1.4em;
+      color: white;
+      text-align: center;
+      padding: 0.9em 0;
+      width: 100%;
+      text-decoration: none;
+
+      &:hover {
+         color: rgba(255, 255,255, 0.82);
+      }
+
+      p {
+         font-size: 1em;
+         margin: 0;
+         transition: color 0.22s linear;
+      }
+    }
+  @media (min-width: 768px) {
+      #headerMenu {
+        position: static;
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: auto;
+        width: 100%;
+        border-top: none;
+        top: 0;
+
+        p, li {
+           font-size: 14px;
+        }
+
+        .menuItems.selected {
+          p {
+             color: white;
+             margin: 0 0 -2px;
+             border-bottom: 1px solid white;
+             padding-bottom: 1px;
+          }
+        }
+
+        .menuItems {
+          visibility: visible;
+          opacity: 1;
+          border-top: none;
+          height: 100%;
+          margin: 0;
+
+          transition: background-color 0.22s linear 0s;
+         // transition: none;
+
+          &:hover {
+             background-color: #1f1f1f;
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 1.8em;
+            transition: color 0.22s linear;
+
+            &:hover {
+               p {
+                  color: white;
+               }
+            }
+          }
+        }
+        .menuItems:first-child a {
+          margin-top: 0;
+        }
+
+        .secondaryMenuItem {
+           position: absolute;
+           right: 0;
+           top: 0;
+
+           .secondaryLink {
+              border: 2px solid white;
+              background-color: transparent;
+              transition: background-color 0.22s linear;
+              color: white;
+              padding: 0 20px;
+              font-size: 14px;
+              height: 30px;
+
+              &:hover {
+                 background-color: #1f1f1f;
+              }
+           }
+        }
+      }
+
+      .headerLink {
+         font-size: 14px;
+
+         p {
+            color: rgba(255, 255, 255, 0.82);
+         }
+      }
+  }
+} //end of Header
+
+html.expanded {
+  overflow-y: scroll!important
+}
+
+.expanded, .expanded body {
+  height: 100%;
+  overflow: hidden;
+
+  #header #headerMenu {
+    height: calc(100% - 48px);
+    min-height: 510px;
+    width: 100%;
+
+    background-color: #333;
+    border-top: 1px solid;
+    border-color: #aaa;
+
+    .menuItems {
+      visibility: visible;
+      transition: opacity $animation-duration ease-in-out 0.4s;
+      opacity: 1;
+    }
+  }
+
+  #header > div > #buttonWrapper > #mobileButton
+  {
+    padding: 10px 0;
+
+    #hamburgerWrapper {
+      transition: bottom $animation-duration ease-in-out $animation-duration;
+      bottom: calc(50% - 1px);
+    }
+
+    .hamburgerIcon {
+      background-color: white;
+
+      transition: background-color $animation-duration ease-in-out 0s, transform $animation-duration ease-in-out $animation-duration, opacity 0s ease-in-out $animation-duration, margin-bottom $animation-duration ease-in-out 0s;
+    }
+    .hamburgerIcon:not(:last-child) {
+      margin-bottom: -2px;
+    }
+
+    .hamburgerIcon:first-child {
+      transform: rotate(45deg);
+    }
+    .hamburgerIcon:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburgerIcon:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.invis-aligner {
+  @media (min-width: 768px) {
+    width: 119px;
+  }
+}
