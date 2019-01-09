@@ -56,8 +56,8 @@ class Header extends React.Component {
   
           <nav>
             <ul id="headerMenu" className="transitionExpand">
-              <li className="menuItems selected">
-                <NavLink to="/" className="textAlignCenter plainLink headerLink" activeClassName="selected">
+              <li className="menuItems">
+                <NavLink to="/" exact className="textAlignCenter plainLink headerLink" activeClassName="selected">
                   <p>Portfolio</p>
                 </NavLink>
               </li>

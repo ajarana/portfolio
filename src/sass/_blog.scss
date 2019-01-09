@@ -3,6 +3,18 @@
    box-sizing: border-box;
    padding: 4em 0;
    text-align: center;
+
+   p {
+     margin-top: 0;
+   }
+
+   h2 {
+     margin-bottom: 0.5em;
+   }
+
+   h2:not(:first-child) {
+     margin-top: 2em;
+   }
 }
 
 .blogDates {

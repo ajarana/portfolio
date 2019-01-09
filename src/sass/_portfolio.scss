@@ -1,8 +1,9 @@
 #introduction {
-  // color: #777;
   color: #fff;
   position: relative;
   background-color: #333;
+  padding-left: 32px;
+  padding-right: 32px;
 
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -30,6 +31,22 @@
 	}
   
   .linkContainer {
+    a {
+      color: $lightLinkBlue2;
+
+      &:after {
+        border-color: $lightLinkBlue2 $lightLinkBlue2 transparent transparent;
+      }
+
+      &:hover {
+        color: $lightLinkBlue;
+
+        &:after {
+          border-color: $lightLinkBlue $lightLinkBlue transparent transparent;
+        }
+      }
+    }
+
     @media (min-width: 992px) {
       justify-content: center;
     }
@@ -127,7 +144,17 @@
 .sectionHeaders {
    margin: 1.3em 0 0;
 
+   .updated-time {
+     color: #999;
+     font-size: 16px;
+     margin-top: 0.6em;
+     display: block;
+   }
+
    @media (min-width: 992px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin: 0.5em 0 0;
    }
 }
@@ -145,34 +172,83 @@ figure {
 }
 
 .project:nth-child(2n) {
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .imageHolder {
       order: 2
     }
   
     .listContainer {
+      margin-left: 0;
+      margin-right: 50px;
       order: 1;
     }
   }
 }
 
+$cssColor1: hsl(200, 70%, 54%);
+$cssColor2: hsl(200, 70%, 74%);
+
 #css3 {
-  color: #2287c6;
+  animation-duration: 2.5s;
+  animation-name: cssColorChange;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.5s;
+  color: $cssColor1;
   font-weight: bold;
 }
+
+$htmlColor1: hsl(17, 80%, 54%);
+$htmlColor2: hsl(17, 80%, 74%);
 
 #html5 {
-  color: #e8622b;
+  animation-duration: 2.5s;
+  animation-name: htmlColorChange;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 1s;
+  color: $htmlColor1;
   font-weight: bold;
 }
 
-$reactColor: #61dafb;
+$reactColor1: hsl(193, 95%, 68%);
+$reactColor2: hsl(193, 95%, 86%);
 $darkBorder: #444;
 
 #react {
-  // text-shadow: -1px 0 $reactColor, 0 1px $reactColor, 1px 0 $reactColor, 0 -1px $reactColor;
-  // color: white;
-  // text-shadow: -1px 0 $darkBorder, 0 1px $darkBorder, 1px 0 $darkBorder, 0 -1px $darkBorder;
-  color: $reactColor;
+  animation-duration: 2.5s;
+  animation-name: reactColorChange;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   font-weight: bold;
+}
+
+@keyframes reactColorChange {
+  from {
+    color: $reactColor1;
+  }
+
+  to {
+    color: $reactColor2;
+  }
+}
+
+@keyframes cssColorChange {
+  from {
+    color: $cssColor1;
+  }
+
+  to {
+    color: $cssColor2;
+  }
+}
+
+@keyframes htmlColorChange {
+  from {
+    color: $htmlColor1;
+  }
+
+  to {
+    color: $htmlColor2;
+  }
 }

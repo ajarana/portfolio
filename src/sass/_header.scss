@@ -2,7 +2,6 @@ $animation-duration: 0.33s;
 
 #header {
   height: 48px;
-  // padding: 0 20px;
   background-color: #2b2b2b;
   background-color: #333;
   -webkit-user-select: none;
@@ -21,13 +20,13 @@ $animation-duration: 0.33s;
  }
 
   #titleContainer {
-     margin-right: 25.2px;
+    margin-right: 25.2px;
     flex: 0 1 85%;
 
     #logo {
       font-family: 'Source Code Pro', monospace;
       color: white;
-      font-size: 26px;
+      font-size: 22px;
       transition: color 0.2s linear 0s;
 
       &:hover {
@@ -169,12 +168,19 @@ $animation-duration: 0.33s;
            font-size: 14px;
         }
 
-        .menuItems.selected {
+        .menuItems .selected {
           p {
              color: white;
              margin: 0 0 -2px;
-             border-bottom: 1px solid white;
-             padding-bottom: 1px;
+             padding: 4px 0;
+             position: relative;
+
+             &:after {
+               $underlineLength: 80%;
+               width: $underlineLength;
+               left: (100% - $underlineLength) / 2;
+               height: 1px;
+             }
           }
         }
 
@@ -186,11 +192,6 @@ $animation-duration: 0.33s;
           margin: 0;
 
           transition: background-color 0.22s linear 0s;
-         // transition: none;
-
-          &:hover {
-             background-color: #1f1f1f;
-          }
 
           a {
             display: flex;
@@ -235,7 +236,28 @@ $animation-duration: 0.33s;
          font-size: 14px;
 
          p {
-            color: rgba(255, 255, 255, 0.82);
+            color: rgba(255, 255, 255, 0.78);
+            position: relative;
+            padding: 4px 0;
+
+            &:after {
+              $underlineLength: 0%;
+              content: '';
+              display: inline-block;
+              height: 2px;
+              width: $underlineLength;
+              background: white;
+              position: absolute;
+              bottom: 0;
+              left: (100% - $underlineLength) / 2;
+              transition: all 0.18s ease-in-out;
+            }
+         }
+
+         &:hover p:after {
+          $underlineLength: 100%;
+          width: $underlineLength;
+          left: (100% - $underlineLength) / 2;
          }
       }
   }

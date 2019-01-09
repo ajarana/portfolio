@@ -1,6 +1,8 @@
 import React from 'react'
+import moment from 'moment';
 
-const Projects = () => {
+const Projects = (props) => {
+  console.log('props bro', props)
   let projects = [
     {
       title: 'Block Aid',
@@ -9,7 +11,8 @@ const Projects = () => {
         src: './assets/agame/agame-1x.png',
         alt: 'Screenshot of a memory game.',
         srcset: './assets/agame/agame-1x.png, ./assets/agame/agame-2x.png 2x, ./assets/agame/agame-4x.png 4x'
-      }
+      },
+      lastUpdated: props.githubData.blockAid.lastUpdated
     },
     {
       title: 'Mixtin',
@@ -18,7 +21,8 @@ const Projects = () => {
         src: './assets/mixtin/mixtin-1x-C.png',
         alt: 'Screenshot of the mobile menu of a Bootstrap website.',
         srcset: './assets/mixtin/mixtin-1x-C.png, ./assets/mixtin/mixtin-2x-C.png 2x, ./assets/mixtin/mixtin-4x-C2.png 4x'
-      }
+      },
+      lastUpdated: props.githubData.mixtin.lastUpdated
     },
     {
       title: 'News Feed',
@@ -27,7 +31,8 @@ const Projects = () => {
         src: './assets/arcade/arcade-1x-C2.png',
         alt: 'Screenshot of a news feed made using React and Redux.',
         srcset: './assets/arcade/arcade-1x-C2.png, ./assets/arcade/arcade-2x-C2.png 2x, ./assets/arcade/arcade-4x-C2.png 4x'
-      }
+      },
+      lastUpdated: props.githubData.newsFeed.lastUpdated
     }
   ];
 
@@ -45,7 +50,7 @@ const Projects = () => {
       <div className="listContainer">
         <header>
           <h3 className="sectionHeaders">
-           { project.title }
+           { project.title } <span className="updated-time">Last updated: {project.lastUpdated}</span>
           </h3>
 
           <p>
@@ -70,12 +75,70 @@ const Projects = () => {
 
   return (
     <div className="mainContainer">
-      {projectList}
+      { projectList }
     </div>
   )
 };
 
 class Home extends React.Component {
+  constructor() {
+    super() 
+    console.log(moment('2017-07-24T06:03:06Z').format("MMMM Do YYYY, h:mm:ss a"))
+    this.state = {
+      githubData: {
+        blockAid: {
+          lastUpdated: 'No data received yet.'
+        },
+        mixtin: {
+          lastUpdated: 'No data received yet.'
+        },
+        newsFeed: {
+          lastUpdated: 'No data received yet.'
+        }
+      }
+    }
+  }
+
+  async componentDidMount() {
+    // let blockResponse = await fetch('https://api.github.com/repos/ajarana/agame');
+
+    // let blockJson = await blockResponse.json();
+
+    // let formattedBlockJson = moment(blockJson.pushed_at).format("MMMM Do YYYY, h:mm:ss a")
+
+    // let mixtinResponse = await fetch('https://api.github.com/repos/ajarana/mixtin');
+
+    // let mixtinJson = await mixtinResponse.json();
+
+    // let formattedMixtinJson = moment(mixtinJson.pushed_at).format("MMMM Do YYYY, h:mm:ss a")
+
+    // let newsFeedResponse = await fetch('https://api.github.com/repos/ajarana/arcade');
+
+    // let newsFeedJson = await newsFeedResponse.json();
+
+    // let formattedNewsFeedJson = moment(newsFeedJson.pushed_at).format("MMMM Do YYYY, h:mm:ss a")
+
+    // this.setState(
+    //   { 
+    //     githubData: { 
+    //       ...this.state.githubData,
+    //       blockAid: { 
+    //         ...this.state.githubData.blockAid, 
+    //         lastUpdated: formattedBlockJson 
+    //       },
+    //       mixtin: {
+    //         ...this.state.githubData.mixtin, 
+    //         lastUpdated: formattedMixtinJson
+    //       },
+    //       newsFeed: {
+    //         ...this.state.githubData.newsFeed, 
+    //         lastUpdated: formattedNewsFeedJson
+    //       }
+    //     } 
+    //   }
+    // )
+  }
+
   render() {
     return (
       <main>
@@ -86,7 +149,7 @@ class Home extends React.Component {
             <div className="hero-header-text">
               <h2>UI Developer</h2>
 
-              <p>I am a UI developer with a chemistry degree. This site was made with <span id="react">React</span> and, for the purposes of learning, without any <span id="css3">CSS3</span> frameworks/libraries or <span id="html5">HTML5</span> templates. This design is my own. Below are some of my personal projects.</p>
+              <p>I am a UI developer with a chemistry degree. This mobile-first web app was made with <span id="react">React</span> and, for the purposes of learning, without any <span id="css3">CSS3</span> frameworks/libraries or <span id="html5">HTML5</span> templates. The site and resume design are my own. Below are some of my personal projects.</p>
 
               <ul className="linkContainer">
                   <li>
@@ -99,114 +162,7 @@ class Home extends React.Component {
             </div>
           </header>
 
-          <Projects />
-
-          <div className="mainContainer">
-
-            <section id="agameSectionContainer" className="flexCenteredToFlexTopLeft flexWrapThenNoWrap sectionContainer">
-
-              <figure className="imageHolder flexCentered">
-                <a href="/agame/">
-                  <img className="images" src="./assets/agame/agame-1x.png" alt="Screenshot of a memory game." srcSet="./assets/agame/agame-1x.png, ./assets/agame/agame-2x.png 2x, ./assets/agame/agame-4x.png 4x" />
-                </a>
-              </figure>
-
-              <div className="listContainer">
-                <header>
-                  <h3 className="sectionHeaders">Block Aid</h3>
-                  <p>
-                  An HTML5 canvas game made with vanilla JavaScript and CSS3 via LESS. Maintains pixel-perfect quality even on high DPI screens.
-                  </p>
-                </header>
-
-                <ul className="linkContainer">
-                  <li>
-                    <a href="/blog/development-canvas-game" className="linkIcon">Read more</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/ajarana/agame" className="linkIcon" target="_blank" rel="noopener noreferrer">View code</a>
-                  </li>
-                  <li>
-                    <a href="/agame/" className="linkIcon">View project</a>
-                  </li>
-                </ul>
-              </div>
-
-            </section>
-
-            <div className="border"></div>
-
-            <section id="mixtinSectionContainer" className="flexCenteredUp flexWrapThenNoWrap sectionContainer">
-
-              <figure className="imageHolder flexCentered primaryImage">
-                <a href="/mixtin/">
-                  <img className="images" src="./assets/mixtin/mixtin-1x-C.png" alt="Screenshot of the mobile menu of a Bootstrap website." srcSet="./assets/mixtin/mixtin-1x-C.png, ./assets/mixtin/mixtin-2x-C.png 2x, ./assets/mixtin/mixtin-4x-C2.png 4x" />
-                </a>
-              </figure>
-
-              <div className="listContainer">
-                <header>
-                  <h3 className="sectionHeaders">Mixtin</h3>
-                  <p>
-                  A responsive website designed and developed using Bootstrap 3 components, HTML5, and CSS3 via LESS.
-                  </p>
-                </header>
-
-                <ul className="linkContainer">
-                  <li>
-                    <a href="/blog/development-bootstrap-3-site" className="linkIcon">Read more</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/ajarana/mixtin" className="linkIcon" target="_blank" rel="noopener noreferrer">View code</a>
-                  </li>
-                  <li>
-                    <a href="/mixtin/" className="linkIcon">View project</a>
-                  </li>
-                </ul>
-              </div>
-
-              <figure className="imageHolder flexCentered secondaryImage">
-                <a href="/mixtin/">
-                  <img className="images" src="./assets/mixtin/mixtin-1x-C.png" alt="Screenshot of the mobile menu of a Bootstrap website." srcSet="./assets/mixtin/mixtin-1x-C.png, ./assets/mixtin/mixtin-2x-C.png 2x, ./assets/mixtin/mixtin-4x-C.png 4x" />
-                </a>
-              </figure>
-
-            </section>
-
-            <div className="border"></div>
-
-            <section id="newsSectionContainer" className="flexCenteredToFlexTopLeft flexWrapThenNoWrap sectionContainer">
-
-              <figure className="imageHolder flexCentered">
-                <a href="/arcade/">
-                  <img className="images" src="./assets/arcade/arcade-1x-C2.png" alt="Screenshot of a news feed made using React and Redux." srcSet="./assets/arcade/arcade-1x-C2.png, ./assets/arcade/arcade-2x-C2.png 2x, ./assets/arcade/arcade-4x-C2.png 4x" />
-                </a>
-              </figure>
-
-              <div className="listContainer">
-                <header>
-                  <h3 className="sectionHeaders">News Feed</h3>
-                  <p>
-                  A tech, gaming, and science news feed designed and developed using React, Redux, HTML5, and CSS3. Data is gathered from an external JSON API using Ajax via the Fetch API.
-                  </p>
-                </header>
-
-                <ul className="linkContainer">
-                  <li>
-                    <a href="/blog/development-reactjs-news-feed" className="linkIcon">Read more</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/ajarana/arcade" className="linkIcon" target="_blank" rel="noopener noreferrer">View code</a>
-                  </li>
-                  <li>
-                    <a href="/arcade/" className="linkIcon">View project</a>
-                  </li>
-                </ul>
-              </div>
-
-            </section>
-
-          </div>
+          <Projects githubData={this.state.githubData} />
 
         </article>
 
