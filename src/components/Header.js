@@ -6,6 +6,15 @@ class Header extends React.Component {
     var mobileButton = document.getElementById("mobileButton");
     var html = document.getElementsByTagName("html");
     var headerMenu = document.getElementById("headerMenu");
+    var menuItems = document.getElementsByClassName("menuItems");
+
+    for (let i = 0; i < menuItems.length; i++) {
+      menuItems[i].onclick = () => {
+        headerMenu.classList.add("transitionCollapse");
+        headerMenu.classList.remove("transitionExpand");
+        html[0].classList.remove("expanded");
+      }
+    }
 
     mobileButton.onclick = function() {
 
@@ -18,7 +27,6 @@ class Header extends React.Component {
         headerMenu.classList.add("transitionExpand");
         headerMenu.classList.remove("transitionCollapse");
         html[0].classList.add("expanded");
-        console.log("transitionExpand should be added.");
       }
     }
 
@@ -81,7 +89,7 @@ class Header extends React.Component {
               </li>
   
               <li className="menuItems">
-                <a className="plainLink headerLink" href="css/assets/resume/Front-End-Developer-Andres-Arana.pdf" target="_blank">
+                <a className="plainLink headerLink" href="./assets/resume/UI-Developer-Andres-Arana.pdf" target="_blank">
                   <p>Resume</p>
                 </a>
               </li>

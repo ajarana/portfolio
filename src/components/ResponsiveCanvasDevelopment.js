@@ -1,18 +1,167 @@
 import React from 'react'
 
 class ResponsiveCanvasDevelopment extends React.Component {
+  constructor() {
+    super()
+
+    this.aWrapper = null;
+    this.canvas = null;
+    this.ctx = null;
+
+    this.setCanvasScalingFactor = this.setCanvasScalingFactor.bind(this);
+    this.resizeCanvas = this.resizeCanvas.bind(this);
+  }
+
+  componentDidMount() {
+    this.aWrapper = document.getElementById("aWrapper");
+    console.log('ah', this.aWrapper.style)
+    this.canvas = document.getElementById("myCanvas");
+    this.ctx = this.canvas.getContext("2d");
+
+    let that = this;
+
+    // function setCanvasScalingFactor() {
+    //   return window.devicePixelRatio || 1;
+    // }
+
+    // function resizeCanvas() {
+    //   // //Gets the devicePixelRatio
+    //   // var pixelRatio = setCanvasScalingFactor();
+    //   // var elem = document.getElementById("blog");
+
+    //   // //The viewport is in portrait mode, so var width should be based off viewport WIDTH
+    //   // if (window.innerHeight > window.innerWidth && window.getComputedStyle(elem,null)) {
+    //   //     //Makes the canvas 100% of parent width
+    //   //     var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
+    //   //   // var width = parseInt(window.getComputedStyle(aWrapper,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(aWrapper,null).getPropertyValue("padding-right"), 10)*2);
+    //   // }
+    //   // //The viewport is in landscape mode, so var width should be based off viewport HEIGHT
+    //   // else {
+    //   //     //Makes the canvas 100% of parent width
+    //   //     var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
+    //   //     // console.log(parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
+    //   // }
+
+    //   // //This is done in order to maintain the 1:1 aspect ratio, adjust as needed
+    //   // // var height = width;
+    //   // var height = Math.round(0.625 * width);
+    //   // // var height = Math.round(0.825 * width);
+
+    //   // //This will be used to downscale the canvas element when devicePixelRatio > 1
+    //   // that.aWrapper.style.width = width + "px";
+    //   // that.aWrapper.style.height = height + "px";
+
+    //   // that.canvas.width = width * pixelRatio;
+    //   // that.canvas.height = height * pixelRatio;
+    // }
+
+    // var cascadeFactor = 35;
+    var cascadeFactor = 255;
+    var cascadeCoefficient = 1;
+
+    function draw() {
+      //The number of color block columns and rows
+      var columns = 8;
+      var rows = 5;
+      //The length of each square
+      var length = Math.round(that.canvas.width/(columns)) - 2;
+
+      //Increments or decrements cascadeFactor by 1, based on cascadeCoefficient
+      cascadeFactor += cascadeCoefficient;
+
+      //Makes sure the canvas is clean at the beginning of a frame
+      that.ctx.clearRect(0, 0, that.canvas.width, that.canvas.height);
+
+      for (var i = columns; i >= 1; i--) {
+        for (var j = rows; j >= 1; j--) {
+          //Where the color magic happens
+
+          var r = (j*i*(cascadeFactor-110)),
+              g = (i*cascadeFactor),
+              b = (j*cascadeFactor),
+              max = 248;
+
+          if (r > max) {
+            r = max;
+          }
+          if (g > max) {
+            g = max;
+          }
+          if (b > max) {
+            b = max;
+          }
+
+          that.ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + 0.6 + ")";
+
+          that.ctx.fillRect((length*(i-1)) + ((i-1)*2), (length*(j-1)) + ((j-1)*2), length, length);
+        }
+      }
+
+      if (cascadeFactor > 255 || cascadeFactor < 0) {
+        //Resets the color cascade
+        cascadeCoefficient = -cascadeCoefficient;
+      }
+      //Continuously calls draw() again until cancelled
+      var aRequest = window.requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("resize", this.resizeCanvas, false);
+    console.log("window", window)
+    this.resizeCanvas();
+    draw();
+  }
+
+  setCanvasScalingFactor() {
+    return window.devicePixelRatio || 1;
+  }
+
+  resizeCanvas() {
+    //Gets the devicePixelRatio
+    var pixelRatio = this.setCanvasScalingFactor();
+    var elem = document.getElementById("blog");
+
+    //The viewport is in portrait mode, so var width should be based off viewport WIDTH
+    if (window.innerHeight > window.innerWidth && window.getComputedStyle(elem,null)) {
+        //Makes the canvas 100% of parent width
+        var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
+      // var width = parseInt(window.getComputedStyle(aWrapper,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(aWrapper,null).getPropertyValue("padding-right"), 10)*2);
+    }
+    //The viewport is in landscape mode, so var width should be based off viewport HEIGHT
+    else {
+        //Makes the canvas 100% of parent width
+        var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
+        // console.log(parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
+    }
+
+    //This is done in order to maintain the 1:1 aspect ratio, adjust as needed
+    // var height = width;
+    var height = Math.round(0.625 * width);
+    // var height = Math.round(0.825 * width);
+
+    //This will be used to downscale the canvas element when devicePixelRatio > 1
+    this.aWrapper.style.width = width + "px";
+    this.aWrapper.style.height = height + "px";
+
+    this.canvas.width = width * pixelRatio;
+    this.canvas.height = height * pixelRatio;
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resizeCanvas, false);
+  }
+  
   render() {
     return (
-      <main>
-      <div class="fullWidthContainerSmall backgroundGray">
-         <div id="aWrapper" class="blogContainer">
+      <main id="specialPost">
+      <div className="fullWidthContainerSmall backgroundGray">
+         <div id="aWrapper" className="blogContainer">
            <a href="https://codepen.io/ajarana/pen/aJgPMR" target="_blank">
-           <canvas id="myCanvas" class="responsiveCanvas">A canvas showing a plethora of cascading colors using 40 different blocks.</canvas>
+           <canvas id="myCanvas" className="responsiveCanvas">A canvas showing a plethora of cascading colors using 40 different blocks.</canvas>
            </a>
          </div>
       </div>
-      <div id="blog" class="mainContainer blogContainer">
-        <h1 class="textAlignLeft">Building a Responsive Canvas Using Vanilla JavaScript</h1>
+      <div id="blog" className="mainContainer blogContainer">
+        <h1 className="textAlignLeft">Building a Responsive Canvas Using Vanilla JavaScript</h1>
 
         <div>
         </div>
@@ -29,37 +178,46 @@ class ResponsiveCanvasDevelopment extends React.Component {
           <p>This last option is the one with the most flexibility. It's really the only way to ensure canvas contents will continue to look sharp on any screen. The first two options will make your canvas's contents look blurry after resizing because the rendering context only draws the actual shape once, afterwards it merely stretches or shrinks an image of that shape on the rescaled canvas.</p>
           <h2>Setting up our canvas</h2>
           <p>First, we need to create a canvas element that we can then access through JavaScript.</p>
-          <pre id="lul" class="darkBackground"><code>&lt;<span class="codeRed">div</span> <span class="codeBlue">id</span>=<span class="codeGreen">"aWrapper"</span>&gt;
-    <span class="codeGray">&lt;!--Include some fallback content on the 0.00001% chance your user's browser doesn't support canvas --&gt;</span>
-    &lt;<span class="codeRed">canvas</span> <span class="codeBlue">id</span>=<span class="codeGreen">"myCanvas"</span>&gt;Fallback content&lt;/<span class="codeRed">canvas</span>&gt;
-&lt;/<span class="codeRed">div</span>&gt;</code></pre>
+          <pre id="lul" className="darkBackground">
+            <code>&lt;<span className="codeRed">div</span> <span className="codeBlue">id</span>=<span className="codeGreen">"aWrapper"</span>&gt;{`
+  `}
+            <span className="codeGray">
+            &lt;!--Include some fallback content on the 0.00001% chance your user's browser doesn't support canvas --&gt;</span>
+            {`\n  `}&lt;<span className="codeRed">canvas</span> <span className="codeBlue">id</span>=<span className="codeGreen">"myCanvas"</span>&gt;Fallback content&lt;/<span className="codeRed">canvas</span>&gt;
+&lt;/<span className="codeRed">div</span>&gt;
+          </code>
+          </pre>
           <p>Now we need the canvas element to inherit its width and height properties from its parent to allow for downscaling of the width and height properties. This will be further explained later (note: the width and height properties here could also be set through JavaScript, but this is more efficient if you want to overlay some UI elements or other canvases for your project).</p>
-          <pre class="darkBackground"><code><span class="codeBlue">#aWrapper</span> &#123;
-    <span class="codeGray">/*Horizontally centers the canvas*/</span>
-    margin: <span class="codeOrange">0</span> auto;
+          <pre className="darkBackground"><code><span className="codeBlue">#aWrapper</span> &#123;
+    <span className="codeGray">{`\n  `}/*Horizontally centers the canvas*/{`\n  `}</span>
+    margin: <span className="codeOrange">0</span> auto;{`\n`}
     &#125;
-
-<span class="codeBlue">#myCanvas</span> &#123;
-    <span class="codeGray">/*This eliminates inconsistent rendering across browsers, canvas is supposed to be a block-level element across all browsers anyway*/</span>
-    display: block;
-
-    <span class="codeGray">/*myCanvas will inherit its CSS width and style property values from aWrapper*/</span>
-    width: <span class="codeOrange">100%</span>;
-    height: <span class="codeOrange">100%</span>;
-    &#125;</code></pre>
+{`\n  `}
+{`\n`}<span className="codeBlue">#myCanvas</span> &#123;
+    <span className="codeGray">{`\n  `}/*This eliminates inconsistent rendering across browsers, canvas is supposed to be a block-level element across all browsers anyway*/</span>
+    {`\n  `}display: block;
+{`\n  `}
+    {`\n  `}<span className="codeGray">/*myCanvas will inherit its CSS width and style property values from aWrapper*/</span>
+    {`\n  `}width: <span className="codeOrange">100%</span>;
+    {`\n  `}height: <span className="codeOrange">100%</span>;
+    {`\n`}&#125;</code></pre>
           <p>Then we create some JavaScript variables to reference the necessary elements in our DOM and access the <a  href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" target="_blank">2D rendering context</a> we'll use to draw shapes with.</p>
-          <pre class="darkBackground"><code><span class="codePurple">var</span> aWrapper = <span class="codeRed">document</span>.<span class="codeTeal">getElementById</span>(<span class="codeGreen">"aWrapper"</span>);
-<span class="codePurple">var</span> canvas = <span class="codeRed">document</span>.<span class="codeTeal">getElementById</span>(<span class="codeGreen">"myCanvas"</span>);
-
-<span class="codeGray">//Accesses the 2D rendering context for our canvas</span>
-<span class="codePurple">var</span> ctx = <span class="codeRed">canvas</span>.<span class="codeTeal">getContext</span>(<span class="codeGreen">"2d"</span>);</code></pre>
+          <pre className="darkBackground"><code><span className="codePurple">var</span> aWrapper = <span className="codeRed">document</span>.<span className="codeTeal">getElementById</span>(<span className="codeGreen">"aWrapper"</span>);
+          {`\n`}
+<span className="codePurple">var</span> canvas = <span className="codeRed">document</span>.<span className="codeTeal">getElementById</span>(<span className="codeGreen">"myCanvas"</span>);
+{`\n\n`}
+<span className="codeGray">//Accesses the 2D rendering context for our canvas</span>
+{`\n`}
+<span className="codePurple">var</span> ctx = <span className="codeRed">canvas</span>.<span className="codeTeal">getContext</span>(<span className="codeGreen">"2d"</span>);</code></pre>
           <p>Now we just have to actually make the canvas responsive.</p>
           <h2>Maintaining canvas quality across various device pixel ratios</h2>
           <p>The canvas coordinate space must be rendered according to the <a  href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio" target="_blank">device pixel ratio</a> of the display, otherwise the content will become blurry for any display with a device pixel ratio higher than 1. These displays are often found in mobile and tablet devices, and have more than 1 physical pixel representing every logical pixel. A more in-depth look into this subtopic can be found <a  href="https://www.html5rocks.com/en/tutorials/canvas/hidpi/" target="_blank">here</a>.</p>
           <p>The following will query the device's pixel ratio so that we can use this to alter the coordinate space. You can test this simply by increasing the zoom on a desktop browser. You'll notice that the canvas coordinate space has larger dimensions than the actual canvas element itself.</p>
-          <p><span class="red">Warning:</span> A devicePixelRatio with a floating pointer number value won't always be pretty (e.g. <a  href="https://mydevice.io/devices/#samsunggalaxys6" target="_blank">Microsoft's Lumia 1520</a> with a 2.5 pixel ratio).</p>
-          <pre class="darkBackground"><code><span class="codePurple">function</span> <span class="codeBlue">setCanvasScalingFactor</span>() &#123;
-    <span class="codePurple">return</span> <span class="codeRed">window</span>.<span class="codeRed">devicePixelRatio</span> <span class="codeTeal">||</span> <span class="codeOrange">1</span>;
+          <p><span className="red">Warning:</span> A devicePixelRatio with a floating pointer number value won't always be pretty (e.g. <a  href="https://mydevice.io/devices/#samsunggalaxys6" target="_blank">Microsoft's Lumia 1520</a> with a 2.5 pixel ratio).</p>
+          <pre className="darkBackground"><code><span className="codePurple">function</span> <span className="codeBlue">setCanvasScalingFactor</span>() &#123;
+          {`\n  `}
+    <span className="codePurple">return</span> <span className="codeRed">window</span>.<span className="codeRed">devicePixelRatio</span> <span className="codeTeal">||</span> <span className="codeOrange">1</span>;
+    {`\n`}
     &#125;</code></pre>
           <p>There is a fallback value of 1 in case the browser does not support the property.</p>
           <h2>Altering the canvas coordinate space</h2>
@@ -75,77 +233,118 @@ class ResponsiveCanvasDevelopment extends React.Component {
           <p>Screen.width always returns the same value for iOS devices, whether the screen is in landscape or portrait mode. On Android, however, screen.width is dynamic and will change according to the device's current orientation. The same is true for screen.availWidth and screen.availHeight.</p>
           <p>So now that we have a reliable way of altering the coordinate space, we can figure out how exactly we'll do that. If the viewport is in portrait mode (window.innerHeight > window.innerWidth), then our limiting factor is the viewport width, so we set our canvas's width relative to the viewport width. If the viewport is in landscape mode (window.innerWidth > window.innerHeight), then the limiting factor is the viewport height, so we set width relative to the viewport height.</p>
           <p>Feel free to use whatever breakpoints you want:</p>
-          <pre class="darkBackground"><code><span class="codePurple">function</span> <span class="codeBlue">resizeCanvas</span>() &#123;
-    <span class="codeGray">//Gets the devicePixelRatio</span>
-    <span class="codePurple">var</span> pixelRatio = <span class="codeBlue">setCanvasScalingFactor</span>();
-
-    <span class="codeGray">//The viewport is in portrait mode, so var width should be based off viewport WIDTH</span>
-    <span class="codePurple">if</span> (<span class="codeRed">window</span>.<span class="codeRed">innerHeight</span> <span class="codeTeal">></span> <span class="codeRed">window</span>.<span class="codeRed">innerWidth</span>) &#123;
-        <span class="codeGray">//Makes the canvas 100% of the viewport width</span>
-        <span class="codePurple">var</span> width = <span class="codeYellow">Math</span>.<span class="codeTeal">round</span>(<span class="codeOrange">1.0</span> <span class="codeTeal">*</span> <span class="codeRed">window</span>.<span class="codeRed">innerWidth</span>);
+          <pre className="darkBackground"><code><span className="codePurple">function</span> <span className="codeBlue">resizeCanvas</span>() &#123;
+          {`\n  `}
+    <span className="codeGray">//Gets the devicePixelRatio</span>
+    {`\n  `}
+    <span className="codePurple">var</span> pixelRatio = <span className="codeBlue">setCanvasScalingFactor</span>();
+    {`\n  `}
+    <span className="codeGray">//The viewport is in portrait mode, so var width should be based off viewport WIDTH</span>
+    {`\n\n  `}
+    <span className="codePurple">if</span> (<span className="codeRed">window</span>.<span className="codeRed">innerHeight</span> <span className="codeTeal">></span> <span className="codeRed">window</span>.<span className="codeRed">innerWidth</span>) &#123;
+    {`\n    `}
+        <span className="codeGray">//Makes the canvas 100% of the viewport width</span>
+        {`\n    `}
+        <span className="codePurple">var</span> width = <span className="codeYellow">Math</span>.<span className="codeTeal">round</span>(<span className="codeOrange">1.0</span> <span className="codeTeal">*</span> <span className="codeRed">window</span>.<span className="codeRed">innerWidth</span>);
+        {`\n  `}
     &#125;
-  <span class="codeGray">//The viewport is in landscape mode, so var width should be based off viewport HEIGHT</span>
-    <span class="codePurple">else</span> &#123;
-        <span class="codeGray">//Makes the canvas 100% of the viewport height</span>
-        <span class="codePurple">var</span> width = <span class="codeYellow">Math</span>.<span class="codeTeal">round</span>(<span class="codeOrange">1.0</span> <span class="codeTeal">*</span> <span class="codeRed">window</span>.<span class="codeRed">innerHeight</span>);
+    {`\n  `}
+  <span className="codeGray">//The viewport is in landscape mode, so var width should be based off viewport HEIGHT</span>
+  {`\n  `}
+    <span className="codePurple">else</span> &#123;
+    {`\n    `}
+        <span className="codeGray">//Makes the canvas 100% of the viewport height</span>
+        {`\n    `}
+        <span className="codePurple">var</span> width = <span className="codeYellow">Math</span>.<span className="codeTeal">round</span>(<span className="codeOrange">1.0</span> <span className="codeTeal">*</span> <span className="codeRed">window</span>.<span className="codeRed">innerHeight</span>);
+        {`\n  `}
     &#125;
+{`\n\n  `}
+    <span className="codeGray">//This is done in order to maintain the 1:1 aspect ratio, adjust as needed</span>
+    {`\n  `}
+    <span className="codePurple">var</span> height = width;
 
-    <span class="codeGray">//This is done in order to maintain the 1:1 aspect ratio, adjust as needed</span>
-    <span class="codePurple">var</span> height = width;
-
-    <span class="codeGray">//This will be used to downscale the canvas element when devicePixelRatio > 1</span>
-    <span class="codeRed">aWrapper</span>.<span class="codeRed">style</span>.<span class="codeRed">width</span> <span class="codeTeal">=</span> width <span class="codeTeal">+</span> <span class="codeGreen">"px"</span>;
-    <span class="codeRed">aWrapper</span>.<span class="codeRed">style</span>.<span class="codeRed">height</span> <span class="codeTeal">=</span> height <span class="codeTeal">+</span> <span class="codeGreen">"px"</span>;
-
-    <span class="codeGray">//pixelRatio will be either an integer or floating point number</span>
-    <span class="codeRed">canvas</span>.<span class="codeRed">width</span> <span class="codeTeal">=</span> width <span class="codeTeal">*</span> pixelRatio;
-    <span class="codeRed">canvas</span>.<span class="codeRed">height</span> <span class="codeTeal">=</span> height <span class="codeTeal">*</span> pixelRatio;
+    <span className="codeGray">
+    {`\n\n  `}//This will be used to downscale the canvas element when devicePixelRatio > 1</span>
+    {`\n  `}
+    <span className="codeRed">aWrapper</span>.<span className="codeRed">style</span>.<span className="codeRed">width</span> <span className="codeTeal">=</span> width <span className="codeTeal">+</span> <span className="codeGreen">"px"</span>;
+    {`\n  `}
+    <span className="codeRed">aWrapper</span>.<span className="codeRed">style</span>.<span className="codeRed">height</span> <span className="codeTeal">=</span> height <span className="codeTeal">+</span> <span className="codeGreen">"px"</span>;
+    {`\n\n  `}
+    <span className="codeGray">//pixelRatio will be either an integer or floating point number</span>
+    {`\n  `}
+    <span className="codeRed">canvas</span>.<span className="codeRed">width</span> <span className="codeTeal">=</span> width <span className="codeTeal">*</span> pixelRatio;
+    {`\n  `}
+    <span className="codeRed">canvas</span>.<span className="codeRed">height</span> <span className="codeTeal">=</span> height <span className="codeTeal">*</span> pixelRatio;
+    {`\n`}
 &#125;</code></pre>
-          <p><a  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round" target="_blank">Math.round</a> (only useful for when you don't want the canvas to be 100% of the viewport height/width) is used on <span class="code">var width</span> because floating point numbers are not a reliable way of drawing pixel-perfect canvas content. The resizing transitions might not be as smooth, but a few miniscule jumps is well worth high canvas content quality. </p>
+          <p><a  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round" target="_blank">Math.round</a> (only useful for when you don't want the canvas to be 100% of the viewport height/width) is used on <span className="code">var width</span> because floating point numbers are not a reliable way of drawing pixel-perfect canvas content. The resizing transitions might not be as smooth, but a few miniscule jumps is well worth high canvas content quality. </p>
           <h2>Drawing some shapes</h2>
           <p>This function draws some rectangles to help show the responsive canvas in action. At the end, we use the <a  href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame" target="_blank">window.requestAnimationFrame</a> method. This allows the browser to call your draw function before its next repaint, with whatever frequency it deems appropriate. As a result, this option is preferable to the  <a  href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval" target="_blank">window.setInterval()</a> method of updating a canvas. </p>
-          <pre class="darkBackground"><code><span class="codeGray">//To make dynamic colors</span>
-<span class="codePurple">var</span> cascadeFactor <span class="codeTeal">=</span> <span class="codeOrange">255</span>;
-<span class="codePurple">var</span> cascadeCoefficient <span class="codeTeal">=</span> <span class="codeOrange">1</span>;
+          <pre className="darkBackground"><code><span className="codeGray">//To make dynamic colors</span>
+          {`\n`}
+<span className="codePurple">var</span> cascadeFactor <span className="codeTeal">=</span> <span className="codeOrange">255</span>;
+{`\n`}
+<span className="codePurple">var</span> cascadeCoefficient <span className="codeTeal">=</span> <span className="codeOrange">1</span>;
+{`\n\n`}
+<span className="codePurple">function</span> <span className="codeBlue">draw</span>() &#123;
+{`\n  `}
+    <span className="codeGray">//The number of color block columns and rows</span>
+    {`\n  `}
+    <span className="codePurple">var</span> columns <span className="codeTeal">=</span> <span className="codeOrange">5</span>;
+    {`\n  `}
+    <span className="codePurple">var</span> rows <span className="codeTeal">=</span> <span className="codeOrange">5</span>;
+    {`\n\n  `}
+    <span className="codeGray">//The length of each square</span>
+    {`\n  `}
+    <span className="codePurple">var</span> length <span className="codeTeal">=</span> <span className="codeYellow">Math</span>.<span className="codeTeal">round</span>(<span className="codeRed">canvas</span>.<span className="codeRed">width</span><span className="codeTeal">/</span>columns) <span className="codeTeal">-</span> <span className="codeOrange">2</span>;
+{`\n\n  `}
+    <span className="codeGray">//Increments or decrements cascadeFactor by 1, based on cascadeCoefficient</span>
+    {`\n  `}
+    cascadeFactor <span className="codeTeal">+=</span> cascadeCoefficient;
+{`\n\n  `}
+    <span className="codeGray">//Makes sure the canvas is clean at the beginning of a frame</span>
+    {`\n  `}
+    <span className="codeRed">ctx</span>.<span className="codeBlue">clearRect</span>(<span className="codeOrange">0</span>, <span className="codeOrange">0</span>, <span className="codeRed">canvas</span>.<span className="codeRed">width</span>, <span className="codeRed">canvas</span>.<span className="codeRed">height</span>);
+{`\n\n  `}
+    <span className="codePurple">for</span> (<span className="codePurple">var</span> i<span className="codeTeal"> = </span>columns; i <span className="codeTeal">>=</span> <span className="codeOrange">1</span>; i<span className="codeTeal">--</span>) &#123;
+    {`\n    `}
+      <span className="codePurple">for</span> (<span className="codePurple">var</span> j<span className="codeTeal"> = </span>rows; j <span className="codeTeal">>=</span> <span className="codeOrange">1</span>; j<span className="codeTeal">--</span>) &#123;
+      {`\n      `}
+        <span className="codeGray">//Where the color magic happens</span>
+        {`\n      `}
+        <span className="codeRed">ctx</span>.<span className="codeBlue">fillStyle</span> <span className="codeTeal">=</span> <span className="codeGreen">"rgba("</span> <span className="codeTeal">+</span> j<span className="codeTeal">*</span>i<span className="codeTeal">*</span>(cascadeFactor<span className="codeTeal">-</span><span className="codeOrange">110</span>)<span className="codeTeal"> + </span><span className="codeGreen">","</span><span className="codeTeal"> + </span>i<span className="codeTeal">*</span>cascadeFactor<span className="codeTeal"> + </span><span className="codeGreen">","</span><span className="codeTeal"> + </span>j<span className="codeTeal">*</span>cascadeFactor <span className="codeTeal">+</span> <span className="codeGreen">","</span> <span className="codeTeal"> + </span><span className="codeOrange">0.6</span><span className="codeTeal"> + </span><span className="codeGreen">")"</span>;
+        {`\n      `}
 
-<span class="codePurple">function</span> <span class="codeBlue">draw</span>() &#123;
-    <span class="codeGray">//The number of color block columns and rows</span>
-    <span class="codePurple">var</span> columns <span class="codeTeal">=</span> <span class="codeOrange">5</span>;
-    <span class="codePurple">var</span> rows <span class="codeTeal">=</span> <span class="codeOrange">5</span>;
-    <span class="codeGray">//The length of each square</span>
-    <span class="codePurple">var</span> length <span class="codeTeal">=</span> <span class="codeYellow">Math</span>.<span class="codeTeal">round</span>(<span class="codeRed">canvas</span>.<span class="codeRed">width</span><span class="codeTeal">/</span>columns) <span class="codeTeal">-</span> <span class="codeOrange">2</span>;
-
-    <span class="codeGray">//Increments or decrements cascadeFactor by 1, based on cascadeCoefficient</span>
-    cascadeFactor <span class="codeTeal">+=</span> cascadeCoefficient;
-
-    <span class="codeGray">//Makes sure the canvas is clean at the beginning of a frame</span>
-    <span class="codeRed">ctx</span>.<span class="codeBlue">clearRect</span>(<span class="codeOrange">0</span>, <span class="codeOrange">0</span>, <span class="codeRed">canvas</span>.<span class="codeRed">width</span>, <span class="codeRed">canvas</span>.<span class="codeRed">height</span>);
-
-    <span class="codePurple">for</span> (<span class="codePurple">var</span> i<span class="codeTeal"> = </span>columns; i <span class="codeTeal">>=</span> <span class="codeOrange">1</span>; i<span class="codeTeal">--</span>) &#123;
-      <span class="codePurple">for</span> (<span class="codePurple">var</span> j<span class="codeTeal"> = </span>rows; j <span class="codeTeal">>=</span> <span class="codeOrange">1</span>; j<span class="codeTeal">--</span>) &#123;
-        <span class="codeGray">//Where the color magic happens</span>
-        <span class="codeRed">ctx</span>.<span class="codeBlue">fillStyle</span> <span class="codeTeal">=</span> <span class="codeGreen">"rgba("</span> <span class="codeTeal">+</span> j<span class="codeTeal">*</span>i<span class="codeTeal">*</span>(cascadeFactor<span class="codeTeal">-</span><span class="codeOrange">110</span>)<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>i<span class="codeTeal">*</span>cascadeFactor<span class="codeTeal"> + </span><span class="codeGreen">","</span><span class="codeTeal"> + </span>j<span class="codeTeal">*</span>cascadeFactor <span class="codeTeal">+</span> <span class="codeGreen">","</span> <span class="codeTeal"> + </span><span class="codeOrange">0.6</span><span class="codeTeal"> + </span><span class="codeGreen">")"</span>;
-
-        <span class="codeRed">ctx</span>.<span class="codeBlue">fillRect</span>((length<span class="codeTeal">*</span>(i<span class="codeTeal">-</span><span class="codeOrange">1</span>)) <span class="codeTeal">+</span> ((i<span class="codeTeal">-</span><span class="codeOrange">1</span>)<span class="codeTeal">*</span><span class="codeOrange">2</span>), (length<span class="codeTeal">*</span>(j<span class="codeTeal">-</span><span class="codeOrange">1</span>)) <span class="codeTeal">+</span> ((j<span class="codeTeal">-</span><span class="codeOrange">1</span>)<span class="codeTeal">*</span><span class="codeOrange">2</span>), length, length);
+        <span className="codeRed">ctx</span>.<span className="codeBlue">fillRect</span>((length<span className="codeTeal">*</span>(i<span className="codeTeal">-</span><span className="codeOrange">1</span>)) <span className="codeTeal">+</span> ((i<span className="codeTeal">-</span><span className="codeOrange">1</span>)<span className="codeTeal">*</span><span className="codeOrange">2</span>), (length<span className="codeTeal">*</span>(j<span className="codeTeal">-</span><span className="codeOrange">1</span>)) <span className="codeTeal">+</span> ((j<span className="codeTeal">-</span><span className="codeOrange">1</span>)<span className="codeTeal">*</span><span className="codeOrange">2</span>), length, length);
+        {`\n    `}
        &#125;
+       {`\n  `}
     &#125;
+    {`\n\n  `}
 
-    <span class="codePurple">if</span> (cascadeFactor <span class="codeTeal">></span> <span class="codeOrange">275</span> <span class="codeTeal">||</span> cascadeFactor <span class="codeTeal">&lt;</span> <span class="codeOrange">0</span>) &#123;
-      <span class="codeGray">//Resets the color cascade</span>
-      cascadeCoefficient <span class="codeTeal">=</span> <span class="codeTeal">-</span>cascadeCoefficient;
+    <span className="codePurple">if</span> (cascadeFactor <span className="codeTeal">></span> <span className="codeOrange">275</span> <span className="codeTeal">||</span> cascadeFactor <span className="codeTeal">&lt;</span> <span className="codeOrange">0</span>) &#123;
+    {`\n    `}
+      <span className="codeGray">//Resets the color cascade</span>
+      {`\n    `}
+      cascadeCoefficient <span className="codeTeal">=</span> <span className="codeTeal">-</span>cascadeCoefficient;
+      {`\n  `}
     &#125;
-
-    <span class="codeGray">//Continuously calls draw() again until cancelled</span>
-    <span class="codePurple">var</span> someID <span class="codeTeal">=</span> <span class="codeRed">window</span>.<span class="codeBlue">requestAnimationFrame</span>(draw);
+{`\n\n  `}
+    <span className="codeGray">//Continuously calls draw() again until cancelled</span>
+    {`\n  `}
+    <span className="codePurple">var</span> someID <span className="codeTeal">=</span> <span className="codeRed">window</span>.<span className="codeBlue">requestAnimationFrame</span>(draw);
+    {`\n`}
 &#125;</code></pre>
           <p>Setting an ID for the request allows for canceling later using <a  href="https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame" target="_blank">window.cancelAnimationFrame()</a>.</p>
           <h2>Listening for the changes to our viewport</h2>
           <p>The most dependable way to listen for updates to window.innerWidth and window.innerHeight is to use: </p>
-          <pre class="darkBackground"><code><span class="codeRed">window</span>.<span class="codeTeal">addEventListener</span>(<span class="codeGreen">"resize"</span>, resizeCanvas, <span class="codeOrange">false</span>);
-
-<span class="codeGray">//Called once so everything renders correctly on load time</span>
-<span class="codeBlue">resizeCanvas</span>();
-<span class="codeBlue">draw</span>();</code></pre>
+          <pre className="darkBackground"><code><span className="codeRed">window</span>.<span className="codeTeal">addEventListener</span>(<span className="codeGreen">"resize"</span>, resizeCanvas, <span className="codeOrange">false</span>);
+{`\n\n`}
+<span className="codeGray">//Called once so everything renders correctly on load time</span>
+{`\n`}
+<span className="codeBlue">resizeCanvas</span>();
+{`\n`}
+<span className="codeBlue">draw</span>();</code></pre>
           <p>Events such as <a  href="https://developer.mozilla.org/en-US/docs/Web/Events/orientationchange" target="_blank">orientationchange</a> can also be used for mobile and tablet devices, but they're unreliable across browsers. For example, window.innerWidth and window.outerWidth will update properly by the time the orientationchange event ends on Safari in iOS 10, but they will not update properly on Firefox, Chrome, or Opera Mini on iOS devices.</p>
 
           <h2>Conclusion</h2>
@@ -161,9 +360,9 @@ class ResponsiveCanvasDevelopment extends React.Component {
           <p><a  href="https://www.html5rocks.com/en/tutorials/canvas/hidpi/" target="_blank">High DPI Canvas</a></p>
           <p><a  href="https://www.html5rocks.com/en/tutorials/casestudies/gopherwoord-studios-resizing-html5-games/" target="_blank">Case Study: Auto-Resizing HTML5 Games</a></p>
           <p><a  href="https://stackoverflow.com/questions/3543358/resizing-a-html-canvas-blanks-its-contents" target="_blank">Resizing a HTML canvas blanks its contents</a></p>
-          <div class="blogDates">
-          <p class="spacedOut lightGray"><i>Posted on March 31, 2017</i></p>
-          <p class="spacedOut lightGray"><i>Last edited on July 23, 2017</i></p>
+          <div className="blogDates">
+          <p className="spacedOut lightGray"><i>Posted on March 31, 2017</i></p>
+          <p className="spacedOut lightGray"><i>Last edited on July 23, 2017</i></p>
          </div>
         </section>
       </div>

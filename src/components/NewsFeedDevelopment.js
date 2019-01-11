@@ -3,8 +3,14 @@ import React from 'react'
 class NewsFeedDevelopment extends React.Component {
   render() {
     return (
-      <main class="mainContainer blogContainer">
-      <section>
+      <main>
+      <section className="fullWidthContainerSmall backgroundGray flexCentered">
+        <a href="/arcade/">
+           <img id="reactThumbnail" className="images" src="./assets/arcade/arcade-1x-C2.png" alt="Screenshot of a news feed made using React and Redux." srcSet="./assets/arcade/arcade-1x-C2.png, ./assets/arcade/arcade-2x-C2.png 2x, ./assets/arcade/arcade-4x-C2.png 4x" />
+        </a>
+      </section>
+
+      <section className="mainContainer blogContainer">
          <h1>Building a ReactJS News Feed</h1>
          <p>This <a href="/arcade/">news feed</a> was built using ReactJS and Redux. I also used plain, old CSS3 for the layout and icons. I didn't bother generating the header or footer with React, however, because it's a static component I use across my entire website.</p>
 
@@ -31,9 +37,9 @@ class NewsFeedDevelopment extends React.Component {
          <p><a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0" target="_blank">Presentational and Container Components</a></p>
          <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_2015_support_in_Mozilla" target="_blank">ECMAScript 2015 support in Mozilla</a></p>
          <p><a href="http://redux.js.org/docs/basics/DataFlow.html" target="_blank">Data Flow</a></p>
-         <div class="blogDates">
-            <p class="spacedOut lightGray"><i>Posted on July 21, 2017</i></p>
-            <p class="spacedOut lightGray"><i>Last edited on July 23, 2017</i></p>
+         <div className="blogDates">
+            <p className="spacedOut lightGray"><i>Posted on July 21, 2017</i></p>
+            <p className="spacedOut lightGray"><i>Last edited on July 23, 2017</i></p>
          </div>
      </section>
   </main>

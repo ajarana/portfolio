@@ -20,6 +20,11 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    // "deploy": "gh-pages -d build"
+    "deploy": ""
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }

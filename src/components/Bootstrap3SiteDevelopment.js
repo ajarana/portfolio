@@ -1,17 +1,16 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
 
 class Bootstrap3SiteDevelopment extends React.Component {
   render() {
     return (
-      <main className="mainContainer blogContainer">
-        <section className="fullWidthContainerSmall flexCentered">
+      <main>
+        <section className="fullWidthContainerSmall flexCentered backgroundGray">
           <a href="/mixtin/">
             <img className="images" src="./assets/mixtin/mixtin-1x.png" alt="Screenshot of the mobile menu of a Bootstrap website." srcSet="./assets/mixtin/mixtin-1x-C.png, ./assets/mixtin/mixtin-2x-C.png 2x, ./assets/mixtin/mixtin-4x-C2.png 4x" />
           </a>
         </section>
 
-        <section>
+        <section className="mainContainer blogContainer">
           <h1>Building a Bootstrap 3 Image Gallery</h1>
           <p>I designed and developed <a href="/mixtin/">this gallery</a> using Boostrap 3 components, LESS, HTML5, and a little bit of JavaScript. Bootstrap takes care of a lot of things for you: the design, media queries, modular classes, meta tags, and UI transitions and animations. Customization requires a little more knowledge, but otherwise it is a very easy framework to work with.</p>
 

@@ -15,23 +15,23 @@ class Footer extends Component {
   }
 
   async componentDidMount() {
-    // let portfolioResponse = await fetch('https://api.github.com/repos/ajarana/ajarana.github.io');
+    let portfolioResponse = await fetch('https://api.github.com/repos/ajarana/ajarana.github.io');
 
-    // let portfolioJson = await portfolioResponse.json();
+    let portfolioJson = await portfolioResponse.json();
 
-    // let formattedPortfolioJson = moment(portfolioJson.pushed_at).format("MMMM Do YYYY, h:mm:ss a")
+    let formattedPortfolioJson = moment(portfolioJson.pushed_at).format("MMMM Do YYYY, h:mm:ss a")
 
-    // this.setState(
-    //   { 
-    //     githubData: { 
-    //       ...this.state.githubData,
-    //       portfolio: { 
-    //         ...this.state.githubData.portfolio, 
-    //         lastUpdated: formattedPortfolioJson 
-    //       }
-    //     } 
-    //   }
-    // )
+    this.setState(
+      { 
+        githubData: { 
+          ...this.state.githubData,
+          portfolio: { 
+            ...this.state.githubData.portfolio, 
+            lastUpdated: formattedPortfolioJson 
+          }
+        } 
+      }
+    )
   }
 
   render () {
