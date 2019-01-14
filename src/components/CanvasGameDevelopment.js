@@ -6,7 +6,7 @@ class CanvasGameDevelopment extends React.Component {
       <main>
         <section className="fullWidthContainerSmall backgroundGray flexCentered">
         <a href="/agame/">
-            <img className="images" src=".assets/agame/agame-1x.png" alt="Screenshot of a memory game." srcSet="/assets/agame/agame-1x.png, /assets/agame/agame-2x.png 2x, /assets/agame/agame-4x.png 4x" />
+            <img className="images" src="assets/agame/agame-1x.png" alt="Screenshot of a memory game." srcSet="assets/agame/agame-1x.png, assets/agame/agame-2x.png 2x, assets/agame/agame-4x.png 4x" />
         </a>
       </section>
 

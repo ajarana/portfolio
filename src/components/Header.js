@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from "react-router-dom"
+import pdf from './../assets/resume/UI-Developer-Andres-Arana.pdf'
 
 class Header extends React.Component {
   componentDidMount() {
@@ -89,7 +90,7 @@ class Header extends React.Component {
               </li>
   
               <li className="menuItems">
-                <a className="plainLink headerLink" href="/assets/resume/UI-Developer-Andres-Arana.pdf" target="_blank">
+                <a className="plainLink headerLink" href={ pdf } target="_blank">
                   <p>Resume</p>
                 </a>
               </li>

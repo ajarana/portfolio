@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment';
 import { NavLink } from "react-router-dom"
+import pdf from './../assets/resume/UI-Developer-Andres-Arana.pdf'
 
 const Projects = (props) => {
   let projects = [
@@ -8,9 +9,9 @@ const Projects = (props) => {
       title: 'Block Aid',
       description: 'An HTML5 canvas game made with vanilla JavaScript and CSS3 via LESS. Maintains pixel-perfect quality even on high DPI screens.',
       assets: {
-        src: '/assets/agame/agame-1x.png',
+        src: 'assets/agame/agame-1x.png',
         alt: 'Screenshot of a memory game.',
-        srcset: '/assets/agame/agame-1x.png, /assets/agame/agame-2x.png 2x, /assets/agame/agame-4x.png 4x'
+        srcset: 'assets/agame/agame-1x.png, assets/agame/agame-2x.png 2x, assets/agame/agame-4x.png 4x'
       },
       lastUpdated: props.githubData.blockAid.lastUpdated,
       blog: '/blog/development-canvas-game',
@@ -20,9 +21,9 @@ const Projects = (props) => {
       title: 'Mixtin',
       description: 'A responsive website designed and developed using Bootstrap 3 components, HTML5, and CSS3 via LESS.',
       assets: {
-        src: '/assets/mixtin/mixtin-1x-C.png',
+        src: 'assets/mixtin/mixtin-1x-C.png',
         alt: 'Screenshot of the mobile menu of a Bootstrap website.',
-        srcset: '/assets/mixtin/mixtin-1x-C.png, /assets/mixtin/mixtin-2x-C.png 2x, /assets/mixtin/mixtin-4x-C2.png 4x'
+        srcset: 'assets/mixtin/mixtin-1x-C.png, assets/mixtin/mixtin-2x-C.png 2x, assets/mixtin/mixtin-4x-C2.png 4x'
       },
       lastUpdated: props.githubData.mixtin.lastUpdated,
       blog: '/blog/development-bootstrap-3-site',
@@ -32,9 +33,9 @@ const Projects = (props) => {
       title: 'News Feed',
       description: 'A tech, gaming, and science news feed designed and developed using React, Redux, HTML5, and CSS3. Data is gathered from an external JSON API using Ajax via the Fetch API.',
       assets: {
-        src: '/assets/arcade/arcade-1x-C2.png',
+        src: 'assets/arcade/arcade-1x-C2.png',
         alt: 'Screenshot of a news feed made using React and Redux.',
-        srcset: '/assets/arcade/arcade-1x-C2.png, /assets/arcade/arcade-2x-C2.png 2x, /assets/arcade/arcade-4x-C2.png 4x'
+        srcset: 'assets/arcade/arcade-1x-C2.png, assets/arcade/arcade-2x-C2.png 2x, assets/arcade/arcade-4x-C2.png 4x'
       },
       lastUpdated: props.githubData.newsFeed.lastUpdated,
       blog: '/blog/development-reactjs-news-feed',
@@ -159,10 +160,10 @@ class Home extends React.Component {
 
               <ul className="linkContainer">
                   <li>
-                    <a href="https://github.com/ajarana/ajarana.github.io" className="linkIcon" target="_blank">Site code</a>
+                    <a href="https://github.com/ajarana/portfolio" className="linkIcon" target="_blank">Site code</a>
                   </li>
                   <li>
-                    <a className="linkIcon" href="/assets/resume/UI-Developer-Andres-Arana.pdf" target="_blank">
+                    <a className="linkIcon" href={ pdf } target="_blank">
                       Resume
                     </a>
                   </li>

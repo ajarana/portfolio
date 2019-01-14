@@ -6,7 +6,7 @@ class Bootstrap3SiteDevelopment extends React.Component {
       <main>
         <section className="fullWidthContainerSmall flexCentered backgroundGray">
           <a href="/mixtin/">
-            <img className="images" src="/assets/mixtin/mixtin-1x.png" alt="Screenshot of the mobile menu of a Bootstrap website." srcSet="/assets/mixtin/mixtin-1x-C.png, /assets/mixtin/mixtin-2x-C.png 2x, /assets/mixtin/mixtin-4x-C2.png 4x" />
+            <img className="images" src="assets/mixtin/mixtin-1x.png" alt="Screenshot of the mobile menu of a Bootstrap website." srcSet="assets/mixtin/mixtin-1x-C.png, assets/mixtin/mixtin-2x-C.png 2x, assets/mixtin/mixtin-4x-C2.png 4x" />
           </a>
         </section>
 
