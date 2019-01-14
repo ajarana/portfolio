@@ -6,7 +6,7 @@ class NewsFeedDevelopment extends React.Component {
       <main>
       <section className="fullWidthContainerSmall backgroundGray flexCentered">
         <a href="/arcade/">
-           <img id="reactThumbnail" className="images" src="./assets/arcade/arcade-1x-C2.png" alt="Screenshot of a news feed made using React and Redux." srcSet="./assets/arcade/arcade-1x-C2.png, ./assets/arcade/arcade-2x-C2.png 2x, ./assets/arcade/arcade-4x-C2.png 4x" />
+           <img id="reactThumbnail" className="images" src="/assets/arcade/arcade-1x-C2.png" alt="Screenshot of a news feed made using React and Redux." srcSet="/assets/arcade/arcade-1x-C2.png, /assets/arcade/arcade-2x-C2.png 2x, /assets/arcade/arcade-4x-C2.png 4x" />
         </a>
       </section>
 

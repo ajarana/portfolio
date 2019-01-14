@@ -45,9 +45,9 @@ class Header extends React.Component {
       <header id="header">
         <div className="mainContainer flexLeft">
           <div id="titleContainer">
-            <a className="plainLink" href="/">
+            <NavLink className="plainLink" to="/">
               <span id="logo" className="flexLeft">Andres</span>
-            </a>
+            </NavLink>
           </div>
 
           <div id="buttonWrapper" className="flexRight">
@@ -89,7 +89,7 @@ class Header extends React.Component {
               </li>
   
               <li className="menuItems">
-                <a className="plainLink headerLink" href="./assets/resume/UI-Developer-Andres-Arana.pdf" target="_blank">
+                <a className="plainLink headerLink" href="/assets/resume/UI-Developer-Andres-Arana.pdf" target="_blank">
                   <p>Resume</p>
                 </a>
               </li>
