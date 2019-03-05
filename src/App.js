@@ -11,6 +11,7 @@ import { HashRouter as Router, Route } from "react-router-dom"
 import ScrollToTop from './components/ScrollToTop'
 import 'normalize.css'
 import './App.css'
+import '../node_modules/@fortawesome/fontawesome-free/js/all.js'
 
 class App extends Component {
   render() {

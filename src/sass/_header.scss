@@ -135,6 +135,7 @@ $animation-duration: 0.33s;
     }
 
     .headerLink {
+      position: relative;
       font-size: 1.4em;
       color: white;
       text-align: center;
@@ -151,6 +152,14 @@ $animation-duration: 0.33s;
          margin: 0;
          transition: color 0.22s linear;
       }
+    }
+
+    .header-link-icon {
+      $header-link-size: 11px;
+      font-size: $header-link-size;
+      position: absolute;
+      top: 0;
+      right: -$header-link-size - 6px;
     }
   @media (min-width: 768px) {
       #headerMenu {

@@ -79,19 +79,28 @@ class Header extends React.Component {
   
               <li className="menuItems">
                 <a className="plainLink headerLink" href="https://github.com/ajarana/" target="_blank" rel="noopener noreferrer">
-                  <p>GitHub</p>
+                  <p>
+                    GitHub
+                    <i className="header-link-icon fas fa-external-link-alt"></i>
+                  </p>
                 </a>
               </li>
   
               <li className="menuItems">
                 <a className="plainLink headerLink" href="https://codepen.io/ajarana/" target="_blank" rel="noopener noreferrer">
-                  <p>CodePen</p>
+                  <p>
+                    CodePen
+                    <i className="header-link-icon fas fa-external-link-alt"></i>
+                  </p>
                 </a>
               </li>
   
               <li className="menuItems">
-                <a className="plainLink headerLink" href={ pdf } target="_blank">
-                  <p>Resume</p>
+                <a className="plainLink headerLink" href="/UI-Developer-Andres-Arana.pdf" target="_blank">
+                  <p>
+                    Resume
+                    <i className="header-link-icon fas fa-external-link-alt"></i>
+                  </p>
                 </a>
               </li>
 

@@ -648,6 +648,7 @@ figure {
   #header .transitionCollapse {
     transition: height 0s ease-in 0.33s, width 0s ease-in 0.33s, background-color 0.33s ease-in 0s, border-color 0.33s ease-in 0s; }
   #header .headerLink {
+    position: relative;
     font-size: 1.4em;
     color: white;
     text-align: center;
@@ -660,6 +661,11 @@ figure {
       font-size: 1em;
       margin: 0;
       transition: color 0.22s linear; }
+  #header .header-link-icon {
+    font-size: 11px;
+    position: absolute;
+    top: 0;
+    right: -17px; }
   @media (min-width: 768px) {
     #header #headerMenu {
       position: static;
