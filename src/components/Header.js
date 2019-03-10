@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 import { NavLink } from "react-router-dom"
 import pdf from './../assets/resume/UI-Developer-Andres-Arana.pdf'
 
@@ -79,27 +80,24 @@ class Header extends React.Component {
   
               <li className="menuItems">
                 <a className="plainLink headerLink" href="https://github.com/ajarana/" target="_blank" rel="noopener noreferrer">
-                  <p>
+                  <p class="external-header-link">
                     GitHub
-                    <i className="header-link-icon fas fa-external-link-alt"></i>
                   </p>
                 </a>
               </li>
   
               <li className="menuItems">
                 <a className="plainLink headerLink" href="https://codepen.io/ajarana/" target="_blank" rel="noopener noreferrer">
-                  <p>
+                  <p class="external-header-link">
                     CodePen
-                    <i className="header-link-icon fas fa-external-link-alt"></i>
                   </p>
                 </a>
               </li>
   
               <li className="menuItems">
                 <a className="plainLink headerLink" href="/UI-Developer-Andres-Arana.pdf" target="_blank">
-                  <p>
+                  <p class="external-header-link">
                     Resume
-                    <i className="header-link-icon fas fa-external-link-alt"></i>
                   </p>
                 </a>
               </li>
@@ -114,4 +112,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header
+export default hot(Header)

@@ -15,12 +15,12 @@ $animation-duration: 0.33s;
  }
 
  nav {
+   flex: 1;
    height: 100%;
    margin: 0 auto;
  }
 
   #titleContainer {
-    margin-right: 25.2px;
     flex: 0 1 85%;
 
     #logo {
@@ -36,8 +36,8 @@ $animation-duration: 0.33s;
   }
 
   @media (min-width: 768px) {
-    #titleContainer {
-      flex: 0;
+    #titleContainer, .invis-aligner {
+      flex: 0 1 20%;
     }
   }
 
@@ -173,6 +173,10 @@ $animation-duration: 0.33s;
         border-top: none;
         top: 0;
 
+        max-width: 550px;
+        margin: 0 auto;
+        justify-content: space-between;
+
         p, li {
            font-size: 14px;
         }
@@ -180,8 +184,6 @@ $animation-duration: 0.33s;
         .menuItems .selected {
           p {
              color: white;
-             margin: 0 0 -2px;
-             padding: 4px 0;
              position: relative;
 
              &:after {
@@ -206,7 +208,6 @@ $animation-duration: 0.33s;
             display: flex;
             align-items: center;
             height: 100%;
-            padding: 0 1.8em;
             transition: color 0.22s linear;
 
             &:hover {
@@ -245,28 +246,30 @@ $animation-duration: 0.33s;
          font-size: 14px;
 
          p {
-            color: rgba(255, 255, 255, 0.78);
+            color: rgba(255, 255, 255, 0.72);
             position: relative;
-            padding: 4px 0;
+            padding: 4px 0px;
 
             &:after {
               $underlineLength: 0%;
               content: '';
               display: inline-block;
-              height: 2px;
+              height: 1px;
               width: $underlineLength;
               background: white;
               position: absolute;
               bottom: 0;
               left: (100% - $underlineLength) / 2;
-              transition: all 0.18s ease-in-out;
+              transition: all 0.22s ease-in-out;
+              border-radius: 3px;
             }
-         }
 
-         &:hover p:after {
-          $underlineLength: 100%;
-          width: $underlineLength;
-          left: (100% - $underlineLength) / 2;
+            &.external-header-link {
+              color: white;
+              border: 1px solid white;
+              padding: 4px 12px;
+              border-radius: 3px;
+            }
          }
       }
   }
@@ -323,11 +326,5 @@ html.expanded {
     .hamburgerIcon:last-child {
       transform: rotate(-45deg);
     }
-  }
-}
-
-.invis-aligner {
-  @media (min-width: 768px) {
-    width: 119px;
   }
 }

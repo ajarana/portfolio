@@ -572,10 +572,10 @@ figure {
   #header > div {
     height: 100%; }
   #header nav {
+    flex: 1;
     height: 100%;
     margin: 0 auto; }
   #header #titleContainer {
-    margin-right: 25.2px;
     flex: 0 1 85%; }
     #header #titleContainer #logo {
       font-family: 'Source Code Pro', monospace;
@@ -585,8 +585,8 @@ figure {
       #header #titleContainer #logo:hover {
         color: rgba(255, 255, 255, 0.8); }
   @media (min-width: 768px) {
-    #header #titleContainer {
-      flex: 0; } }
+    #header #titleContainer, #header .invis-aligner {
+      flex: 0 1 20%; } }
   #header #buttonWrapper {
     flex: 0 1 15%;
     position: relative;
@@ -676,13 +676,14 @@ figure {
       width: auto;
       width: 100%;
       border-top: none;
-      top: 0; }
+      top: 0;
+      max-width: 550px;
+      margin: 0 auto;
+      justify-content: space-between; }
       #header #headerMenu p, #header #headerMenu li {
         font-size: 14px; }
       #header #headerMenu .menuItems .selected p {
         color: white;
-        margin: 0 0 -2px;
-        padding: 4px 0;
         position: relative; }
         #header #headerMenu .menuItems .selected p:after {
           width: 80%;
@@ -699,7 +700,6 @@ figure {
           display: flex;
           align-items: center;
           height: 100%;
-          padding: 0 1.8em;
           transition: color 0.22s linear; }
           #header #headerMenu .menuItems a:hover p {
             color: white; }
@@ -722,22 +722,25 @@ figure {
     #header .headerLink {
       font-size: 14px; }
       #header .headerLink p {
-        color: rgba(255, 255, 255, 0.78);
+        color: rgba(255, 255, 255, 0.72);
         position: relative;
-        padding: 4px 0; }
+        padding: 4px 0px; }
         #header .headerLink p:after {
           content: '';
           display: inline-block;
-          height: 2px;
+          height: 1px;
           width: 0%;
           background: white;
           position: absolute;
           bottom: 0;
           left: 50%;
-          transition: all 0.18s ease-in-out; }
-      #header .headerLink:hover p:after {
-        width: 100%;
-        left: 0%; } }
+          transition: all 0.22s ease-in-out;
+          border-radius: 3px; }
+        #header .headerLink p.external-header-link {
+          color: white;
+          border: 1px solid white;
+          padding: 4px 12px;
+          border-radius: 3px; } }
 
 html.expanded {
   overflow-y: scroll !important; }
@@ -772,10 +775,6 @@ html.expanded {
       opacity: 0; }
     .expanded #header > div > #buttonWrapper > #mobileButton .hamburgerIcon:last-child, .expanded body #header > div > #buttonWrapper > #mobileButton .hamburgerIcon:last-child {
       transform: rotate(-45deg); }
-
-@media (min-width: 768px) {
-  .invis-aligner {
-    width: 119px; } }
 
 #footer {
   height: 110px;
