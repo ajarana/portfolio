@@ -9,6 +9,7 @@ import Bootstrap3SiteDevelopment from './components/Bootstrap3SiteDevelopment'
 import NewsFeedDevelopment from './components/NewsFeedDevelopment'
 import { HashRouter as Router, Route } from "react-router-dom"
 import ScrollToTop from './components/ScrollToTop'
+import { hot } from 'react-hot-loader/root'
 import 'normalize.css'
 import './App.css'
 import '../node_modules/@fortawesome/fontawesome-free/js/all.js'
@@ -40,4 +41,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(App);
