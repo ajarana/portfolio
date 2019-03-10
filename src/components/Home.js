@@ -3,6 +3,9 @@ import moment from 'moment';
 import { NavLink } from "react-router-dom"
 import pdf from './../assets/resume/UI-Developer-Andres-Arana.pdf'
 
+let projects = document.getElementsByClassName('project')
+console.log('projects!', projects)
+
 const Projects = (props) => {
   let projects = [
     {
@@ -44,38 +47,40 @@ const Projects = (props) => {
   ];
 
   const projectList = projects.map((project, i) => 
-    <section className="flexCenteredToFlexTopLeft flexWrapThenNoWrap sectionContainer project" key={ i }>
-      <figure className="imageHolder flexCentered">
-        <a href={ project.url }>
-          <img className="images" 
-               src={ project.assets.src } 
-               alt={ project.assets.alt }
-               srcSet={ project.assets.srcset } />
-        </a>
-      </figure>
+    <section className="sectionContainer" key={ i }>
+      <div className="project flexCenteredToFlexTopLeft flexWrapThenNoWrap">
+        <figure className="imageHolder flexCentered">
+          <a href={ project.url }>
+            <img className="images" 
+                src={ project.assets.src } 
+                alt={ project.assets.alt }
+                srcSet={ project.assets.srcset } />
+          </a>
+        </figure>
 
-      <div className="listContainer">
-        <header>
-          <h3 className="sectionHeaders">
-           { project.title } <span className="updated-time">Last updated: {project.lastUpdated}</span>
-          </h3>
+        <div className="listContainer">
+          <header>
+            <h3 className="sectionHeaders">
+            { project.title } <span className="updated-time">Last updated: {project.lastUpdated}</span>
+            </h3>
 
-          <p>
-            { project.description }
-          </p>
-        </header>
+            <p>
+              { project.description }
+            </p>
+          </header>
 
-        <ul className="linkContainer">
-          <li>
-            <a href={ project.url } className="linkIcon">View project</a>
-          </li>
-          <li>
-            <a href="https://github.com/ajarana/agame" className="linkIcon" target="_blank" rel="noopener noreferrer">View code</a>
-          </li>
-          <li>
-            <NavLink to={ project.blog } className="linkIcon">Read more</NavLink>
-          </li>
-        </ul>
+          <ul className="linkContainer">
+            <li>
+              <a href={ project.url } className="linkIcon">View project</a>
+            </li>
+            <li>
+              <a href="https://github.com/ajarana/agame" className="linkIcon" target="_blank" rel="noopener noreferrer">View code</a>
+            </li>
+            <li>
+              <NavLink to={ project.blog } className="linkIcon">Read more</NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   )
@@ -160,10 +165,10 @@ class Home extends React.Component {
 
               <ul className="linkContainer">
                   <li>
-                    <a href="https://github.com/ajarana/portfolio" className="linkIcon" target="_blank">Site code</a>
+                    <a href="https://github.com/ajarana/portfolio" className="linkIcon" target="_blank" rel="noopener noreferrer">Site code</a>
                   </li>
                   <li>
-                    <a className="linkIcon" href={ pdf } target="_blank">
+                    <a className="linkIcon" href={ pdf } target="_blank" rel="noopener noreferrer">
                       Resume
                     </a>
                   </li>
