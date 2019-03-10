@@ -173,7 +173,7 @@ $animation-duration: 0.33s;
         border-top: none;
         top: 0;
 
-        max-width: 550px;
+        max-width: 500px;
         margin: 0 auto;
         justify-content: space-between;
 
@@ -242,13 +242,14 @@ $animation-duration: 0.33s;
         }
       }
 
-      .headerLink {
+      #headerMenu .headerLink {
          font-size: 14px;
 
          p {
             color: rgba(255, 255, 255, 0.72);
             position: relative;
             padding: 4px 0px;
+            transition: all 0.18s ease-in-out;
 
             &:after {
               $underlineLength: 0%;
@@ -269,6 +270,11 @@ $animation-duration: 0.33s;
               border: 1px solid white;
               padding: 4px 12px;
               border-radius: 3px;
+
+              &:hover {
+                color: #333;
+                background-color: white;
+              }
             }
          }
       }

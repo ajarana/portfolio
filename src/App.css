@@ -677,7 +677,7 @@ figure {
       width: 100%;
       border-top: none;
       top: 0;
-      max-width: 550px;
+      max-width: 500px;
       margin: 0 auto;
       justify-content: space-between; }
       #header #headerMenu p, #header #headerMenu li {
@@ -719,13 +719,14 @@ figure {
           height: 30px; }
           #header #headerMenu .secondaryMenuItem .secondaryLink:hover {
             background-color: #1f1f1f; }
-    #header .headerLink {
+    #header #headerMenu .headerLink {
       font-size: 14px; }
-      #header .headerLink p {
+      #header #headerMenu .headerLink p {
         color: rgba(255, 255, 255, 0.72);
         position: relative;
-        padding: 4px 0px; }
-        #header .headerLink p:after {
+        padding: 4px 0px;
+        transition: all 0.18s ease-in-out; }
+        #header #headerMenu .headerLink p:after {
           content: '';
           display: inline-block;
           height: 1px;
@@ -736,11 +737,14 @@ figure {
           left: 50%;
           transition: all 0.22s ease-in-out;
           border-radius: 3px; }
-        #header .headerLink p.external-header-link {
+        #header #headerMenu .headerLink p.external-header-link {
           color: white;
           border: 1px solid white;
           padding: 4px 12px;
-          border-radius: 3px; } }
+          border-radius: 3px; }
+          #header #headerMenu .headerLink p.external-header-link:hover {
+            color: #333;
+            background-color: white; } }
 
 html.expanded {
   overflow-y: scroll !important; }
