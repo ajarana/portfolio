@@ -15,7 +15,6 @@ class ResponsiveCanvasDevelopment extends React.Component {
 
   componentDidMount() {
     this.aWrapper = document.getElementById("aWrapper");
-    console.log('ah', this.aWrapper.style)
     this.canvas = document.getElementById("myCanvas");
     this.ctx = this.canvas.getContext("2d");
 
@@ -107,7 +106,6 @@ class ResponsiveCanvasDevelopment extends React.Component {
     }
 
     window.addEventListener("resize", this.resizeCanvas, false);
-    console.log("window", window)
     this.resizeCanvas();
     draw();
   }
