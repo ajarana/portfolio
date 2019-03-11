@@ -167,11 +167,11 @@ figure {
 	margin: 0;
 }
 
-.project:not(:last-child) {
+.sectionContainer:not(:last-child) {
   border-bottom: 1px solid #e9e9e9
 }
 
-.project:nth-child(2n) {
+.sectionContainer:nth-child(2n) {
   @media (min-width: 992px) {
     .imageHolder {
       order: 2
@@ -183,6 +183,14 @@ figure {
       order: 1;
     }
   }
+}
+
+.project {
+  transition: all 0.8s ease-in-out;
+}
+
+.invisible {
+  opacity: 0;
 }
 
 $cssColor1: hsl(200, 70%, 54%);

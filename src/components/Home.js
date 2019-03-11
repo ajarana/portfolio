@@ -3,9 +3,6 @@ import moment from 'moment';
 import { NavLink } from "react-router-dom"
 import pdf from './../assets/resume/UI-Developer-Andres-Arana.pdf'
 
-let projects = document.getElementsByClassName('project')
-console.log('projects!', projects)
-
 const Projects = (props) => {
   let projects = [
     {
@@ -48,7 +45,7 @@ const Projects = (props) => {
 
   const projectList = projects.map((project, i) => 
     <section className="sectionContainer" key={ i }>
-      <div className="project flexCenteredToFlexTopLeft flexWrapThenNoWrap">
+      <div className="project flexCenteredToFlexTopLeft flexWrapThenNoWrap invisible">
         <figure className="imageHolder flexCentered">
           <a href={ project.url }>
             <img className="images" 
@@ -111,7 +108,33 @@ class Home extends React.Component {
     }
   }
 
+  opacityEffectHandler() {
+    let projects = Array.from(document.getElementsByClassName('project'))
+
+    const checkProjectBounds = () => {
+      projects.forEach((project) => {
+        let boundingRect = project.getBoundingClientRect()
+        let upperPoint = boundingRect.bottom - (boundingRect.height / 1.25)
+        let lowerPoint = boundingRect.bottom - (boundingRect.height / 5)
+
+        if ((upperPoint > 0 && upperPoint < window.innerHeight) || (lowerPoint > 0 && lowerPoint < window.innerHeight)) {
+          if (project.classList.contains('invisible')) {
+            project.classList.remove('invisible')
+          }
+        }
+      })
+    }
+
+    window.onscroll = () => {
+      checkProjectBounds()
+    }
+
+    checkProjectBounds()
+  }
+
   async componentDidMount() {
+    this.opacityEffectHandler()
+
     let blockResponse = await fetch('https://api.github.com/repos/ajarana/agame');
 
     let blockJson = await blockResponse.json();

@@ -472,16 +472,22 @@ li {
 figure {
   margin: 0; }
 
-.project:not(:last-child) {
+.sectionContainer:not(:last-child) {
   border-bottom: 1px solid #e9e9e9; }
 
 @media (min-width: 992px) {
-  .project:nth-child(2n) .imageHolder {
+  .sectionContainer:nth-child(2n) .imageHolder {
     order: 2; }
-  .project:nth-child(2n) .listContainer {
+  .sectionContainer:nth-child(2n) .listContainer {
     margin-left: 0;
     margin-right: 50px;
     order: 1; } }
+
+.project {
+  transition: all 0.8s ease-in-out; }
+
+.invisible {
+  opacity: 0; }
 
 #css3 {
   animation-duration: 2.5s;
