@@ -244,6 +244,10 @@ $darkBorder: #444;
   span {
     margin-left: 4px;
   }
+
+  &:hover {
+    color: white;
+  }
 }
 
 @keyframes reactColorChange {
