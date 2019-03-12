@@ -231,6 +231,21 @@ $darkBorder: #444;
   font-weight: bold;
 }
 
+.btn {
+  display: inline-block;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 3px;
+  background-color: #1485CC;
+  color: white;
+  cursor: pointer;
+  margin: 1.5rem 0;
+
+  span {
+    margin-left: 4px;
+  }
+}
+
 @keyframes reactColorChange {
   from {
     color: $reactColor1;

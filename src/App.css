@@ -514,6 +514,18 @@ figure {
   animation-direction: alternate;
   font-weight: bold; }
 
+.btn {
+  display: inline-block;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 3px;
+  background-color: #1485CC;
+  color: white;
+  cursor: pointer;
+  margin: 1.5rem 0; }
+  .btn span {
+    margin-left: 4px; }
+
 @keyframes reactColorChange {
   from {
     color: #60d9fb; }
@@ -730,8 +742,7 @@ figure {
       #header #headerMenu .headerLink p {
         color: rgba(255, 255, 255, 0.72);
         position: relative;
-        padding: 4px 0px;
-        transition: all 0.18s ease-in-out; }
+        padding: 4px 0px; }
         #header #headerMenu .headerLink p:after {
           content: '';
           display: inline-block;
@@ -801,3 +812,210 @@ html.expanded {
 
 .footer-updated-on {
   color: #333; }
+
+#resume {
+  font-size: 11pt;
+  max-width: 672px;
+  margin: 0 auto;
+  font-family: 'Arimo', sans-serif;
+  color: #222;
+  padding: 0 25px 100px; }
+  #resume h1, #resume h2, #resume h3, #resume h4, #resume h5, #resume h6, #resume p, #resume ul {
+    line-height: 1;
+    margin: 0; }
+  #resume h1 {
+    font-size: 1.85em;
+    text-align: center;
+    line-height: 0.8; }
+  #resume h2 {
+    font-size: 1.35em; }
+  #resume h3 {
+    font-size: 1.2em;
+    margin-bottom: 8px; }
+  #resume h4 {
+    font-size: 1em; }
+  #resume header {
+    margin-bottom: 45px;
+    color: #666; }
+    #resume header h1 {
+      color: #333;
+      margin: 0rem 0 1.5rem; }
+    #resume header .contact-information {
+      display: grid;
+      list-style: none;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #666; }
+      #resume header .contact-information li {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0.2em 0; }
+      @media (min-width: 500px) {
+        #resume header .contact-information {
+          grid-template-columns: 1fr 1fr; } }
+      @media (min-width: 600px) {
+        #resume header .contact-information {
+          grid-template-columns: 1fr 1fr 1fr; }
+          #resume header .contact-information li:last-child {
+            grid-column: 1;
+            grid-column-end: 4; } }
+      @media (min-width: 700px) {
+        #resume header .contact-information {
+          grid-template-columns: 1fr 1fr 1fr 1fr; }
+          #resume header .contact-information li:last-child {
+            grid-column: 4;
+            grid-column-end: 4; } }
+  #resume #pdfLink {
+    text-align: right; }
+  #resume .resumeSection {
+    font-size: 11pt; }
+    #resume .resumeSection li, #resume .resumeSection p {
+      font-size: 11pt; }
+    #resume .resumeSection h2 {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      color: #d32f2f; }
+      #resume .resumeSection h2:after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        display: block;
+        background: #dfdfdf;
+        border-radius: 100%;
+        margin-left: 16px; }
+    #resume .resumeSection .flexSeparated {
+      display: grid; }
+      #resume .resumeSection .flexSeparated p {
+        margin: 0px 0 8px; }
+      @media (min-width: 500px) {
+        #resume .resumeSection .flexSeparated {
+          grid-template-columns: 1fr 1fr; }
+          #resume .resumeSection .flexSeparated p {
+            margin: 0;
+            text-align: right; } }
+  #resume .separator {
+    width: 95%;
+    height: 1px;
+    margin: 1.5em auto; }
+  #resume .flexSection {
+    display: flex; }
+    #resume .flexSection h3, #resume .flexSection ul {
+      margin: 10px 0; }
+    #resume .flexSection > *:first-child {
+      flex: 1;
+      margin: 0;
+      min-width: 80px; }
+    #resume .flexSection > div {
+      flex: 4; }
+      #resume .flexSection > div span {
+        display: inline-flex;
+        align-items: center; }
+        #resume .flexSection > div span:not(:first-child):before {
+          content: "";
+          display: inline-block;
+          height: 8px;
+          width: 1px;
+          background-color: #ccc;
+          margin: 0 6px; }
+    #resume .flexSection .skillList {
+      display: flex;
+      align-items: center; }
+    #resume .flexSection:first-of-type ul, #resume .flexSection:first-of-type h3 {
+      margin-top: 0; }
+    #resume .flexSection:not(:first-child) {
+      margin-top: 8px; }
+  #resume .flexSeparated {
+    display: flex; }
+    #resume .flexSeparated *:first-child {
+      margin-right: auto; }
+    #resume .flexSeparated *:nth-child(2) {
+      font-style: oblique;
+      color: #666; }
+  #resume #skillSection .skillsContainer {
+    margin-top: 0.5em;
+    padding-left: 40px; }
+    #resume #skillSection .skillsContainer .skillList {
+      position: relative;
+      line-height: 1.4; }
+      #resume #skillSection .skillsContainer .skillList:before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        border-radius: 100%;
+        background-color: #aaa;
+        position: absolute;
+        top: 6px;
+        left: -12px; }
+  #resume #skillSection .flexSection {
+    flex-wrap: wrap;
+    margin-top: 16px;
+    display: grid; }
+    #resume #skillSection .flexSection > div {
+      display: flex;
+      justify-content: flex-start; }
+    @media (min-width: 550px) {
+      #resume #skillSection .flexSection {
+        grid-template-columns: 1fr 370px; }
+        #resume #skillSection .flexSection .skillsContainer {
+          margin-top: 0;
+          padding-left: 0; }
+          #resume #skillSection .flexSection .skillsContainer .skillList:before {
+            width: 0; }
+        #resume #skillSection .flexSection > div {
+          justify-content: flex-start; } }
+    @media (min-width: 750px) {
+      #resume #skillSection .flexSection {
+        grid-template-columns: 1fr 538px; }
+        #resume #skillSection .flexSection .skillsContainer .skillList {
+          line-height: 1.2; } }
+  #resume .flexCentered {
+    position: relative; }
+    #resume .flexCentered > *:last-child {
+      position: absolute;
+      height: 100%;
+      right: 0;
+      bottom: 4px;
+      display: flex;
+      align-items: flex-end;
+      font-size: 11pt; }
+  #resume .subSection ul {
+    list-style: none;
+    line-height: 1.2; }
+    #resume .subSection ul li {
+      position: relative;
+      line-height: 1.4; }
+      #resume .subSection ul li:before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        border-radius: 100%;
+        background-color: #aaa;
+        position: absolute;
+        top: 6px;
+        left: -12px; }
+      #resume .subSection ul li:not(:first-child) {
+        margin: 8px 0; }
+      @media (min-width: 750px) {
+        #resume .subSection ul li {
+          line-height: 1.2; } }
+  #resume .subSection:not(:first-child) {
+    margin-top: 24px; }
+  #resume .subSection:first-of-type {
+    margin-top: 14px; }
+  #resume .subSection h4 {
+    margin: 0 0 8px; }
+  #resume .fas, #resume .fab, #resume .svg-inline--fa {
+    margin-right: 6px; }
+  #resume .fa-envelope {
+    height: 12px; }
+  #resume .fa-github {
+    height: 12px; }
+  #resume #workSection h4 {
+    font-weight: normal; }

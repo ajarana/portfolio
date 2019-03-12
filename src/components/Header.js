@@ -73,11 +73,19 @@ class Header extends React.Component {
               </li>
   
               <li className="menuItems">
+                <NavLink className="plainLink headerLink" to="/resume/" activeClassName="selected">
+                  <p>
+                    Resume
+                  </p>
+                </NavLink>
+              </li>
+
+              <li className="menuItems">
                 <NavLink to="/blog/" className="plainLink headerLink" activeClassName="selected">
                   <p>Blog</p>
                 </NavLink>
               </li>
-  
+
               <li className="menuItems">
                 <a className="plainLink headerLink" href="https://github.com/ajarana/" target="_blank" rel="noopener noreferrer">
                   <p className="external-header-link">
@@ -93,15 +101,6 @@ class Header extends React.Component {
                   </p>
                 </a>
               </li>
-  
-              <li className="menuItems">
-                <a className="plainLink headerLink" href="/UI-Developer-Andres-Arana.pdf" target="_blank">
-                  <p className="external-header-link">
-                    Resume
-                  </p>
-                </a>
-              </li>
-
             </ul>
           </nav>
 

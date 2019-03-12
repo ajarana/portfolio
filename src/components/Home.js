@@ -1,7 +1,6 @@
 import React from 'react'
 import moment from 'moment';
 import { NavLink } from "react-router-dom"
-import pdf from './../assets/resume/UI-Developer-Andres-Arana.pdf'
 
 const Projects = (props) => {
   let projects = [
@@ -114,7 +113,6 @@ class Home extends React.Component {
     const checkProjectBounds = () => {
       projects.forEach((project) => {
         let boundingRect = project.getBoundingClientRect()
-        console.log("boundingRect", boundingRect, "project", project)
         let upperPoint = boundingRect.bottom - (boundingRect.height / 1.25)
         let lowerPoint = boundingRect.bottom - (boundingRect.height / 5)
 
@@ -195,9 +193,9 @@ class Home extends React.Component {
                     <a href="https://github.com/ajarana/portfolio" className="linkIcon" target="_blank" rel="noopener noreferrer">Site code</a>
                   </li>
                   <li>
-                    <a className="linkIcon" href={ pdf } target="_blank" rel="noopener noreferrer">
+                    <NavLink className="linkIcon" to="/resume/" rel="noopener noreferrer">
                       Resume
-                    </a>
+                    </NavLink>
                   </li>
                 </ul>
             </div>
