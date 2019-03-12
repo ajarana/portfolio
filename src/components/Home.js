@@ -114,6 +114,7 @@ class Home extends React.Component {
     const checkProjectBounds = () => {
       projects.forEach((project) => {
         let boundingRect = project.getBoundingClientRect()
+        console.log("boundingRect", boundingRect, "project", project)
         let upperPoint = boundingRect.bottom - (boundingRect.height / 1.25)
         let lowerPoint = boundingRect.bottom - (boundingRect.height / 5)
 
@@ -125,11 +126,14 @@ class Home extends React.Component {
       })
     }
 
-    window.onscroll = () => {
-      checkProjectBounds()
-    }
 
-    checkProjectBounds()
+    window.setTimeout(() => {
+      window.onscroll = () => {
+        checkProjectBounds()
+      }
+
+      checkProjectBounds()
+    }, 100)
   }
 
   async componentDidMount() {
