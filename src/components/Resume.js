@@ -17,7 +17,7 @@ class Resume extends React.Component {
     if (width >= 750) {
       skillsContainer = (<div className="skillsContainer">
       <div className="skillList">
-        <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span><span>npm</span><span>CesiumJS</span><span>Vis.js</span><span>HTML5</span><span>CSS3</span>
+        <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span><span>CircleCI</span><span>CesiumJS</span><span>Vis.js</span><span>HTML5</span><span>CSS3</span>
       </div>
       <div className="skillList">
         <span>Sass</span><span>LESS</span><span>Bootstrap</span><span>Foundation</span><span>Font Awesome</span><span>Responsive Design</span>
@@ -27,7 +27,7 @@ class Resume extends React.Component {
     else if (width >= 550) {
       skillsContainer = (<div className="skillsContainer">
       <div className="skillList">
-        <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span><span>npm</span><span>CesiumJS</span>
+        <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span><span>CircleCI</span><span>CesiumJS</span>
       </div>
       <div className="skillList">
         <span>Vis.js</span><span>HTML5</span><span>CSS3</span><span>Sass</span><span>LESS</span><span>Bootstrap</span>
@@ -40,10 +40,10 @@ class Resume extends React.Component {
     else {
       skillsContainer = (<div className="skillsContainer">
         <div className="skillList">
-          <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span>
+          <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span><span>CircleCI</span>
         </div>
         <div className="skillList">
-          <span>npm</span><span>CesiumJS</span><span>Vis.js</span><span>HTML5</span><span>CSS3</span>
+          <span>CesiumJS</span><span>Vis.js</span><span>HTML5</span><span>CSS3</span>
         </div>
         <div className="skillList">
         <span>Sass</span><span>LESS</span><span>Bootstrap</span><span>Foundation</span>
@@ -96,7 +96,7 @@ class Resume extends React.Component {
               </li>
               <li>
                   <i className="fas fa-laptop-code"></i>
-                  <span>ajarana.github.io/portfolio</span>
+                  <span>ajarana.github.io</span>
               </li>
             </ul>   
           </header>
@@ -147,9 +147,32 @@ class Resume extends React.Component {
 
             <section className="subSection">
               <section className="flexSeparated">
+                <h3 className="secondaryHeader">Front-End Developer</h3> 
+                <p>
+                  April 2019 - present
+                </p>
+              </section>
+
+              <h4>LifeFuels</h4>
+
+              <ul>
+                <li>
+                  Built the lifefuels.com shop front-end from scratch using React, Contentful, and CircleCI and deployed to multiple environments including development, staging, and production.
+                </li>
+                <li>
+                  Currently working on building the entire web front-end for a tool that will allow soccer coaches and managers to manage the nutritional goals and programs of their teams using the LifeFuels bottle.
+                </li>
+                <li>
+                  Assign front-end tasks for internal tooling that helps maintain the LifeFuels bottle backend and LifeFuels user data.
+                </li>
+              </ul>
+            </section>
+
+            <section className="subSection">
+              <section className="flexSeparated">
                 <h3 className="secondaryHeader">UI Developer</h3> 
                 <p>
-                  September 2017 - present
+                  September 2017 - April 2019
                 </p>
               </section>
 
@@ -184,16 +207,13 @@ class Resume extends React.Component {
 
               <ul>
                 <li>
-                  Built a secure contact form for a children’s mental health practice
+                  Aided a children's mental health practice with customer aquisition and website migration.
                 </li>
                 <li>
-                  Migrated a public-facing client website
-                </li>
-                <li>
-                  Implemented content updates
+                  Implemented portfolio websites and content updates.
                 </li>
               </ul>
-            </section>
+          </section>
 
           </section>
 
@@ -204,7 +224,7 @@ class Resume extends React.Component {
 
             <section className="subSection">
               <section className="flexSeparated">
-                  <h3>ajarana.github.io/portfolio</h3>
+                  <h3>ajarana.github.io</h3>
                   <p>December 2016 - present</p>
             </section>
               <ul>

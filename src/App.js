@@ -8,7 +8,7 @@ import ResponsiveCanvasDevelopment from './components/ResponsiveCanvasDevelopmen
 import CanvasGameDevelopment from './components/CanvasGameDevelopment'
 import Bootstrap3SiteDevelopment from './components/Bootstrap3SiteDevelopment'
 import NewsFeedDevelopment from './components/NewsFeedDevelopment'
-import { HashRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter, HashRouter as Router, Route } from "react-router-dom"
 import ScrollToTop from './components/ScrollToTop'
 import { hot } from 'react-hot-loader/root'
 import 'normalize.css'
@@ -18,6 +18,11 @@ import '../node_modules/@fortawesome/fontawesome-free/js/all.js'
 class App extends Component {
   render() {
     return (
+      <>
+      <BrowserRouter>
+        <Route path="/agame" />
+      </BrowserRouter>
+
       <Router>
 
       <ScrollToTop>
@@ -39,6 +44,7 @@ class App extends Component {
       </ScrollToTop>
       
       </Router>
+      </>
     );
   }
 }
