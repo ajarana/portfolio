@@ -1,8 +1,64 @@
-import React from 'react'
+import React, { Component } from 'react'
 import moment from 'moment';
 import { NavLink } from "react-router-dom"
 
-const Projects = (props) => {
+const Project = props => {
+  const {
+    project
+  } = props;
+
+  const {
+    assets,
+    blog,
+    description,
+    lastUpdated,
+    title,
+    url
+  } = project;
+
+  return (
+    <section className="sectionContainer">
+      <div className="project flexCenteredToFlexTopLeft flexWrapThenNoWrap invisible">
+        <figure className="imageHolder flexCentered">
+          <a href={ url }>
+            <img className="images" 
+                src={ assets.src } 
+                alt={ assets.alt }
+                srcSet={ assets.srcset } />
+          </a>
+        </figure>
+
+        <div className="listContainer">
+          <header>
+            <h3 className="sectionHeaders">
+            { title } <span className="updated-time">Last updated: { lastUpdated }</span>
+            </h3>
+
+            <p>
+              { description }
+            </p>
+          </header>
+
+          <ul className="linkContainer">
+            <li>
+              <a href={ url } className="linkIcon">View project</a>
+            </li>
+
+            <li>
+              <a href="https://github.com/ajarana/agame" className="linkIcon" target="_blank" rel="noopener noreferrer">View code</a>
+            </li>
+
+            <li>
+              <NavLink to={ blog } className="linkIcon">Read more</NavLink>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Projects = props => {
   let projects = [
     {
       title: 'Block Aid',
@@ -42,53 +98,21 @@ const Projects = (props) => {
     }
   ];
 
-  const projectList = projects.map((project, i) => 
-    <section className="sectionContainer" key={ i }>
-      <div className="project flexCenteredToFlexTopLeft flexWrapThenNoWrap invisible">
-        <figure className="imageHolder flexCentered">
-          <a href={ project.url }>
-            <img className="images" 
-                src={ project.assets.src } 
-                alt={ project.assets.alt }
-                srcSet={ project.assets.srcset } />
-          </a>
-        </figure>
-
-        <div className="listContainer">
-          <header>
-            <h3 className="sectionHeaders">
-            { project.title } <span className="updated-time">Last updated: {project.lastUpdated}</span>
-            </h3>
-
-            <p>
-              { project.description }
-            </p>
-          </header>
-
-          <ul className="linkContainer">
-            <li>
-              <a href={ project.url } className="linkIcon">View project</a>
-            </li>
-            <li>
-              <a href="https://github.com/ajarana/agame" className="linkIcon" target="_blank" rel="noopener noreferrer">View code</a>
-            </li>
-            <li>
-              <NavLink to={ project.blog } className="linkIcon">Read more</NavLink>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  )
+  const ProjectList = projects.map((project, i) => (
+    <Project 
+      key={i}
+      project={project}
+    />
+  ));
 
   return (
     <div className="mainContainer">
-      { projectList }
+      { ProjectList }
     </div>
-  )
+  );
 };
 
-class Home extends React.Component {
+class Home extends Component {
   constructor() {
     super() 
 
@@ -104,7 +128,7 @@ class Home extends React.Component {
           lastUpdated: 'No data received yet.'
         }
       }
-    }
+    };
   }
 
   opacityEffectHandler() {
@@ -122,7 +146,7 @@ class Home extends React.Component {
           }
         }
       })
-    }
+    };
 
 
     window.setTimeout(() => {
@@ -131,7 +155,7 @@ class Home extends React.Component {
       }
 
       checkProjectBounds()
-    }, 100)
+    }, 100);
   }
 
   async componentDidMount() {
@@ -173,7 +197,7 @@ class Home extends React.Component {
           }
         } 
       }
-    )
+    );
   }
 
   render() {

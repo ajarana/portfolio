@@ -8,7 +8,7 @@ import ResponsiveCanvasDevelopment from './components/ResponsiveCanvasDevelopmen
 import CanvasGameDevelopment from './components/CanvasGameDevelopment'
 import Bootstrap3SiteDevelopment from './components/Bootstrap3SiteDevelopment'
 import NewsFeedDevelopment from './components/NewsFeedDevelopment'
-import { BrowserRouter, HashRouter as Router, Route } from "react-router-dom"
+import { HashRouter as Router, Route } from "react-router-dom"
 import ScrollToTop from './components/ScrollToTop'
 import { hot } from 'react-hot-loader/root'
 import 'normalize.css'
@@ -18,33 +18,27 @@ import '../node_modules/@fortawesome/fontawesome-free/js/all.js'
 class App extends Component {
   render() {
     return (
-      <>
-      <BrowserRouter>
-        <Route path="/agame" />
-      </BrowserRouter>
-
       <Router>
 
-      <ScrollToTop>
-        <article>
+        <ScrollToTop>
+          <article>
 
-          <Header />
+            <Header />
 
-          <Route exact path="/" component={Home} />
-          <Route exact path="/blog" component={Blog} />
-          <Route exact path="/resume" component={Resume} />
-          <Route path="/blog/development-responsive-canvas" component={ResponsiveCanvasDevelopment} />
-          <Route path="/blog/development-canvas-game" component={CanvasGameDevelopment} />
-          <Route path="/blog/development-bootstrap-3-site" component={Bootstrap3SiteDevelopment} />
-          <Route path="/blog/development-reactjs-news-feed" component={NewsFeedDevelopment} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/blog" component={Blog} />
+            <Route exact path="/resume" component={Resume} />
+            <Route path="/blog/development-responsive-canvas" component={ResponsiveCanvasDevelopment} />
+            <Route path="/blog/development-canvas-game" component={CanvasGameDevelopment} />
+            <Route path="/blog/development-bootstrap-3-site" component={Bootstrap3SiteDevelopment} />
+            <Route path="/blog/development-reactjs-news-feed" component={NewsFeedDevelopment} />
 
-          <Footer />
+            <Footer />
 
-        </article>
-      </ScrollToTop>
+          </article>
+        </ScrollToTop>
       
       </Router>
-      </>
     );
   }
 }

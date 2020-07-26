@@ -20,42 +20,6 @@ class ResponsiveCanvasDevelopment extends React.Component {
 
     let that = this;
 
-    // function setCanvasScalingFactor() {
-    //   return window.devicePixelRatio || 1;
-    // }
-
-    // function resizeCanvas() {
-    //   // //Gets the devicePixelRatio
-    //   // var pixelRatio = setCanvasScalingFactor();
-    //   // var elem = document.getElementById("blog");
-
-    //   // //The viewport is in portrait mode, so var width should be based off viewport WIDTH
-    //   // if (window.innerHeight > window.innerWidth && window.getComputedStyle(elem,null)) {
-    //   //     //Makes the canvas 100% of parent width
-    //   //     var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
-    //   //   // var width = parseInt(window.getComputedStyle(aWrapper,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(aWrapper,null).getPropertyValue("padding-right"), 10)*2);
-    //   // }
-    //   // //The viewport is in landscape mode, so var width should be based off viewport HEIGHT
-    //   // else {
-    //   //     //Makes the canvas 100% of parent width
-    //   //     var width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
-    //   //     // console.log(parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
-    //   // }
-
-    //   // //This is done in order to maintain the 1:1 aspect ratio, adjust as needed
-    //   // // var height = width;
-    //   // var height = Math.round(0.625 * width);
-    //   // // var height = Math.round(0.825 * width);
-
-    //   // //This will be used to downscale the canvas element when devicePixelRatio > 1
-    //   // that.aWrapper.style.width = width + "px";
-    //   // that.aWrapper.style.height = height + "px";
-
-    //   // that.canvas.width = width * pixelRatio;
-    //   // that.canvas.height = height * pixelRatio;
-    // }
-
-    // var cascadeFactor = 35;
     var cascadeFactor = 255;
     var cascadeCoefficient = 1;
 
@@ -129,7 +93,6 @@ class ResponsiveCanvasDevelopment extends React.Component {
     else {
         //Makes the canvas 100% of parent width
         width = parseInt(window.getComputedStyle(elem,null).getPropertyValue("width"), 10) - (parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
-        // console.log(parseInt(window.getComputedStyle(elem,null).getPropertyValue("padding-right"), 10)*2);
     }
 
     //This is done in order to maintain the 1:1 aspect ratio, adjust as needed
