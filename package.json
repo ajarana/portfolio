@@ -19,7 +19,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -r git@github.com:ajarana/ajarana.github.io.git -b master -d build",
+    "deploy": "gh-pages -r git@github.com:ajarana/ajarana.github.io.git -b master -m Updated via gh-pages from ajarana/portfolio-website -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
