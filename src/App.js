@@ -15,6 +15,26 @@ import 'normalize.css'
 import './App.scss'
 
 class App extends Component {
+  componentDidMount() {
+    this.createGreeting();
+  }
+
+  createGreeting() {
+    const style = `
+      display: block;
+      padding: 20px;
+      margin: 10px;
+      color: #333; 
+      background: linear-gradient(217deg, hsla(207, 89%, 86%, 25%), hsla(207, 89%, 86%, 7%));
+      border: 2px solid #74c0e7;
+      font: 600 16px monospace; 
+      border-radius: 10px;
+      line-height: 1.75;
+    `;
+
+    console.log("%cHello, I'm Andres. I developed this website, with the help of some packages, and designed it myself. I'm always open to learning new things, so please reach out at ajoelarana@gmail.com if you would like to talk.", style);
+  }
+
   render() {
     return (
       <Router>
