@@ -25,7 +25,7 @@ class App extends Component {
       padding: 20px;
       margin: 10px;
       color: #333; 
-      background: linear-gradient(217deg, hsla(207, 89%, 86%, 25%), hsla(207, 89%, 86%, 7%));
+      background: linear-gradient(217deg, hsl(207, 89%, 86%), hsl(207, 89%, 82%));
       border: 2px solid #74c0e7;
       font: 600 16px monospace; 
       border-radius: 10px;
