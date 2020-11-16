@@ -2,78 +2,12 @@ import React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 class Resume extends React.Component {
-  constructor() {
-    super()
-
-    this.state = {
-      skills: null
-    }
-  }
-
-  resizer() {
-    let skillsContainer;
-    let width = parseInt(window.getComputedStyle(document.getElementById('root')).width, 10)
-
-    if (width >= 750) {
-      skillsContainer = (<div className="skillsContainer">
-      <div className="skillList">
-        <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span><span>CircleCI</span><span>CesiumJS</span><span>Vis.js</span><span>HTML5</span><span>CSS3</span>
-      </div>
-      <div className="skillList">
-        <span>Sass</span><span>LESS</span><span>Bootstrap</span><span>Foundation</span><span>Font Awesome</span><span>Responsive Design</span>
-      </div>
-    </div>)
-    }
-    else if (width >= 550) {
-      skillsContainer = (<div className="skillsContainer">
-      <div className="skillList">
-        <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span><span>CircleCI</span><span>CesiumJS</span>
-      </div>
-      <div className="skillList">
-        <span>Vis.js</span><span>HTML5</span><span>CSS3</span><span>Sass</span><span>LESS</span><span>Bootstrap</span>
-      </div>
-      <div className="skillList">
-      <span>Foundation</span><span>Font Awesome</span><span>Responsive Design</span>
-      </div>
-    </div>)
-    }
-    else {
-      skillsContainer = (<div className="skillsContainer">
-        <div className="skillList">
-          <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span><span>CircleCI</span>
-        </div>
-        <div className="skillList">
-          <span>CesiumJS</span><span>Vis.js</span><span>HTML5</span><span>CSS3</span>
-        </div>
-        <div className="skillList">
-        <span>Sass</span><span>LESS</span><span>Bootstrap</span><span>Foundation</span>
-        </div>
-        <div className="skillList">
-          <span>Font Awesome</span><span>Responsive Design</span>
-        </div>
-      </div>)
-    }
-
-    return skillsContainer
-  }
-
-  componentDidMount() {
-    window.onresize = () => {
-      this.setState({ skills: 'lol' })
-    }
-
-    this.resizer()
-  }
-
   render() {
-    let skillsContainer = this.resizer();
-
     return (
       <main id="resume">
         <section id="pdfLink">
           <a className="btn" href="/UI-Developer-Andres-Arana.pdf" target="_blank">
-            <i className="fas fa-file-pdf"></i>
-            <span>View PDF</span>
+            <span><strong>View PDF</strong></span>
           </a>
         </section>
         
@@ -84,7 +18,7 @@ class Resume extends React.Component {
             <ul className="contact-information">
               <li>
                 <i className="fas fa-map-marker-alt"></i>
-                <span>Ashburn, VA</span>
+                <span>Reston, VA</span>
               </li>
               <li>
                 <i className="fas fa-envelope"></i>
@@ -105,11 +39,19 @@ class Resume extends React.Component {
             <h2>Skills</h2>
 
             <section className="subSection">
-              <section className="flexSection">
-                <h4 className="secondaryHeader">Front-End</h4>
+              <section className="flexSection front-end-skills">
+                <h4 className="secondaryHeader">Front End</h4>
 
                 <div>
-                  { skillsContainer }
+                <div className="skillsContainer">
+                  <div className="skillList">
+                    <span>JavaScript</span><span>React</span><span>AngularJS</span><span>Node</span><span>CesiumJS</span><span>Vis.js</span><span>HTML5</span>
+                  </div>
+
+                  <div className="skillList">
+                  <span>Responsive Design</span><span>CSS3</span><span>Sass</span><span>LESS</span><span>Bootstrap</span><span>Foundation</span>
+                  </div>
+                </div>
                 </div>
               </section>
 
@@ -119,7 +61,7 @@ class Resume extends React.Component {
                 <div>
                   <div className="skillsContainer">
                     <div className="skillList">
-                      <span>Ubuntu</span><span>macOS</span><span>Git</span><span>VS Code</span><span>Atom</span>
+                      <span>macOS</span><span>Ubuntu</span><span>Git</span><span>VS Code</span><span>Atom</span>
                    </div>
                   </div>
                 </div>
@@ -149,7 +91,7 @@ class Resume extends React.Component {
               <section className="flexSeparated">
                 <h3 className="secondaryHeader">Front-End Developer</h3> 
                 <p>
-                  April 2019 - present
+                  April 2019 - Present
                 </p>
               </section>
 
@@ -157,13 +99,16 @@ class Resume extends React.Component {
 
               <ul>
                 <li>
-                  Built the lifefuels.com shop front-end from scratch using React, Contentful, and CircleCI and deployed to multiple environments including development, staging, and production.
+                  Currently building the dashboard front end for sports teams to manage the nutrition and hydration of players
+                  using the LifeFuels bottle.
                 </li>
+
                 <li>
-                  Currently working on building the entire web front-end for a tool that will allow soccer coaches and managers to manage the nutritional goals and programs of their teams using the LifeFuels bottle.
+                  Built the majority of the lifefuels.com shop front end including cart, checkout, and subscription workflows. 
                 </li>
+  
                 <li>
-                  Assign front-end tasks for internal tooling that helps maintain the LifeFuels bottle backend and LifeFuels user data.
+                  Help other developers solve front-end problems regarding internal and public-facing projects.
                 </li>
               </ul>
             </section>
@@ -180,19 +125,14 @@ class Resume extends React.Component {
 
               <ul>
                 <li>
-                  Designing the user interface and developing new front-end functionality for an organization's internal application in order to reduce user error and improve services
+                  Developed the front end for web prototypes
+                  using Cesium, React, and Vis.js.
                 </li>
                 <li>
-                  Developed responsive interfaces to present large data sets using Cesium, React, Vis.js, and other open source front-end tools
+                  Attended customer meetings to provide feature status updates and gather feedback.
                 </li>
                 <li>
-                  Designed web applications, websites, and prototypes using mobile-first design principles
-                </li>
-                <li>
-                  Integrated feedback from the team and customer in order to improve existing products
-                </li>
-                <li>
-                  Helped interview new developers to determine their fit within existing company projects
+                  Interviewed new team members and trained new hires in the necessary front-end technologies to support existing projects.
                 </li>
               </ul>
             </section>
@@ -207,10 +147,7 @@ class Resume extends React.Component {
 
               <ul>
                 <li>
-                  Aided a children's mental health practice with customer aquisition and website migration.
-                </li>
-                <li>
-                  Implemented portfolio websites and content updates.
+                  Provided front-end web services including content updates, styling, and client-side scripts.
                 </li>
               </ul>
           </section>
@@ -225,14 +162,11 @@ class Resume extends React.Component {
             <section className="subSection">
               <section className="flexSeparated">
                   <h3>ajarana.github.io</h3>
-                  <p>December 2016 - present</p>
+                  <p>December 2016 - Present</p>
             </section>
               <ul>
                 <li>
-                  Portfolio website built and designed from scratch
-                </li>
-                <li>
-                  Hosts my various personal projects in an effort to learn more front-end technologies
+                Custom-built and designed portfolio that hosts all of my personal projects.
                 </li>
               </ul>
             </section>
