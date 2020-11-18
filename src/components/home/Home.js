@@ -210,15 +210,15 @@ class Home extends Component {
             <div className="hero-header-text">
               <h2>UI Developer</h2>
 
-              <p>I am a UI developer with a chemistry degree. This mobile-first web app was made with <span id="react">React</span> and, for the purposes of learning, without any <span id="css3">CSS3</span> frameworks/libraries or <span id="html5">HTML5</span> templates. The site and resume design are my own. Below are some of my personal projects (<span className="codeRed">warning:</span> they are out of date).</p>
+              <p>I am a UI developer with a chemistry degree. This mobile-first web app was made with <span id="react">React</span> and, for the purposes of learning, without any <span id="css3">CSS3</span> frameworks/libraries or <span id="html5">HTML5</span> templates. Portfolio website and resume design are my own. Below are some of my personal projects (<span className="codeRed">warning:</span> they are out of date).</p>
 
               <ul className="linkContainer">
                   <li>
                     <a href="https://github.com/ajarana/portfolio" className="linkIcon" target="_blank" rel="noopener noreferrer">Site code</a>
                   </li>
                   <li>
-                    <NavLink className="linkIcon" to="/resume/" rel="noopener noreferrer">
-                      Resume
+                    <NavLink className="linkIcon" to="/about/" rel="noopener noreferrer">
+                      About
                     </NavLink>
                   </li>
                 </ul>

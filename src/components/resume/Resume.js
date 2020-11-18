@@ -4,13 +4,7 @@ import { hot } from 'react-hot-loader/root'
 class Resume extends React.Component {
   render() {
     return (
-      <main id="resume">
-        <section id="pdfLink">
-          <a className="btn" href="/UI-Developer-Andres-Arana.pdf" target="_blank">
-            <span><strong>View PDF</strong></span>
-          </a>
-        </section>
-        
+      <main id="resume">        
         <article>
           <header>
             <h1>Andres Arana</h1>
@@ -99,16 +93,19 @@ class Resume extends React.Component {
 
               <ul>
                 <li>
-                  Currently building the dashboard front end for sports teams to manage the nutrition and hydration of players
-                  using the LifeFuels bottle.
+                  Project lead for a small remote team in charge of coordinating the project's various back-end, front-end, and design needs.
                 </li>
 
                 <li>
-                  Built the majority of the lifefuels.com shop front end including cart, checkout, and subscription workflows. 
+                  Building the React-based dashboard front end for sports teams to manage the nutrition and hydration of players using the LifeFuels bottle.
                 </li>
-  
+
                 <li>
-                  Help other developers solve front-end problems regarding internal and public-facing projects.
+                  Built the majority of the lifefuels.com shop front end including cart, checkout, and subscription workflows using React.
+                </li>
+
+                <li>
+                  Actively particpate in the UI/UX design process for public-facing projects.
                 </li>
               </ul>
             </section>
@@ -125,14 +122,17 @@ class Resume extends React.Component {
 
               <ul>
                 <li>
-                  Developed the front end for web prototypes
-                  using Cesium, React, and Vis.js.
+                  Visualized real-time geospatial and weather data using CesiumJS for a prototype created for a federal customer.
+                </li>
+                <li>
+                  Developed the front end for other web prototypes
+                  using React and Vis.js.
+                </li>
+                <li>
+                  Interviewed new team members and trained new hires in the necessary front-end technologies, including React and AngularJS, to support existing company projects.
                 </li>
                 <li>
                   Attended customer meetings to provide feature status updates and gather feedback.
-                </li>
-                <li>
-                  Interviewed new team members and trained new hires in the necessary front-end technologies to support existing projects.
                 </li>
               </ul>
             </section>

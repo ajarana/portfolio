@@ -46,7 +46,7 @@ class App extends Component {
 
             <Route exact path="/" component={Home} />
             <Route exact path="/blog" component={Blog} />
-            <Route exact path="/resume" component={Resume} />
+            <Route exact path="/about" component={Resume} />
             <Route path="/blog/development-responsive-canvas" component={ResponsiveCanvasDevelopment} />
             <Route path="/blog/development-canvas-game" component={CanvasGameDevelopment} />
             <Route path="/blog/development-bootstrap-3-site" component={Bootstrap3SiteDevelopment} />

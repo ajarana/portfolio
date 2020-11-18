@@ -1,7 +1,6 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { NavLink } from "react-router-dom"
-// import pdf from './../assets/resume/UI-Developer-Andres-Arana.pdf'
 
 class Header extends React.Component {
   componentDidMount() {
@@ -68,14 +67,14 @@ class Header extends React.Component {
             <ul id="headerMenu" className="transitionExpand">
               <li className="menuItems">
                 <NavLink to="/" exact className="textAlignCenter plainLink headerLink" activeClassName="selected">
-                  <p>Portfolio</p>
+                  <p>Home</p>
                 </NavLink>
               </li>
   
               <li className="menuItems">
-                <NavLink className="plainLink headerLink" to="/resume/" activeClassName="selected">
+                <NavLink className="plainLink headerLink" to="/about/" activeClassName="selected">
                   <p>
-                    Resume
+                    About
                   </p>
                 </NavLink>
               </li>

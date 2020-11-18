@@ -7,7 +7,7 @@ $primary-gray: #ddd;
   margin: 0 auto;
   font-family: 'Arimo', sans-serif;
   color: #222;
-  padding: 0 25px 100px;
+  padding: 72px 25px 100px;
 
   h1, h2, h3, h4, h5, h6, p, ul {
       line-height: 1;
@@ -68,16 +68,6 @@ $primary-gray: #ddd;
             }
           }
       }
-  }
-
-  #pdfLink {
-    text-align: right;
-
-    .btn {
-      span {
-        margin-left: 0;
-      }
-    }
   }
 
   .resumeSection {
