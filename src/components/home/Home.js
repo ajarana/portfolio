@@ -11,6 +11,7 @@ const Project = props => {
     assets,
     blog,
     description,
+    descriptionWarning,
     lastUpdated,
     title,
     url
@@ -20,7 +21,7 @@ const Project = props => {
     <section className="sectionContainer">
       <div className="project flexCenteredToFlexTopLeft flexWrapThenNoWrap invisible">
         <figure className="imageHolder flexCentered">
-          <a href={ url }>
+          <a href={ url } target="_blank" rel="noopener noreferrer">
             <img className="images" 
                 src={ assets.src } 
                 alt={ assets.alt }
@@ -37,12 +38,16 @@ const Project = props => {
             <p>
               { description }
             </p>
+
+            <p className="codeRed">{descriptionWarning}</p>
           </header>
 
           <ul className="linkContainer">
-            <li>
-              <a href={ url } className="linkIcon">View project</a>
-            </li>
+            {(url) &&
+                <li>
+                    <a href={ url } className="linkIcon" target="_blank" rel="noopener noreferrer">View project</a>
+                </li>   
+            }
 
             <li>
               <a href="https://github.com/ajarana/agame" className="linkIcon" target="_blank" rel="noopener noreferrer">View code</a>
@@ -86,15 +91,15 @@ const Projects = props => {
     },
     {
       title: 'News Feed',
-      description: 'A tech, gaming, and science news feed designed and developed using React, Redux, HTML5, and CSS3. Data is gathered from an external JSON API using Ajax via the Fetch API.',
+      description: "A tech, gaming, and science news feed designed and developed using React, Redux, HTML5, and CSS3. Data is gathered from an external JSON API using Ajax via the Fetch API.",
+      descriptionWarning: "Unfortunately, this API has now only enabled CORS from localhost, so this project is no longer functional.",
       assets: {
         src: 'assets/arcade/arcade-1x-C2.png',
         alt: 'Screenshot of a news feed made using React and Redux.',
         srcset: 'assets/arcade/arcade-1x-C2.png, assets/arcade/arcade-2x-C2.png 2x, assets/arcade/arcade-4x-C2.png 4x'
       },
       lastUpdated: props.githubData.newsFeed.lastUpdated,
-      blog: '/blog/development-reactjs-news-feed',
-      url: 'https://ajarana.github.io/arcade/index.html'
+      blog: '/blog/development-reactjs-news-feed'
     }
   ];
 
